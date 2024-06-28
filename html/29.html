@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>output</title>
+  </head>
+  <body>
+    <h1>output</h1>
+    <p>
+      계산 결과나 사용자 동작의 결과를 나타낼 때 사용 <br />
+      주로 폼과 함께 사용되어 사용자 입력에 따른 결과를 실시간으로 보여주는 데
+      유용 <br />
+      접근성을 고려한 태그로, 스크린 리더와 같은 보조 기술이 쉽게 인식할 수
+      있도록 합니다.
+    </p>
+    <h2>숫자 더하기</h2>
+    <form oninput="result.value=parseInt(a.value) + parseInt(b.value)">
+      <label for="a">숫자 1</label>
+      <input type="number" id="a" name="a" value="0" />
+      <br /><br />
+      <label for="b">숫자 2</label>
+      <input type="number" id="b" name="b" value="0" />
+      <br /><br />
+      <label for="result">합계</label>
+      <output id="result">0</output>
+    </form>
+  </body>
+</html>

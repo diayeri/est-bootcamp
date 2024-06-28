@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자 우선순위</title>
+    <style>
+      main .ul a {
+        color: white;
+      }
+
+      .ul a {
+        color: yellow;
+      }
+
+      .ul {
+        color: red;
+      }
+
+      a.click {
+        background-color: blue;
+      }
+
+      .click {
+        color: green;
+        background-color: black;
+      }
+
+      main > section {
+        color: aqua;
+      }
+
+      main section {
+        color: yellowgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        section
+        <article>
+          <div>
+            <ul class="ul">
+              <li>
+                <p>
+                  <strong
+                    ><span
+                      ><a href="" class="click" id="id">
+                        1. 글자색? 2. 배경색?
+                      </a></span
+                    ></strong
+                  >
+                </p>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+    <hr />
+    <pre>
+      main .ul a {
+        color: white;  // 적용됨
+      }
+
+      .ul a {
+        color: yellow;
+      }
+
+      .ul {
+        color: red;
+      }
+
+      a.click {
+        background-color: blue;  // 적용됨
+      }
+
+      .click {
+        color: green;
+        background-color: black;
+      }
+
+
+
+      main > section {
+        color: aqua;
+      }
+
+      main section {
+        color: yellowgreen;  // 적용됨
+      }
+    </pre>
+  </body>
+</html>

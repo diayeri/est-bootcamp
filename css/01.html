@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>특성 선택자</title>
+    <style>
+      /* * : ~를 포함하는 */
+      [class*="btn"] {
+        background-color: sandybrown;
+      }
+
+      /* ^ : ~로 시작하는 */
+      [class^="btn"] {
+        background-color: aqua;
+      }
+
+      /* $ : ~로 끝나는 */
+      [class$="btn"] {
+        background-color: beige;
+      }
+
+      /* :not() : ~를 포함하지 않는 모든것  */
+      /* 모든것*을 바꿔서 사용하면 되겠죠~ */
+      *:not([class*="btn"]) {
+      }
+
+      /* href 속성을 가지는 a만 선택 */
+      a[href] {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>특성 선택자</h1>
+    <p>
+      잘 사용하지는 않는경우가 많으니, 필요시에
+      <a
+        href="https://developer.mozilla.org/ko/docs/Web/CSS/Attribute_selectors"
+        >MDN</a
+      >을 참고하자
+    </p>
+
+    <h2>특정 문자열을 포함</h2>
+    <p>ㄴ 시작하거나 / 끝나거나 / 포함한</p>
+    <button class="btn-test">.btn-test [class^="btn"]</button>
+    <button class="test-btn">.test-btn [class$="btn"]</button>
+    <button class="test-btn-test">.test-btn-test [class*="btn"]</button>
+
+    <h2>a[href] 선택자</h2>
+    <a href="/">href="/"</a>
+    <a href="">href=""</a>
+    <a>href 미지정</a>
+  </body>
+</html>

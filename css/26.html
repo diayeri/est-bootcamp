@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지 비율 유지</title>
+    <style>
+      /* aspect-ratio */
+      .aspect-ratio img {
+        width: 600px;
+        aspect-ratio: 3 / 1;
+        object-fit: cover;
+      }
+
+      /* padding % */
+      .wrapper-thumbnail {
+        width: 600px;
+      }
+      .padding-h {
+        height: 0;
+        padding-top: 50%;
+        position: relative;
+      }
+      .padding-h img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>aspect-ratio</h2>
+    <div class="thumbnail aspect-ratio">
+      <img
+        class=""
+        src="https://img.freepik.com/premium-photo/still-life-minimalist-lifestyle_23-2149743912.jpg?w=1480"
+        alt=""
+      />
+    </div>
+    <h2>padding-h</h2>
+    <div class="wrapper-thumbnail">
+      <div class="thumbnail padding-h">
+        <img
+          src="https://img.freepik.com/premium-photo/still-life-minimalist-lifestyle_23-2149743912.jpg?w=1480"
+          alt=""
+        />
+      </div>
+    </div>
+  </body>
+</html>

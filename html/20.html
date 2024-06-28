@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form ++</title>
+  </head>
+  <body>
+    <form action="">
+      <h1>fieldset, legend, datalist</h1>
+      <h2>input radio, checkbox</h2>
+      <fieldset>
+        <legend>브라우저</legend>
+        <label for="browser">사용하는 브라우저를 선택하세요:</label>
+        <input list="browsers" id="browser" />
+        <datalist id="browsers">
+          <option value="Chrome"></option>
+          <option value="Firefox"></option>
+          <option value="Safari"></option>
+          <option value="Edge"></option>
+          <option value="IE"></option>
+        </datalist>
+        <input type="submit" value="제출" />
+        <p>
+          <strong>datalist: 자동완성 리스트 제공</strong> <br />
+          * 입력한 문자열을 "포함한" 선택지 제공<br />
+          * "label for - input <strong>id</strong>" 연결하기 <br />
+          * "input list - datalist
+          <strong>id</strong>" 연결하기 (id 중복 주의)
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>성별 radio (legend)</legend>
+        <label for="male">남성</label>
+        <input type="radio" name="gender" value="male" id="male" />
+        <label for="female">여성</label>
+        <input type="radio" name="gender" value="female" id="female" />
+        <p>
+          * radio input value, <strong>id</strong> <br />
+          * name은 input을 묶는 항목명 (공통)
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>checkbox</legend>
+        <!-- single simple checkbox -->
+        <input type="checkbox" name="robot" id="robotCheck" />
+        <label for="robotCheck">로봇이 아닙니다</label>
+        <hr />
+
+        <h3>multiple checkboxes</h3>
+        <label for="option1">Option 1</label>
+        <input type="checkbox" id="option1" name="options" value="1" />
+
+        <label for="option2">Option 2</label>
+        <input type="checkbox" id="option2" name="options" value="2" />
+
+        <label for="option3">Option 3</label>
+        <input type="checkbox" id="option3" name="options" value="3" />
+
+        <!-- 사실은 multiple 처리해야할듯 -->
+        <!-- <label for="html">html</label>
+        <input type="checkbox" name="html" id="html" />
+        <label for="css">css</label>
+        <input type="checkbox" name="css" id="css" />
+        <label for="js">javascript</label>
+        <input type="checkbox" name="js" id="js" /> -->
+      </fieldset>
+    </form>
+  </body>
+</html>

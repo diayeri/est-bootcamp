@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation challenge</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <style>
+      section {
+        position: relative;
+        width: 800px;
+        height: 800px;
+        background-image: url(../src/dia01.JPG);
+        background-size: contain;
+        color: aliceblue;
+      }
+      div {
+        position: absolute;
+        display: inline-block;
+        /*  */
+        opacity: 0.2;
+        border: 10px solid #111;
+      }
+      .hair-left {
+        top: 350px;
+        left: 150px;
+        width: 230px;
+        height: 150px;
+        border-radius: 0 0 0 1200px;
+        border-top: 0;
+        border-right: 0;
+        background-color: #ffc109;
+      }
+      .hair-right {
+        top: 340px;
+        left: 390px;
+        width: 230px;
+        height: 160px;
+        border-radius: 0 0 1200px 0;
+        border-top: 0;
+        border-left: 0;
+        background-color: #ffc109;
+      }
+      .hair-back {
+        top: 100px;
+        left: 150px;
+        width: 460px;
+        height: 250px;
+        border-radius: 1200px 1200px 0 0;
+        border-bottom: 0;
+        background-color: #ffc109;
+      }
+      .ear {
+        top: 340px;
+        left: 190px;
+        width: 80px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: #ffccbb;
+      }
+      .face {
+        top: 370px;
+        left: calc(50% + 10px);
+        transform: translate(-50%, -50%);
+        width: 40%;
+        height: calc(40% + 10px);
+        border-radius: 50%;
+        background-color: #ffccbb;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="hair-back"></div>
+      <div class="hair-left"></div>
+      <div class="hair-right"></div>
+      <div class="ear"></div>
+      <div class="face"></div>
+      <div class="fore-left"></div>
+    </section>
+  </body>
+</html>

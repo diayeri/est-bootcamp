@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation challenge</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <style>
+      @keyframes hair {
+        from {
+          background-color: #212121;
+        }
+        to {
+          background-color: #fec107;
+        }
+      }
+      @keyframes hair-light {
+        from {
+          background-color: #579089;
+        }
+        to {
+          background-color: #ffc928;
+        }
+      }
+      @keyframes hair-dark {
+        from {
+          background-color: #273238;
+        }
+        to {
+          background-color: #ffb200;
+        }
+      }
+      @keyframes face {
+        from {
+          background-color: #b2dfdc;
+        }
+        to {
+          background-color: #ffccbb;
+        }
+      }
+      @keyframes face-dark {
+        from {
+          background-color: #80cbc4;
+        }
+        to {
+          background-color: #ffab91;
+        }
+      }
+      @keyframes lip {
+        from {
+          background-color: #fec107;
+        }
+        to {
+          background-color: #ff8a66;
+        }
+      }
+      @keyframes nose {
+        from {
+          background-color: #4dd0e2;
+        }
+        to {
+          background-color: #ffab91;
+        }
+      }
+      @keyframes shirts {
+        from {
+          background-color: #4cb6ac;
+        }
+        to {
+          background-color: #0e47a1;
+        }
+      }
+      @keyframes shirts-dark {
+        from {
+          background-color: #00887a;
+        }
+        to {
+          background-color: #1564c0;
+        }
+      }
+      @keyframes bg {
+        from {
+          background-color: #bbf1d9;
+        }
+        to {
+          background-color: #b2ebf2;
+          border-radius: 50%;
+        }
+      }
+      @keyframes glasses {
+        0% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(5px, -5px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+      @keyframes glass {
+        0% {
+          background-color: transparent;
+          transform: translate(0, 0);
+        }
+        50% {
+          background-color: #4d342fee;
+          transform: translate(5px, -5px);
+        }
+        100% {
+          background-color: transparent;
+          transform: translate(0, 0);
+        }
+      }
+      @keyframes pixel {
+        0% {
+          border-radius: 0;
+        }
+        50% {
+          border-radius: 50%;
+          transform: scale(12%, 12%) rotate(1turn);
+        }
+        80% {
+          border-radius: 50%;
+          transform: scale(12%, 12%) translate(0, 200%);
+        }
+        100% {
+          border-radius: 50%;
+          transform: scale(12%, 12%) translate(20%, 20%) rotate(15deg);
+        }
+      }
+
+      section {
+        display: grid;
+        width: 800px;
+        height: 800px;
+        margin: 40px;
+        background-size: contain;
+        grid-template-columns: repeat(24, 1fr);
+        grid-auto-rows: calc(100% / 24);
+        color: aquamarine;
+        animation: pixel 1.5s forwards 6.5s;
+        overflow: hidden;
+
+        /* background-image: url(../src/dia02.JPG); */
+      }
+      div {
+        /* border: 1px solid black; */
+        /* opacity: 0; */
+      }
+      .bg {
+        animation: bg 1.5s both alternate infinite 4s;
+      }
+      .hair {
+        animation: hair 1.5s steps(4) both 1s;
+      }
+      .hair-light {
+        animation: hair-light 5s steps(12) both 1s;
+      }
+      .hair-dark {
+        animation: hair-dark 3s steps(8) both 1s;
+      }
+      .face {
+        animation: face 2s steps(6) both 1s;
+      }
+      .face-dark {
+        animation: face-dark 4s steps(10) both 1s;
+      }
+      .glasses {
+        background-color: #fbe9e7;
+        animation: glasses 1s both 4 5s;
+      }
+      .glass::after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        animation: glass 1s both 4 5s;
+      }
+      .eye {
+        background-color: #4d342f;
+      }
+      .lip {
+        animation: lip 3s steps(8) both 1s;
+      }
+      .nose {
+        animation: nose 3s steps(8) both 1s;
+      }
+      .shirts {
+        animation: shirts 4s steps(10) both 1s;
+      }
+      .shirts-dark {
+        animation: shirts-dark 3s steps(8) both 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair-light"></div>
+      <div class="hair-light"></div>
+      <div class="hair-light"></div>
+      <div class="hair-light"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair-light"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-light"></div>
+      <div class="hair-light"></div>
+      <div class="hair-light"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair-light"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-light"></div>
+      <div class="hair-light"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair-light"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-light"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-light"></div>
+      <div class="hair-light"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-dark"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-dark"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-light"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-dark"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-dark"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="hair-dark"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-light"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-dark"></div>
+      <div class="hair-dark"></div>
+      <div class="hair-dark"></div>
+      <div class="hair-dark"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="hair-dark"></div>
+      <div class="hair-dark"></div>
+      <div class="hair-dark"></div>
+      <div class="hair"></div>
+      <div class="hair-light"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-dark"></div>
+      <div class="hair-dark"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="hair-dark"></div>
+      <div class="hair"></div>
+      <div class="hair-light"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-dark"></div>
+      <div class="hair-dark"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="glasses"></div>
+      <div class="glasses"></div>
+      <div class="glasses"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="glasses"></div>
+      <div class="glasses"></div>
+      <div class="glasses"></div>
+      <div class="face"></div>
+      <div class="hair-dark"></div>
+      <div class="hair"></div>
+      <div class="hair-light"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="hair-dark"></div>
+      <div class="hair-dark"></div>
+      <div class="face"></div>
+      <div class="glasses"></div>
+      <div class="face glass"></div>
+      <div class="face glass"></div>
+      <div class="face glass"></div>
+      <div class="glasses"></div>
+      <div class="face"></div>
+      <div class="glasses"></div>
+      <div class="face glass"></div>
+      <div class="face glass"></div>
+      <div class="face glass"></div>
+      <div class="glasses"></div>
+      <div class="hair-dark"></div>
+      <div class="hair"></div>
+      <div class="hair-light"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="face"></div>
+      <div class="hair-dark"></div>
+      <div class="glasses"></div>
+      <div class="glasses"></div>
+      <div class="face glass"></div>
+      <div class="eye glass"></div>
+      <div class="face glass"></div>
+      <div class="glasses"></div>
+      <div class="glasses"></div>
+      <div class="glasses"></div>
+      <div class="face glass"></div>
+      <div class="eye glass"></div>
+      <div class="face glass"></div>
+      <div class="glasses"></div>
+      <div class="glasses"></div>
+      <div class="hair"></div>
+      <div class="hair-light"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="glasses"></div>
+      <div class="face glass"></div>
+      <div class="face glass"></div>
+      <div class="face glass"></div>
+      <div class="glasses"></div>
+      <div class="face"></div>
+      <div class="glasses"></div>
+      <div class="face glass"></div>
+      <div class="face glass"></div>
+      <div class="face glass"></div>
+      <div class="glasses"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair"></div>
+      <div class="hair"></div>
+      <div class="face-dark"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="glasses"></div>
+      <div class="glasses"></div>
+      <div class="glasses"></div>
+      <div class="face"></div>
+      <div class="face-dark"></div>
+      <div class="face"></div>
+      <div class="glasses"></div>
+      <div class="glasses"></div>
+      <div class="glasses"></div>
+      <div class="face"></div>
+      <div class="hair"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair"></div>
+      <div class="hair-dark"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="lip"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="lip"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="hair"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="hair"></div>
+      <div class="hair-dark"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="lip"></div>
+      <div class="lip"></div>
+      <div class="lip"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="hair-dark"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="face-dark"></div>
+      <div class="face-dark"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts-dark"></div>
+      <div class="face"></div>
+      <div class="face-dark"></div>
+      <div class="face-dark"></div>
+      <div class="face-dark"></div>
+      <div class="face-dark"></div>
+      <div class="face-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts-dark"></div>
+      <div class="face"></div>
+      <div class="face-dark"></div>
+      <div class="face-dark"></div>
+      <div class="face-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="shirts"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts-dark"></div>
+      <div class="shirts"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+    </section>
+  </body>
+</html>

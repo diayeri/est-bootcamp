@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vertical-align</title>
+    <style>
+      div {
+        background-color: antiquewhite;
+        font-size: 2rem;
+        text-decoration: overline underline;
+      }
+      span {
+        /* border: 1px solid yellowgreen; */
+        background-color: rgba(255, 255, 0, 0.4);
+      }
+      .inline {
+        display: inline;
+      }
+      .inline-block {
+        display: inline-block;
+      }
+      .baseline {
+        vertical-align: baseline;
+      }
+      .sub {
+        vertical-align: sub;
+      }
+      .super {
+        vertical-align: super;
+      }
+      .text-top {
+        vertical-align: text-top;
+      }
+      .text-bottom {
+        vertical-align: text-bottom;
+      }
+      .top {
+        vertical-align: top;
+      }
+      .middle {
+        vertical-align: middle;
+      }
+      .bottom {
+        vertical-align: bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>vertical-align</h1>
+    <p>flex가 나온 이후로는 거의 쓰이지 않지만...</p>
+    <section>
+      <h2>부모요소가 inline 일때</h2>
+      <div class="inline">
+        pp
+        <span class="baseline">baseline</span>
+        pp
+        <span class="middle">middle</span>
+        pp
+        <span class="sub">sub-</span>
+        pp
+        <span class="super">super</span>
+        pp
+      </div>
+      <h2>부모요소가 inline-block 일때</h2>
+      <div class="inline-block">
+        pp
+        <span class="baseline">baseline</span>
+        pp
+        <span class="middle">middle</span>
+        pp
+        <span class="sub">sub-</span>
+        pp
+        <span class="super">super</span>
+        pp
+      </div>
+    </section>
+  </body>
+</html>

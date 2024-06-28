@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forwards, backwards</title>
+    <style>
+      @keyframes test {
+        0% {
+          margin-left: 40%;
+          background-color: royalblue;
+        }
+
+        50% {
+          margin-left: 0%;
+          background-color: royalblue;
+        }
+
+        100% {
+          margin-left: 80%;
+          background-color: royalblue;
+        }
+      }
+
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        animation: test 3s 2s both;
+        animation-play-state: running;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>animation-fill-mode</h1>
+    <h2>normal, forwards, backwards, both</h2>
+    <p>애니메이션이 종료된 후에 남아있을 Ui</p>
+    <div></div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nth-of-type</title>
+    <style>
+      /* .parent div:nth-of-type(3) {
+        background-color: blue;
+      } */
+      .parent div:nth-child(3) {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>nth-of-child vs nth-of-type</h1>
+    <div class="parent">
+      <div>child 1 (div)</div>
+      <div>child 2 (div)</div>
+      <p>child 3 (p)</p>
+      <!-- red -->
+      <div>child 4 (div)</div>
+      <!-- blue -->
+      <div>child 5 (div)</div>
+    </div>
+  </body>
+</html>

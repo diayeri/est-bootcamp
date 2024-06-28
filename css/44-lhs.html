@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../reset.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .wrap {
+        width: 800px;
+        height: 400px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-sizing: border-box;
+      }
+      .flex {
+        max-height: 200px;
+      }
+      .flex,
+      .double {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .row {
+        width: 200px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .row .item {
+        width: calc(100% - 10px);
+        height: 200px;
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .double {
+        width: 590px;
+        max-width: 600px;
+      }
+      .double .item {
+        width: calc(50% - 10px);
+        height: 100%;
+      }
+      .item {
+        width: 200px;
+        height: 100px;
+      }
+      .item1 {
+        flex-basis: calc(100% - 10px);
+        height: 100%;
+        background-color: royalblue;
+      }
+      .item2 {
+        background-color: indigo;
+      }
+      .item3 {
+        background-color: hotpink;
+      }
+      .item4 {
+        background-color: green;
+      }
+      .item5 {
+        background-color: mediumslateblue;
+      }
+      .item6 {
+        background-color: mediumaquamarine;
+      }
+      .item7 {
+        background-color: lightslategray;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

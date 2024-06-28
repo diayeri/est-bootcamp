@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>emmet실습</title>
+    <!-- link:css link:favicon -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    h1 h1+h2+p h1*3
+
+    <!-- 컨텐츠 담긴 태그 -->
+    h1{hello world}*10 a{Click}
+
+    <!-- 아이디, 클래스 -->
+    h1#hojun h1.hojun
+
+    <!-- 계층 구조 -->
+    (div>table>(tr>(td*2))*3)+(footer>p)
+    <pre>
+      <!-- 마지막에 괄호가 있으면 복붙시 잘 적용이 안되네? -->
+      (div>table>(tr>(td*2))*3)+footer>p
+    </pre>
+
+    <!-- 여러개의 클래스, 아이디 -->
+    div#one.c1.c2.c3 ul>li.item$*5 lorem
+
+    <!-- lorem*5: 5개의 문장 -->
+    lorem*5
+
+    <!-- lorem5: 5개의 단어 -->
+    lorem5
+
+    <!-- 속성부여 -->
+    [a='value1' b="value2" c=1] a[href='www.naver.com']
+
+    <!--
+      Ctrl + , : Settings **
+            Ctrl + \ : 토글 보이기 (같은창 중복분할 열기)
+            Ctrl + O : 파일 열기
+            Ctrl + P : 프로젝트 검색
+            Ctrl + F : 열려 있는 파일 내에서 검색
+            Ctrl + Shift + F : 열려 있는 전체 프로젝트 내에서 검색 
+            Alt + Shift + F : 선택된 영역 들여쓰기 맞춤 
+            Ctrl + N : 새로운 파일,
+            Ctrl + S : 파일 저장
+            Ctrl + Shift + S  :다른 이름으로 저장
+        -->
+    <!-- 참고자료 : https://docs.emmet.io/cheat-sheet/ -->
+  </body>
+</html>

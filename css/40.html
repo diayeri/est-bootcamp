@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid-item</title>
+    <style>
+      .container {
+        display: grid;
+        border: 1px solid gray;
+
+        /* grid-template-columns */
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+
+        /* grid-template-rows */
+        /* grid-template-rows: repeat(4, minmax(100px, 1fr)); */
+        grid-template-rows: repeat(5, 100px);
+
+        /* gap */
+        gap: 10px 2%;
+
+        /* -items */
+        /* align-items: center; */
+        /* justify-items: center; */
+
+        /* grid-auto- */
+        /* grid-auto-rows: 200px; */
+      }
+      .item {
+        border: 1px solid #111;
+      }
+      .item1 {
+        background-color: pink;
+        grid-area: 1/1/2/-1;
+      }
+      .item2 {
+        background-color: aquamarine;
+        grid-area: 2 / 1 / span 3 / 2;
+      }
+      .item3 {
+        background-color: brown;
+        grid-area: 2 / 2 / span 3 / -1;
+      }
+      .item4 {
+        background-color: red;
+        grid-area: 5 / 1 / -1 / -1;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div>
+        <h1>grid item style</h1>
+        <h2>grid-area</h2>
+        <h3>grid-row</h3>
+        <h3>grid-column</h3>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="item item1">item1</div>
+      <div class="item item2">item2</div>
+      <div class="item item3">item3</div>
+      <div class="item item4">item4</div>
+    </div>
+  </body>
+</html>

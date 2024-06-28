@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>text exercise</title>
+    <style>
+      @font-face {
+        font-family: "Ownglyph";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2405-2@1.0/Ownglyph_JAEGEONSA-Rg.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "yangjin";
+        src: url("https://fastly.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "MangoDdobak-B";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/MangoDdobak-B.woff2")
+          format("woff2");
+        font-weight: 700;
+        font-style: normal;
+      }
+      div {
+        font-size: 1.5rem;
+        background-color: bisque;
+      }
+      .ownglyph {
+        font-family: "Ownglyph";
+      }
+
+      .align-center {
+        text-align: center;
+      }
+      /* 
+        letter-spacing: 0.2em;
+        지정위치에 따라 값이 다른건, 기준이 해당 영역 폰트사이즈기 떄문이겠지
+      */
+      h2 {
+        line-height: 2em;
+        letter-spacing: 0.2em;
+      }
+      em {
+        font-family: "yangjin";
+        background-color: aquamarine;
+        color: red;
+      }
+      strong {
+        font-family: "MangoDdobak-B";
+        font-size: 1.2em;
+        text-decoration: underline wavy 10px lightsalmon;
+        text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
+      }
+      p {
+        font-size: 0.5em;
+        color: lightslategray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="align-center ownglyph">
+      <h2 class="letter-spacing">
+        <em class="yangjin">실제상황</em>보다 중요한건 <br />
+        <strong>어떻게 받아들이냐</strong>이다.
+      </h2>
+      <img src="./src/booang.jpeg" alt="뿌엥!!" />
+      <p class="letter-spacing">- 정다영 -</p>
+    </div>
+  </body>
+</html>

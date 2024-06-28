@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login +css</title>
+    <style>
+      p,
+      button,
+      a {
+        font-size: 12px;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        border: 0;
+        clip: rect(0 0 0 0);
+      }
+      section {
+        width: 350px;
+        border: 1px solid #dbdbdb;
+        border-radius: 5px;
+        padding: 20px 16px 18px;
+      }
+      section p {
+        margin: 0 0 16px;
+      }
+      button {
+        width: 100%;
+        border: 0;
+        height: 40px;
+        background-color: #711bff;
+        border-radius: 4px;
+        color: #fff;
+      }
+      button > * {
+        vertical-align: bottom;
+      }
+      a {
+        text-decoration: none;
+        color: #767676;
+      }
+      a > * {
+        vertical-align: bottom;
+      }
+      .wrapper-bottom {
+        margin-top: 16px;
+      }
+      .wrapper-bottom a {
+        vertical-align: top;
+      }
+      .wrapper-bottom a:last-child {
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+    <section>
+      <h2 class="sr-only">로그인</h2>
+      <p>더 편리해진 위니브에 오신 것을 환영합니다.</p>
+      <button>
+        <img src="./src/weniv-logo.svg" alt="weniv" />
+        로그인
+      </button>
+      <div class="wrapper-bottom">
+        <a href="">
+          <img src="./src/icon-lock.png" width="16" alt="" />
+          <span>아이디 | 비밀번호 찾기</span></a
+        >
+        <a href="">
+          <img src="./src/icon-user.png" width="16" alt="" />
+          <span>회원가입</span></a
+        >
+      </div>
+    </section>
+    <footer></footer>
+  </body>
+</html>

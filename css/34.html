@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>layout exercise</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <style>
+      /* float */
+      /* header,
+      article,
+      aside,
+      footer {
+        text-align: center;
+        min-height: 120px;
+        font-size: 1.5rem;
+      }
+      header {
+        background-color: bisque;
+      }
+      article {
+        background-color: cornflowerblue;
+        height: 400px;
+      }
+      aside {
+        float: right;
+        background-color: cadetblue;
+        width: 20%;
+        height: 400px;
+      }
+      footer {
+        background-color: yellowgreen;
+      }
+      span {
+        vertical-align: middle;
+      } */
+
+      /* flex */
+
+      header,
+      article,
+      aside,
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 120px;
+        font-size: 1.5rem;
+      }
+      header {
+        background-color: bisque;
+      }
+      div {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+      section {
+        flex-grow: 1;
+      }
+      article {
+        background-color: cornflowerblue;
+        height: 400px;
+      }
+      aside {
+        background-color: cadetblue;
+        width: 20%;
+        height: 400px;
+      }
+      footer {
+        background-color: yellowgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <header>header</header>
+    <div>
+      <aside>aside</aside>
+
+      <section>
+        <article>section > article</article>
+      </section>
+    </div>
+    <footer>footer</footer>
+  </body>
+</html>

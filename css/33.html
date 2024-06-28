@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex - hjh</title>
+    <style>
+      ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      li {
+        width: 150px;
+        height: 150px;
+        background-color: teal;
+        border: 1px solid black;
+
+        flex-grow: 1;
+      }
+      li:last-child {
+        /* margin-left: auto; */
+        flex-grow: 0.5;
+      }
+
+      span {
+        display: inline-block;
+        background-color: blueviolet;
+        margin-left: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul>
+      <li><a href="">1</a></li>
+      <li><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li><a href="">4</a></li>
+      <li><a href="">5</a></li>
+      <li><a href="">1</a></li>
+      <li><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li><a href="">4</a></li>
+      <li><a href="">5</a></li>
+      <li><a href="">1</a></li>
+      <li><a href="">2</a></li>
+    </ul>
+    <div>
+      <span>1</span>
+      <span>2</span>
+    </div>
+  </body>
+</html>

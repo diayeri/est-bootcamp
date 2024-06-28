@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구조적 가상선택자</title>
+    <style>
+      /* .box2 :nth-child(2n) {
+        color: blue;
+      } */
+
+      /* nth-child 는 첫태그만 지정되네 */
+      /* .box2 :first-child {
+        background-color: red;
+      } */
+      /* .box2 *:nth-child(5) {
+        background-color: rebeccapurple;
+      } */
+      /* .box2 :nth-of-type(1) {
+        color: brown;
+      } */
+      /* .box2 :only-of-type {
+        color: aqua;
+      } */
+      body > :last-child {
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>nth-child vs nth-of-type</h1>
+    <p>
+      nth-child 는 첫태그만 지정되네 충격 >> 일게 아니라 당욘하지 타입(태그종류)
+      구분 안하자나
+      <br />
+      !! body > :last-child 는 지정할 수 없음 (body 직계자손의 마지막 태그를
+      감지 못함)
+    </p>
+    <div class="box1">
+      <h2>hello world</h2>
+      <h3>hello world</h3>
+      <h4>hello world</h4>
+      <h2>hello world</h2>
+      <h3>hello world</h3>
+      <h4>hello world</h4>
+      <h2>hello world</h2>
+      <h3>hello world</h3>
+      <h4>hello world</h4>
+    </div>
+    <div class="box2">
+      <span>
+        span
+        <span>inner span</span>
+      </span>
+      <span>
+        span
+        <span>inner span</span>
+      </span>
+      <span>span</span>
+      <span>span</span>
+      <em>em</em>
+      <strong>strong</strong>
+      <span>span</span>
+      <span>span</span>
+      <span>span</span>
+    </div>
+  </body>
+</html>

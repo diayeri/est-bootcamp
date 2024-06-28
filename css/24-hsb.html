@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      div {
+        box-sizing: border-box;
+      }
+      .style-a > p {
+        text-align: center;
+        line-height: 48px;
+        height: 100%;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0;
+      }
+      .style-c > p {
+        text-align: center;
+        line-height: 72px;
+        height: 100%;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0;
+      }
+      .style-d > p {
+        text-align: center;
+        line-height: 68px;
+        height: 100%;
+        color: #29363d;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0;
+      }
+      .bg {
+        display: grid;
+        grid-template-columns: 180px 180px;
+        gap: 40px;
+        padding-top: 80px;
+        padding-left: 80px;
+      }
+      .bg > div {
+        width: 160px;
+        height: 56px;
+      }
+      .style-a {
+        box-shadow: rgb(0, 0, 0) 0px 0px 0px 2px;
+        border-left: 2px solid #4a5568;
+        border-top: 2px solid #4a5568;
+        background-color: #343f50;
+      }
+      .style-b {
+        box-shadow: rgb(0, 0, 0) 0px 0px 0px 8px;
+        border-left: 8px solid #4a5568;
+        border-top: 8px solid #4a5568;
+        background-color: #343f50;
+      }
+      .style-c {
+        outline: 4px dashed #e6d6ff;
+        border-radius: 50px;
+        background: rgb(140, 73, 246);
+        background: linear-gradient(
+          90deg,
+          rgba(140, 73, 246, 1) 0%,
+          rgba(45, 109, 242, 1) 100%
+        );
+      }
+      .style-d {
+        background-color: white;
+        border: 2px solid #eeeeee;
+        border-radius: 100px;
+        border-top-left-radius: 0px;
+        box-shadow: rgba(0, 0, 0, 0.02) 20px 25px 20px -10px,
+          rgba(0, 0, 0, 0.01) 20px 15px 10px -10px;
+      }
+      .ex {
+        top: 48px;
+        left: 330px;
+        position: fixed;
+        display: grid;
+        grid-template-columns: 120px 120px;
+      }
+      .ex > div {
+        height: 32px;
+      }
+      .ex > div > p {
+        margin: 0px;
+        font-weight: 600;
+      }
+      .dot-one,
+      .dot-two,
+      .dot-thr {
+        width: 6px;
+        height: 6px;
+        background-color: #8d4bf6;
+        border-radius: 10px;
+        position: fixed;
+      }
+      .dot-one {
+        top: 81px;
+        left: 364px;
+      }
+      .dot-two {
+        top: 89px;
+        left: 384px;
+      }
+      .dot-thr {
+        top: 120px;
+        left: 384px;
+      }
+      .line-one,
+      .line-two,
+      .line-thr {
+        position: fixed;
+      }
+      .line-one {
+        border-top: 2px solid #8d4bf6;
+        border-left: 2px solid #8d4bf6;
+        width: 79px;
+        height: 24px;
+        top: 58px;
+        left: 366px;
+      }
+      .line-two {
+        border-top: 2px solid #8d4bf6;
+        width: 60px;
+        height: 4px;
+        top: 91px;
+        left: 384px;
+      }
+      .line-thr {
+        border-top: 2px solid #8d4bf6;
+        width: 60px;
+        height: 4px;
+        top: 122px;
+        left: 384px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg">
+      <div class="style-a"><p>Hello✋</p></div>
+      <div class="style-b" style="width: 100px"></div>
+      <div class="style-c" style="height: 80px"><p>Hello✋</p></div>
+      <div class="style-d" style="height: 80px; width: 180px">
+        <p>Hello✋</p>
+      </div>
+    </div>
+    <div class="ex">
+      <div></div>
+      <div><p>#000</p></div>
+      <div></div>
+      <div><p>#4A5568</p></div>
+      <div></div>
+      <div><p>#343F50</p></div>
+    </div>
+    <div class="line-one"></div>
+    <div class="line-two"></div>
+    <div class="line-thr"></div>
+    <div class="dot-one"></div>
+    <div class="dot-two"></div>
+    <div class="dot-thr"></div>
+  </body>
+</html>

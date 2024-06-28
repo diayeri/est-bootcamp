@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Center with Translate</title>
+    <style>
+      .parent {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* 화면 높이 전체 */
+        background-color: #f0f0f0;
+      }
+      .child {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 100px;
+        background-color: #4caf50;
+        text-align: center;
+        line-height: 100px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child">Centered</div>
+    </div>
+  </body>
+</html>

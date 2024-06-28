@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>:root, variables</title>
+    <style>
+      :root {
+        --main-color: rgb(160, 182, 220);
+        --point1-color: red;
+        --point2-color: yellow;
+        --main-font-size: 32px;
+        --btn-padding: 4px 40px;
+      }
+      p {
+        color: var(--main-color);
+      }
+      button {
+        color: var(--main-color);
+        font-size: var(--main-font-size);
+        padding: var(--btn-padding);
+        border: 1px solid var(--main-color);
+        background-color: transparent;
+      }
+      .color1 button {
+        background-color: var(--point1-color);
+      }
+      .color2 button {
+        background-color: var(--point2-color);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>:root, css custom properties (variables)</h1>
+    <p>안녕하세요</p>
+    <button>버튼</button>
+    <div class="color1">
+      <p>안녕하세요</p>
+      <button>버튼</button>
+    </div>
+    <div class="color2">
+      <p>안녕하세요</p>
+      <button>버튼</button>
+    </div>
+  </body>
+</html>

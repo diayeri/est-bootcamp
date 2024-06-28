@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>textarea, button</title>
+  </head>
+  <body>
+    <form action="">
+      <h1>textarea, button</h1>
+      <h2>textarea</h2>
+      <label for="textareaDefault"
+        >기본값을 가진 textarea
+        <textarea name="" id="textareaDefault">기본값이지롱.</textarea>
+      </label>
+      <textarea
+        rows="10"
+        cols="50"
+        minlength="20"
+        maxlength="100"
+        placeholder="10자 이상 100자 이하로 내용을 입력해주세요"
+      ></textarea>
+
+      <h2>buttons</h2>
+      <p>버튼 사이즈는 44*44 이상 권고</p>
+
+      <h3>input type button</h3>
+      <input type="button" value="input 버튼입니다" />
+      <input type="button" value="disabled" disabled />
+
+      <h3>button tag</h3>
+      <button type="button">
+        <img src="./src/favicon.svg" width="16" alt="" />
+        일반 버튼 안에는 텍스트 외 html 요소가 들어갈 수 있다
+      </button>
+      <button type="reset">초기화 쉿</button>
+      <button type="submit">전송 뿅</button>
+      <button type="submit" disabled>전송 disabled</button>
+
+      <h3>a tag button</h3>
+      <a href="/">a button</a>
+      <p>
+        역할 자체가 다릅니다. <br />
+        - a 태그는 하이퍼링크 (링크이동) <br />
+        - 동작실행을 위한 트리거 역할
+      </p>
+    </form>
+  </body>
+</html>

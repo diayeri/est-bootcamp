@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>float, clear</title>
+    <style>
+      section {
+        border: 1px solid #ccc;
+      }
+      section img {
+        float: left;
+      }
+      section p {
+        background-color: aquamarine;
+      }
+      .clear {
+        clear: left;
+      }
+      .overflow-hidden {
+        overflow: hidden;
+      }
+      .clear-fix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>float, clear</h1>
+    <h2>float: left / right / none</h2>
+    <h2>clear: left / right / both / none</h2>
+    <p>ㄴ clear 방향이 float 방향과 같아야 해당 방향의 float를 해제시킴</p>
+
+    <!-- 2. overflow-hidden -->
+    <section class="overflow-hidden">
+      <img src="./src/weniv-binky.png" alt="" /> amld
+    </section>
+
+    <!-- 3. clear-fix 미지정시 section이 내부 콘텐츠를 다 포함하지 않음 -->
+    <section class="clear-fix">
+      <img src="./src/weniv-binky.png" alt="" /> amld
+    </section>
+
+    <section>
+      <img src="./src/booang.jpeg" alt="" />
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero harum
+        totam repudiandae obcaecati assumenda, adipisci ipsum aspernatur facilis
+        at, nulla tempore laborum in, odit optio ex soluta necessitatibus rerum
+        corporis? Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        Fugit iste optio, minus corrupti dolorum aperiam libero consequuntur
+        odio magni porro esse laboriosam debitis maxime voluptas dolorem tenetur
+        ipsam tempora repudiandae. Reiciendis facilis officia saepe, sunt
+        perspiciatis adipisci, consectetur itaque error labore sit fugiat illum
+        ipsum? Voluptatibus numquam delectus harum, eum fuga quae aperiam
+        mollitia voluptas tenetur sed laborum magni sint!
+      </p>
+      <p class="clear">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero harum
+        totam repudiandae obcaecati assumenda, adipisci ipsum aspernatur facilis
+        at, nulla tempore laborum in, odit optio ex soluta necessitatibus rerum
+        corporis? Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        Fugit iste optio, minus corrupti dolorum aperiam libero consequuntur
+        odio magni porro esse laboriosam debitis maxime voluptas dolorem tenetur
+        ipsam tempora repudiandae. Reiciendis facilis officia saepe, sunt
+        perspiciatis adipisci, consectetur itaque error labore sit fugiat illum
+        ipsum? Voluptatibus numquam delectus harum, eum fuga quae aperiam
+        mollitia voluptas tenetur sed laborum magni sint!
+      </p>
+    </section>
+  </body>
+</html>

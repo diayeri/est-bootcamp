@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list style</title>
+    <style>
+      .list-inside {
+        list-style-position: inside;
+      }
+      ul {
+        /* list-style-type: space-counter; */
+        list-style-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' height='20' width='20' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'><polyline points='20 6 9 17 4 12'></polyline></svg>");
+      }
+    </style>
+  </head>
+  <body>
+    <h1>list style</h1>
+    <p>보통 list에 가상요소를 부여하지만.. 이런 스타일 속성도 있다!</p>
+    <h2>list-style-position: inside</h2>
+    <ol class="list-inside">
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+    </ol>
+    <h2>li[type]</h2>
+    <ol>
+      <li type="a">ol list</li>
+      <li type="a">ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li type="a">ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+      <li>ol list</li>
+    </ol>
+    <ul>
+      <li>ul list</li>
+      <li>ul list</li>
+      <li>ul list</li>
+      <li>ul list</li>
+      <li>ul list</li>
+      <li>ul list</li>
+      <li>ul list</li>
+      <li>ul list</li>
+      <li>ul list</li>
+      <li>ul list</li>
+      <li>ul list</li>
+      <li>ul list</li>
+      <li>ul list</li>
+    </ul>
+  </body>
+</html>

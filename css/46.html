@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>button status exercise</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <style>
+      :root {
+        --normal-text-color: #cbd5df;
+        --normal-text-color-hover: #ffffff;
+        --normal-text-disabled: #4a5568;
+        --normal-bg-color: #343f50;
+        --normal-bg-color-hover: #343f50;
+        --normal-border-color: #1a202c;
+
+        --positive-text-color: #439aff;
+        --positive-text-color-hover: #ffffff;
+        --positive-bg-color: #343f50;
+        --positive-bg-color-hover: #439aff;
+        --positive-border-color: #439aff;
+
+        --negative-text-color: #eb5757;
+        --negative-text-color-hover: #ffffff;
+        --negative-bg-color: #343f50;
+        --negative-bg-color-hover: #eb5757;
+        --negative-border-color: #eb5757;
+
+        --shadow-default: inset 2px 2px 0 0 rgba(255, 255, 255, 0.1);
+        --shadow-hover: inset 2px 2px 0 0 rgba(255, 255, 255, 0.2);
+        --shadow-active: inset 2px 2px 0 0 rgba(0, 0, 0, 0.2);
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 100px);
+        grid-auto-rows: auto;
+        margin-top: 20px;
+        justify-items: center;
+        align-items: center;
+      }
+      h2 {
+        padding: 10px 0;
+      }
+      button {
+        font-size: 12px;
+        font-weight: bold;
+        min-width: 88px;
+        padding: 9px 0;
+        box-sizing: border-box;
+        background-color: var(--normal-bg-color);
+        color: var(--normal-text-color);
+        border: 1px solid var(--normal-border-color);
+        box-shadow: var(--shadow-default);
+      }
+      button:enabled:hover {
+        color: var(--normal-text-color-hover);
+        background-color: var(--normal-bg-color);
+        box-shadow: var(--shadow-hover);
+        text-decoration: underline;
+      }
+      button:enabled:active {
+        color: var(--normal-text-color-hover);
+        box-shadow: var(--shadow-active);
+        text-decoration: underline;
+      }
+      button:disabled {
+        color: var(--normal-text-disabled);
+      }
+      button.positive {
+        color: var(--positive-text-color);
+      }
+      button.positive:enabled:hover,
+      button.positive:enabled:active {
+        color: var(--positive-text-color-hover);
+        background-color: var(--positive-bg-color-hover);
+      }
+      button.negative {
+        color: var(--negative-text-color);
+      }
+      button.negative:enabled:hover,
+      button.negative:enabled:active {
+        color: var(--negative-text-color-hover);
+        background-color: var(--negative-bg-color-hover);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>button status ui</h1>
+    <div class="grid-container">
+      <h2>&nbsp;</h2>
+      <h2>normal</h2>
+      <h2>positive</h2>
+      <h2>negative</h2>
+      <h2>enabled</h2>
+      <button>Button</button>
+      <button class="positive">Yes</button>
+      <button class="negative">Del</button>
+      <h2>disabled</h2>
+      <button disabled>Button</button>
+    </div>
+  </body>
+</html>

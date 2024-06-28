@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .container {
+        width: 600px; /* 부모 요소의 너비 */
+        background-color: lightgray;
+        margin-bottom: 20px;
+      }
+      .element1 {
+        width: 100%;
+        max-width: 500px;
+        background-color: lightblue;
+      }
+      .element2 {
+        width: 500px;
+        max-width: 100%;
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="element1">Element 1 (width: 100%; max-width: 500px;)</div>
+    </div>
+    <div class="container">
+      <div class="element2">Element 2 (width: 500px; max-width: 100%;)</div>
+    </div>
+  </body>
+</html>

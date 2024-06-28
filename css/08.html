@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>text style</title>
+    <style>
+      div {
+        background-color: antiquewhite;
+        font-size: 1.4rem;
+      }
+      .dashed {
+        text-decoration: red underline overline dashed auto;
+      }
+      .wavy {
+        text-decoration-color: blue;
+        text-decoration-line: line-through underline overline;
+        text-decoration-style: wavy;
+        text-decoration-thickness: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>text-decoration</h1>
+    <div>
+      <p class="dashed">text-decoration: red underline overline dashed auto;</p>
+      text-decoration: red underline overline dashed auto;
+    </div>
+    <div>
+      <p class="wavy">text-decoration-line: line-through underline overline;</p>
+      text-decoration-line: line-through underline overline; <br />
+      text-decoration-color: blue; <br />
+      text-decoration-style: wavy; <br />
+      text-decoration-thickness: 5px;
+    </div>
+  </body>
+</html>

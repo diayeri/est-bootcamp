@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation</title>
+    <style>
+      @keyframes moveWatch {
+        from {
+          transform: rotate(0deg);
+        }
+        /* from, to 사이에 %를 섞어서 사용할 수 있다 */
+        to {
+          transform: rotate(1turn);
+        }
+      }
+
+      .cont {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        border-radius: 80px;
+        background-color: bisque;
+      }
+      .cont div {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 160px;
+        height: 8px;
+        background-color: black;
+        /* transform-origin */
+        transform-origin: left center;
+        transform: translate(0, -25%);
+      }
+      .cont .sec {
+        width: 180px;
+        height: 2px;
+        background-color: red;
+        animation: moveWatch 60s infinite steps(60);
+      }
+      .cont .min {
+        height: 6px;
+        background-color: green;
+        animation: moveWatch 3600s infinite linear;
+      }
+      .cont .hour {
+        width: 140px;
+        animation: moveWatch 360s infinite linear;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cont">
+      <div class="sec"></div>
+      <div class="min"></div>
+      <div class="hour"></div>
+    </section>
+  </body>
+</html>

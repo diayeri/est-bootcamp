@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@property</title>
+    <style>
+      @property --main-color {
+        syntax: "<color>";
+        inherits: false;
+        initial-value: #c0ffee;
+      }
+      div {
+        color: var(--main-color);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>@property</h1>
+    <div>
+      property main color
+      <span>test</span>
+    </div>
+  </body>
+</html>

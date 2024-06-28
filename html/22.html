@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form exercise</title>
+    <style>
+      input {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <h1>폼 요소 연습하기</h1>
+
+      <label for="id">아이디</label>
+      <input type="text" name="id" id="id" /><br />
+
+      <label for="pw">비밀번호</label>
+      <input
+        type="password"
+        name="pw"
+        id="pw"
+        placeholder="특수문자 포함필수"
+      /><br />
+
+      <label for="birth">생일</label>
+      <input type="date" name="birth" id="birth" /><br />
+
+      <label for="profile">프로필사진</label>
+      <input type="file" name="profile" id="profile" /><br />
+
+      <select name="agency" title="agency" aria-label="tel agency">
+        <option value="skt">SKT</option>
+        <option value="lg">LG U+</option>
+        <option value="kt">KT</option>
+        <option value="etc">알뜰폰</option>
+      </select>
+      <p>
+        ㄴ<mark> 묶이는 label이 없는 경우</mark>는 id만 부여해도 된다 ?? -> re:
+        GPT
+      </p>
+      <ul>
+        <li>
+          label 요소를 사용하는 것이 가장 표준적이고 접근성 측면에서 좋습니다.
+        </li>
+        <li>
+          aria-label과 aria-labelledby는 label 요소를 사용할 수 없는 경우에 좋은
+          대안입니다.
+        </li>
+        <li>title 속성은 덜 권장되지만 사용할 수 있습니다.</li>
+        <li>
+          id만 지정하는 것은 스크린 리더가 해당 요소의 목적을 명확히 인식하지
+          못할 수 있으므로 피하는 것이 좋습니다.
+        </li>
+      </ul>
+      <p>
+        따라서, 가능하다면 label 요소를 사용하는 것이 좋고, 그럴 수 없는
+        상황이라면 aria-label 또는 aria-labelledby 속성을 사용하는 것이 가장
+        좋은 접근성 방법입니다.
+        <br />-> label.sr-only를 사용해도 좋겠네요
+      </p>
+      <br />
+      <label for="tel">연락처</label>
+      <input type="tel" name="tel" id="tel" /><br />
+
+      <fieldset>
+        <legend>성별</legend>
+        <label for="male">남성</label>
+        <input type="radio" name="gender" id="male" value="male" />
+        <label for="female">여성</label>
+        <input type="radio" name="gender" id="female" value="female" />
+      </fieldset>
+
+      <fieldset>
+        <legend>사용 기술</legend>
+        <label for="html">HTML</label>
+        <input type="checkbox" name="html" id="html" />
+        <label for="css">CSS</label>
+        <input type="checkbox" name="css" id="css" />
+        <label for="js">Javascript</label>
+        <input type="checkbox" name="js" id="js" />
+        <label for="python">Python</label>
+        <input type="checkbox" name="python" id="python" />
+        <label for="django">Django</label>
+        <input type="checkbox" name="django" id="django" />
+      </fieldset>
+
+      <!-- datalist -->
+      <label for="browser">사용하는 브라우저를 선택하세요:</label>
+      <input list="browserList" id="browser" />
+      <datalist id="browserList">
+        <option value="Chrome"></option>
+        <option value="Firefox"></option>
+        <option value="Safari"></option>
+        <option value="Edge"></option>
+        <option value="IE"></option></datalist
+      ><br />
+      <input type="reset" /><br />
+      <input type="submit" /><br />
+    </form>
+
+    <hr />
+    <hr />
+    <h2>답안지</h2>
+    <p>name 속성은 시간상 생략, 넣어주기!</p>
+    <!-- <form action="">
+      <label for="id">아이디</label>
+      <input type="text" id="id" />
+      <label for="password">비밀번호</label>
+      <input type="password" id="password" placeholder="특수문자 포함 필수" />
+      <label for="birth">생일</label>
+      <input type="date" id="birth" />
+      <label for="profileImg">프로필사진</label>
+      <input type="file" id="profileImg" />
+      <select name="options" id="carrier">
+        <option value="skt">SKT</option>
+        <option value="kt">KT</option>
+        <option value="lgu">LGU+</option>
+      </select>
+      <label for="tel">전화번호</label>
+      <input type="tel" id="tel" />
+      <fieldset>
+        <legend>성별</legend>
+        <label for="male">남성</label>
+        <input type="radio" id="male" />
+        <label for="female">여성</label>
+        <input type="radio" id="female" />
+      </fieldset>
+      <fieldset>
+        <legend>사용 기술</legend>
+        <label for="html">HTML</label>
+        <input type="checkbox" id="html" />
+        <label for="CSS">CSS</label>
+        <input type="checkbox" id="CSS" />
+        <label for="Js">Js</label>
+        <input type="checkbox" id="Js" />
+      </fieldset>
+      <label for="broswer">사용하는 브라우저를 선택하세요</label>
+      <input type="text" id="broswer" list="browsers" />
+      <datalist id="browsers">
+        <option value="chrome">chrome</option>
+        <option value="firefox">firefox</option>
+      </datalist>
+      <input type="reset" value="초기화" />
+      <input type="submit" value="제출" />
+    </form> -->
+  </body>
+</html>

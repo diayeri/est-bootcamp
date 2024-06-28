@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transition</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        transition: width 1s;
+      }
+
+      div:hover {
+        width: 200px;
+      }
+
+      section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        color: transparent;
+        border-radius: 50%;
+        background-color: blue;
+        transition: all ease-out 0.5s;
+      }
+      section:hover {
+        /* margin-top: 100px; */
+        transform: translate(0, 100px);
+        color: white;
+        background-color: black;
+        border-radius: 50% 50% 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Transition</h1>
+    <div></div>
+    <section>+ 0 +</section>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>carousel exercise</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <style>
+      @keyframes carousel {
+        from {
+        }
+        to {
+        }
+      }
+
+      .cont {
+        perspective: 400px;
+        perspective-origin: center center;
+      }
+      ul {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+
+        transform: rotateX(0deg) rotateY(0deg);
+        transform-style: preserve-3d;
+        --num-caro: 7;
+
+        animation: carousel 1s;
+      }
+      li {
+        position: absolute;
+        top: calc(50% - 100px);
+        left: calc(50% - 100px);
+
+        backface-visibility: hidden;
+      }
+      li:nth-child(1) {
+        --caro-id: 1;
+        transform: rotateY(0.2turn);
+      }
+      li:nth-child(2) {
+        --caro-id: 2;
+        transform: rotateY(0.4turn);
+      }
+      li:nth-child(3) {
+        --caro-id: 3;
+        transform: rotateY(0.6turn);
+      }
+      li:nth-child(4) {
+        --caro-id: 4;
+        transform: rotateY(0.8turn);
+      }
+      li:nth-child(5) {
+        --caro-id: 5;
+        transform: rotateY(1turn);
+      }
+      img {
+        width: 200px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+      img.logo {
+        object-fit: contain;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>carousel</h1>
+    <div class="cont">
+      <ul>
+        <li>
+          <img src="./src/weniv-binky.png" alt="" />
+        </li>
+        <li>
+          <img src="./src/weniv-chilli.png" alt="" />
+        </li>
+        <li>
+          <img src="./src/weniv-garry.png" alt="" />
+        </li>
+        <li>
+          <img src="./src/weniv-wade.png" alt="" />
+        </li>
+        <li>
+          <img src="./src/weniv-suri.png" alt="" />
+        </li>
+        <!-- <li>
+        <img src="./src/weniv-licat.png" alt="" />
+      </li>
+      <li>
+        <img src="./src/weniv-logo.svg" class="logo" alt="" />
+      </li> -->
+      </ul>
+    </div>
+  </body>
+</html>

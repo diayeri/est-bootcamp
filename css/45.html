@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>:focus-within</title>
+    <style>
+      /*focus를 갖고 있는 요소의 부모 스타일 지정*/
+      div:focus-within {
+        background: skyblue;
+      }
+      /* 사용자와 인터렉션이 가능한 태그에만 적용가능 */
+      input:enabled {
+        background-color: aqua;
+      }
+      input:disabled {
+        background-color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>:focus-within</h1>
+    <div>
+      <label for="test">:focus-within test</label>
+      <input type="text" name="test" id="test" />
+    </div>
+    <div>
+      <label for="test2">:focus-within test</label>
+      <input type="text" name="test2" id="test2" disabled />
+    </div>
+  </body>
+</html>

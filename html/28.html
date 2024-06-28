@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>picture</title>
+  </head>
+  <body>
+    <h1>picture, source</h1>
+    <p>반응형 이미지를 css 없이 제어할 수 있다</p>
+    <picture>
+      <source srcset="./src/animal01.png" media="(max-width: 320px)" />
+      <source srcset="./src/animal02.png" media="(max-width: 800px)" />
+      <img src="./src/2024weniv.png" alt="Description of the image" />
+    </picture>
+  </body>
+</html>

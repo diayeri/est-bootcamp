@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3d</title>
+    <style>
+      div {
+        display: flex;
+        justify-content: space-between;
+        perspective: 500px;
+        background-color: antiquewhite;
+      }
+      button {
+        width: 100px;
+        height: 100px;
+        border-radius: 20px;
+        background-color: aquamarine;
+
+        transform: rotateY(50deg) scaleZ(1);
+        transform-style: preserve-3d;
+      }
+      span {
+        display: inline-block;
+        width: 80px;
+        height: 50px;
+        background-color: blueviolet;
+        color: white;
+
+        transform: rotateY(45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button>hi</button>
+      <button>hi</button>
+      <button>hi</button>
+      <button>hi</button>
+      <button class="preserve-3d"><span>mem</span></button>
+    </div>
+  </body>
+</html>

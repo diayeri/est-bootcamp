@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>::가상요소</title>
+    <style>
+      /* not working */
+      /* p {
+        white-space: pre-line;
+      } */
+      p::before {
+        content: "두부에게...🧊 ";
+        color: skyblue;
+        /* width: 100px; */
+        display: inline-block;
+      }
+      span::before {
+        content: "두부가...";
+        color: lightpink;
+        /* width: 100px; */
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>가상요소 선택자 ::before, ::after</h1>
+    <p>
+      빈 태그에서는 사용이 불가하다구! 자식을 만들어주는건데 빈태그는 자식을
+      가질수 없다고. ㅜㅜ
+    </p>
+    <p>짧은글</p>
+    <span>짧은글</span>
+    <span
+      >태그 내용이 길어져 자동으로 줄바꿈되어 스페이스바가 입력되는건
+      <em>inline-block</em> 속성일때 생기는 문제였다 두둥! <br />
+      * inline, block 은 괜찮음</span
+    >
+    <script>
+      // it works!!
+      // document.querySelectorAll("p").forEach((p) => {
+      //   p.innerHTML = p.innerHTML.trim().replace(/\s+/g, " ");
+      // });
+    </script>
+  </body>
+</html>

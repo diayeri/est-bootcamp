@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>border-radius</title>
+    <style>
+      section {
+        /* flex 안쓰고 배운것만 가지고 해보기 */
+        display: inline-block;
+        vertical-align: top;
+      }
+      div {
+        display: inline-block;
+        background-color: blueviolet;
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+      }
+      .ex1 {
+        /* 50% 이상은 동일한 결과 */
+        border-radius: 100%;
+      }
+      .ex2 {
+        border-radius: 10px;
+      }
+      .ex3 {
+        border-radius: 100% 0 0;
+      }
+      .ex4 {
+        border-radius: 100% 0;
+      }
+      .ex5 {
+        border-radius: 0 50%;
+      }
+      .ex6 {
+        border-radius: 100px 100px 0 0;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ex1"></div>
+    <div class="ex2"></div>
+    <div class="ex3"></div>
+    <div class="ex4"></div>
+    <div class="ex5"></div>
+    <section>
+      <div class="ex6"></div>
+    </section>
+  </body>
+</html>

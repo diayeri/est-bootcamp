@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exercise - card ui</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="./css/reset.css" /> -->
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <style>
+      html {
+        font-size: 62.5%;
+      }
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        padding: 4%;
+      }
+      .list {
+        vertical-align: top;
+      }
+      .card {
+        display: inline-block;
+        width: 288px;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 8px;
+        overflow: hidden;
+        margin-right: 30px;
+      }
+      .inline-block {
+        display: inline-block;
+      }
+      img.thumb {
+        width: 100%;
+        aspect-ratio: 1.4 / 1;
+        object-fit: cover;
+      }
+      img.circle {
+        display: inline-block;
+        width: 40px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 100%;
+        overflow: hidden;
+        margin-right: 16px;
+      }
+      img.i {
+        transform: scale(0.5);
+      }
+      h2 {
+        font-size: 1.6rem;
+        margin: 0;
+      }
+      p {
+        font-size: 1.2rem;
+        line-height: 160%;
+        /* text-overflow ellipsis */
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+      p.author {
+        color: #5a6a72;
+        margin: 0;
+      }
+      a.read {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #29363d;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+      }
+      a.read img {
+        vertical-align: bottom;
+        margin-left: 20px;
+      }
+      .btns {
+      }
+
+      /* card1 */
+      .card1 .wrapper-text {
+        padding: 20px 16px 16px;
+      }
+      .card1 p {
+        margin: 16px 0;
+      }
+
+      /* card2 */
+      .card2 .wrapper-title {
+        padding: 16px 16px 12px;
+      }
+      .card2 .wrapper-text {
+        padding: 10px 16px 16px;
+      }
+      .card2 .wrapper-text p {
+        margin: 0 0 12px;
+      }
+      .card2 a.read {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>card ui</h1>
+    <div class="list">
+      <div class="card card1">
+        <img src="./src/weniv-suri.png" alt="" class="thumb" />
+        <div class="wrapper-text">
+          <h2>그것을 피가 청춘을 것이다</h2>
+          <p>
+            청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+            청춘 것이다. 얼마나 반짝이는 소담스러운 열락의 아름다우냐? 가지에
+            같지 청춘의 옷을 목숨을 피어나기 오직 군영과 칼이다. 거친 끓는 예가
+            뿐이다. 방지하는 꽃이 청춘을 생명을 이것이다. 인간의 거선의 피고,
+            모래뿐일 작고 우리 평화스러운 있는가?
+          </p>
+          <a href="" class="read">Read</a>
+        </div>
+      </div>
+      <div class="card card2">
+        <div class="wrapper-title">
+          <img src="./src/bird01.png" alt="" class="circle" />
+          <div class="inline-block">
+            <h2>그것을 피가 청춘을 것이다</h2>
+            <p class="author">secondary</p>
+          </div>
+        </div>
+        <img src="./src/weniv-chilli.png" alt="" class="thumb" />
+        <div class="wrapper-text">
+          <p>
+            청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+            청춘 것이다. 얼마나 반짝이는 소담스러운 열락의 아름다우냐? 가지에
+            같지 청춘의 옷을 목숨을 피어나기 오직 군영과 칼이다. 거친 끓는 예가
+            뿐이다. 방지하는 꽃이 청춘을 생명을 이것이다. 인간의 거선의 피고,
+            모래뿐일 작고 우리 평화스러운 있는가?
+          </p>
+          <div>
+            <a href="" class="read">
+              <span>Read</span><img src="./src/i-arrow.png" class="i" alt="" />
+            </a>
+            <div class="btns">
+              <button>
+                <img src="./src/i-heart.png" alt="like" class="i" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

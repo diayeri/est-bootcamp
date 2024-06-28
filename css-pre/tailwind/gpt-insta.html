@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Clone</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Main Container -->
+    <div class="container mx-auto px-4">
+      <!-- Left Sidebar -->
+      <aside class="w-1/4 fixed top-0 left-0 h-full bg-white p-4 shadow-lg">
+        <div class="flex flex-col items-center space-y-4">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+            alt="Instagram Logo"
+            class="w-12 h-12"
+          />
+          <nav class="flex flex-col space-y-4">
+            <a href="#" class="text-gray-800">홈</a>
+            <a href="#" class="text-gray-800">검색</a>
+            <a href="#" class="text-gray-800">탐색 탭</a>
+            <a href="#" class="text-gray-800">릴스</a>
+            <a href="#" class="text-gray-800">메시지</a>
+            <a href="#" class="text-gray-800">알림</a>
+            <a href="#" class="text-gray-800">만들기</a>
+            <a href="#" class="text-gray-800">프로필</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="ml-1/4 w-3/4 p-4">
+        <!-- Reels Section -->
+        <section class="mb-8">
+          <h2 class="text-xl font-bold mb-4">Reels</h2>
+          <div class="flex space-x-4 overflow-x-auto">
+            <div class="w-32 h-32 flex-shrink-0 bg-gray-300">Reel 1</div>
+            <div class="w-32 h-32 flex-shrink-0 bg-gray-300">Reel 2</div>
+            <div class="w-32 h-32 flex-shrink-0 bg-gray-300">Reel 3</div>
+          </div>
+        </section>
+
+        <!-- Posts Section -->
+        <section>
+          <h2 class="text-xl font-bold mb-4">Posts</h2>
+          <div class="space-y-8">
+            <!-- Post Example -->
+            <article class="bg-white shadow-lg rounded-lg overflow-hidden">
+              <div class="p-4">
+                <div class="flex items-center space-x-4 mb-4">
+                  <img
+                    src="https://github.com/weniv/weniv_friends_design_asset/blob/main/weniv_profile/67x100.png?raw=true"
+                    alt="Profile Image"
+                    class="w-10 h-10 rounded-full"
+                  />
+                  <div>
+                    <h3 class="font-bold">User Name</h3>
+                    <p class="text-gray-500 text-sm">Location</p>
+                  </div>
+                </div>
+                <img
+                  src="https://github.com/weniv/weniv_friends_design_asset/blob/main/weniv_friends/1.webp?raw=true"
+                  alt="Post Image"
+                  class="w-full h-auto"
+                />
+                <div class="p-4">
+                  <button class="text-red-500">♥ Like</button>
+                  <p class="text-gray-800 mt-2">
+                    Post description goes here...
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
