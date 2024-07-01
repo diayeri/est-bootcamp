@@ -6,76 +6,12 @@
     <title>animation challenge</title>
     <link rel="stylesheet" href="../reset.css" />
     <style>
-      @keyframes hair {
+      @keyframes ani-bgc {
         from {
-          background-color: #212121;
+          background-color: var(--bgc-before);
         }
         to {
-          background-color: #fec107;
-        }
-      }
-      @keyframes hair-light {
-        from {
-          background-color: #579089;
-        }
-        to {
-          background-color: #ffc928;
-        }
-      }
-      @keyframes hair-dark {
-        from {
-          background-color: #273238;
-        }
-        to {
-          background-color: #ffb200;
-        }
-      }
-      @keyframes face {
-        from {
-          background-color: #b2dfdc;
-        }
-        to {
-          background-color: #ffccbb;
-        }
-      }
-      @keyframes face-dark {
-        from {
-          background-color: #80cbc4;
-        }
-        to {
-          background-color: #ffab91;
-        }
-      }
-      @keyframes lip {
-        from {
-          background-color: #fec107;
-        }
-        to {
-          background-color: #ff8a66;
-        }
-      }
-      @keyframes nose {
-        from {
-          background-color: #4dd0e2;
-        }
-        to {
-          background-color: #ffab91;
-        }
-      }
-      @keyframes shirts {
-        from {
-          background-color: #4cb6ac;
-        }
-        to {
-          background-color: #0e47a1;
-        }
-      }
-      @keyframes shirts-dark {
-        from {
-          background-color: #00887a;
-        }
-        to {
-          background-color: #1564c0;
+          background-color: var(--bgc-after);
         }
       }
       @keyframes bg {
@@ -152,19 +88,49 @@
         animation: bg 1.5s both alternate infinite 4s;
       }
       .hair {
-        animation: hair 1.5s steps(4) both 1s;
+        --bgc-before: #212121;
+        --bgc-after: #fec107;
+        animation: ani-bgc 1.5s steps(4) both 1s;
       }
       .hair-light {
-        animation: hair-light 5s steps(12) both 1s;
+        --bgc-before: #579089;
+        --bgc-after: #ffc928;
+        animation: ani-bgc 3s steps(8) both 1s;
       }
       .hair-dark {
-        animation: hair-dark 3s steps(8) both 1s;
+        --bgc-before: #273238;
+        --bgc-after: #ffb200;
+        animation: ani-bgc 3s steps(8) both 1s;
       }
       .face {
-        animation: face 2s steps(6) both 1s;
+        --bgc-before: #b2dfdc;
+        --bgc-after: #ffccbb;
+        animation: ani-bgc 2s steps(6) both 1s;
       }
       .face-dark {
-        animation: face-dark 4s steps(10) both 1s;
+        --bgc-before: #80cbc4;
+        --bgc-after: #ffab91;
+        animation: ani-bgc 2s steps(6) both 1s;
+      }
+      .lip {
+        --bgc-before: #fec107;
+        --bgc-after: #ff8a66;
+        animation: ani-bgc 3s steps(8) both 1s;
+      }
+      .nose {
+        --bgc-before: #4dd0e2;
+        --bgc-after: #ffab91;
+        animation: ani-bgc 3s steps(8) both 1s;
+      }
+      .shirts {
+        --bgc-before: #4cb6ac;
+        --bgc-after: #0e47a1;
+        animation: ani-bgc 4s steps(10) both 1s;
+      }
+      .shirts-dark {
+        --bgc-before: #00887a;
+        --bgc-after: #1564c0;
+        animation: ani-bgc 3s steps(8) both 1s;
       }
       .glasses {
         background-color: #fbe9e7;
@@ -179,18 +145,6 @@
       }
       .eye {
         background-color: #4d342f;
-      }
-      .lip {
-        animation: lip 3s steps(8) both 1s;
-      }
-      .nose {
-        animation: nose 3s steps(8) both 1s;
-      }
-      .shirts {
-        animation: shirts 4s steps(10) both 1s;
-      }
-      .shirts-dark {
-        animation: shirts-dark 3s steps(8) both 1s;
       }
     </style>
   </head>
