@@ -31,69 +31,76 @@
     </style>
   </head>
   <body>
-    <table>
-      <caption>
-        2023 성적표 (this is caption. tr*4>td*3)
-      </caption>
-      <thead>
-        <tr>
-          <th>이름</th>
-          <th>중간고사</th>
-          <th>기말고사</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>김떙땡</td>
-          <td colspan="2">10</td>
-        </tr>
-        <tr>
-          <td>이총명</td>
-          <td>90</td>
-          <td rowspan="2">80</td>
-        </tr>
-        <tr>
-          <td>남애기</td>
-          <td>70</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td>평균</td>
-          <td>
-            <script>
-              document.write((10 + 90 + 70) / 3);
-            </script>
-          </td>
-          <td>몰라</td>
-        </tr>
-      </tfoot>
-    </table>
-    <table>
-      <colgroup>
-        <col span="1" style="background-color: #f20000" />
-        <col span="1" class="highlight" />
-        <col span="1" style="background-color: #e633ee" />
-      </colgroup>
-      <thead>
-        <tr>
-          <th>Column 1</th>
-          <th>Column 2</th>
-          <th>Column 3</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Data 1</td>
-          <td>Data 2</td>
-          <td>Data 3</td>
-        </tr>
-        <tr>
-          <td>Data 4</td>
-          <td>Data 5</td>
-          <td>Data 6</td>
-        </tr>
-      </tbody>
-    </table>
+    <h1 class="title">Table Colgroup</h1>
+    <h2 class="title">caption</h2>
+    <h2 class="title">col group > col</h2>
+    <h2 class="title">colspan, rowspan</h2>
+    <main>
+      <table>
+        <caption>
+          2023 성적표 (this is caption. tr*4>td*3)
+        </caption>
+        <thead>
+          <tr>
+            <th>이름</th>
+            <th>중간고사</th>
+            <th>기말고사</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>김떙땡</td>
+            <td colspan="2">10</td>
+          </tr>
+          <tr>
+            <td>이총명</td>
+            <td>90</td>
+            <td rowspan="2">80</td>
+          </tr>
+          <tr>
+            <td>남애기</td>
+            <td>70</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>평균</td>
+            <td>
+              <script>
+                document.write((10 + 90 + 70) / 3);
+              </script>
+            </td>
+            <td>몰라</td>
+          </tr>
+        </tfoot>
+      </table>
+      <table>
+        <colgroup>
+          <col span="1" style="background-color: #f20000" />
+          <col span="1" class="highlight" />
+          <col span="1" style="background-color: #e633ee" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+          </tr>
+          <tr>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <script src="/common.js"></script>
   </body>
 </html>

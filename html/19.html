@@ -6,33 +6,40 @@
     <title>select</title>
   </head>
   <body>
-    오늘의
-    <select name="" id="3" title="optgroup">
-      <optgroup label="식사시간">
-        <option value="">아침</option>
-        <option value="">점심</option>
-        <option value="">저녁</option>
-      </optgroup>
-    </select>
+    <main>
+      <h1 class="title">select</h1>
+      <h2 class="title">(optgroup) > option</h2>
+      오늘의
+      <select name="" id="3" title="optgroup">
+        <optgroup label="식사시간">
+          <option value="">아침</option>
+          <option value="">점심</option>
+          <option value="">저녁</option>
+        </optgroup>
+      </select>
 
-    <label for="1">
-      식사는...
-      <select name="" id="1" title="select box example">
-        <option value="no">굶기</option>
-        <option value="in" selected>집밥먹기</option>
-        <option value="out">외식하기</option>
-      </select>
-      어때요?
-    </label>
-    <label for="2">
-      음 ~~
-      <select name="" id="2" title="select box example" multiple size="2">
-        <option value="">한식</option>
-        <option value="">중식</option>
-        <option value="">일식</option>
-        <option value="">서양식</option>
-      </select>
-      이 떙겨요!
-    </label>
+      <label for="1">
+        식사는...
+        <select name="" id="1" title="select box example">
+          <option value="no">굶기</option>
+          <option value="in" selected>집밥먹기</option>
+          <option value="out">외식하기</option>
+        </select>
+        어때요?
+      </label>
+      <h2 class="title">multiple, size</h2>
+      <p>multiple, is it working?</p>
+      <label for="2">
+        음 ~~
+        <select name="menu" id="2" title="select box example" multiple size="3">
+          <option value="21">한식</option>
+          <option value="22">중식</option>
+          <option value="23">일식</option>
+          <option value="24">서양식</option>
+        </select>
+        이 떙겨요!
+      </label>
+    </main>
+    <script src="/common.js"></script>
   </body>
 </html>

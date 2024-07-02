@@ -11,11 +11,13 @@ body {
     }
   }
   > header {
+    margin-bottom: 12px;
     a {
       font-weight: bold;
     }
   }
   > footer {
+    margin-top: 40px;
     border-top: 1px dashed olivedrab;
   }
   > main {
@@ -73,11 +75,17 @@ body {
   display: flex;
 }
 
+.border {
+  border: 1px solid #bbb;
+  padding: 8px;
+}
+
 .title {
   font-family: monospace;
   line-height: 1;
   color: olivedrab;
   + p {
+    font-family: monospace;
     color: olivedrab;
     padding-left: 16px;
     margin-top: -8px;

@@ -7,25 +7,29 @@
     <title>SVG, Canvas</title>
   </head>
   <body>
-    <h2>SVG</h2>
-    <img src="./src/favicon.svg" alt="위니브 파비콘" />
-    <hr />
-    <h2>canvas</h2>
-    <p>캔버스 태그를 자바스크립트로 제어하기</p>
-    <canvas
-      id="myCanvas"
-      width="200"
-      height="200"
-      style="border: 1px solid #000000"
-    ></canvas>
-    <script>
-      // 캔버스 태그에 사각형 그리기
-      // 캔버스 객체 생성 및 컨텍스트 객체 생성
-      var canvas = document.getElementById("myCanvas");
-      var ctx = canvas.getContext("2d");
-      // 사각형 색상 및 크기 설정
-      ctx.fillStyle = "#e9e9e9";
-      ctx.fillRect(30, 10, 150, 150);
-    </script>
+    <main>
+      <h1 class="title">svg, canvas</h1>
+      <h2 class="title">SVG</h2>
+      <img src="./src/favicon.svg" alt="위니브 파비콘" />
+      <hr />
+      <h2 class="title">canvas</h2>
+      <p>캔버스 태그를 자바스크립트로 제어하기</p>
+      <canvas
+        id="myCanvas"
+        width="200"
+        height="200"
+        style="border: 1px solid #000000"
+      ></canvas>
+      <script>
+        // 캔버스 태그에 사각형 그리기
+        // 캔버스 객체 생성 및 컨텍스트 객체 생성
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        // 사각형 색상 및 크기 설정
+        ctx.fillStyle = "#e9e9e9";
+        ctx.fillRect(30, 10, 150, 150);
+      </script>
+    </main>
+    <script src="/common.js"></script>
   </body>
 </html>

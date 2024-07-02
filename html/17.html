@@ -12,59 +12,56 @@
     </style>
   </head>
   <body>
-    <h1>login</h1>
-    <ul>
-      <li>
-        <p>
-          <code>form</code> <br />
-          ㄴ action 에 어떠한 url로 보낼지 세팅한다. 빈값으로 두면 form이 있는
-          페이지 url로 보내짐<br />
-          ㄴ method
-        </p>
-      </li>
-      <li>
-        <p>
-          label id 와 input id 를 서로 연결해줍니다. <br />
-          ㄴ 연결시, label을 클릭하면 input에 포커싱이 된다.
-        </p>
-      </li>
-      <li>
-        <p>input name 을 지정하여 어떠한 데이터의 종류를 보여준다.</p>
-      </li>
-    </ul>
-    <hr />
-    <form action="" method="get">
-      <label for="id">id</label>
-      <input type="text" id="id" name="id" />
-      <br />
-      <label for="pw">pw</label>
-      <input type="password" id="pw" value="012345" name="password" />
-      <br />
-      <label for="username">username</label>
-      <input type="text" id="username" name="username" />
-      <br />
+    <main>
+      <h1 class="title">form</h1>
+      <p>
+        - action 에 어떠한 url로 보낼지 세팅한다. 생략시 form이 있는 페이지
+        url로 보내짐<br />
+        - method : get / post<br />
+      </p>
+      <h2 class="title">label for - input id 연결</h2>
+      <p>연결시, label을 클릭하면 input에 포커싱이 된다.</p>
+      <h2 class="title">input name</h2>
+      <p>input name 을 지정하여 어떠한 데이터의 종류를 보여준다</p>
+      <hr />
+      <form action="" method="get">
+        <label for="id">id</label>
+        <input type="text" id="id" name="id" />
+        <br />
+        <label for="pw">pw</label>
+        <input type="password" id="pw" value="012345" name="password" />
+        <br />
+        <label for="username">username</label>
+        <input type="text" id="username" name="username" />
+        <br />
 
-      <input type="submit" />
-    </form>
+        <input type="submit" />
+      </form>
 
-    <hr />
-    <div>
-      <h2>단순히 입력받은 값을 화면에 뿌려주는 용도일 경우</h2>
-      <label
-        >이름
-        <input id="text" type="text" />
-      </label>
-      <button id="button" type="button">입력</button>
-      <p>이름:<strong id="strong"></strong></p>
-      <script>
-        const inputText = document.querySelector("#text");
-        const button = document.querySelector("#button");
-        const strong = document.querySelector("#strong");
+      <hr />
+      <h2 class="title">form 태그는 데이터를 보낼 때 사용</h2>
+      <p>
+        단순히 입력받은 값을 화면에 뿌려주는 용도로 사용할 때는 form 태그가
+        불필요하다
+      </p>
+      <div>
+        <label
+          >이름
+          <input id="text" type="text" />
+        </label>
+        <button id="button" type="button">입력</button>
+        <p>이름:<strong id="strong"></strong></p>
+        <script>
+          const inputText = document.querySelector("#text");
+          const button = document.querySelector("#button");
+          const strong = document.querySelector("#strong");
 
-        button.addEventListener("click", function () {
-          strong.innerHTML = inputText.value;
-        });
-      </script>
-    </div>
+          button.addEventListener("click", function () {
+            strong.innerHTML = inputText.value;
+          });
+        </script>
+      </div>
+    </main>
+    <script src="/common.js"></script>
   </body>
 </html>

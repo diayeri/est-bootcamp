@@ -6,13 +6,22 @@
     <title>meter, progress</title>
   </head>
   <body>
-    <!-- meter 내부 콘텐츠 값과 value 맞추어주기 -->
-    <meter id="progress" value="70" min="0" max="100">70%</meter>
-    <meter id="progress" value="30" min="0" max="100">30%</meter>
-    <meter></meter>
-    <br />
-    <label for="file">file upload progress</label>
-    <progress id="file" value="32" max="100">32%</progress>
-    <progress></progress>
+    <main>
+      <h1 class="title">meter, progress</h1>
+      <p>
+        * meter 내부 콘텐츠 값과 value 맞추어주기 <br />
+        - 값이 비어있을 때 모습 비교해보세요
+      </p>
+      <h2 class="title">meter</h2>
+      <meter id="progress" value="70" min="0" max="100">70%</meter>
+      <meter id="progress" value="30" min="0" max="100">30%</meter>
+      <meter></meter>
+      <br />
+      <h2 class="title">progress</h2>
+      <label for="file">file upload progress (label)</label>
+      <progress id="file" value="32" max="100">32%</progress>
+      <progress></progress>
+    </main>
+    <script src="/common.js"></script>
   </body>
 </html>

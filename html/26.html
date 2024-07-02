@@ -36,34 +36,36 @@
         </style>
       </head>
       <body>
-        <h1>테이블 행 동적으로 추가하기</h1>
-        <form id="data-form">
-          <label for="name">이름:</label>
-          <input type="text" id="name" name="name" required />
-          <label for="age">나이:</label>
-          <input type="number" id="age" name="age" required />
-          <button type="submit">행 추가</button>
-        </form>
+        <main>
+          <h1 class="title">template + JS : 테이블 행 동적으로 추가하기</h1>
+          <form id="data-form">
+            <label for="name">이름:</label>
+            <input type="text" id="name" name="name" required />
+            <label for="age">나이:</label>
+            <input type="number" id="age" name="age" required />
+            <button type="submit">행 추가</button>
+          </form>
 
-        <table id="data-table">
-          <thead>
+          <table id="data-table">
+            <thead>
+              <tr>
+                <th>이름</th>
+                <th>나이</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 새로운 행이 여기에 추가됩니다 -->
+            </tbody>
+          </table>
+
+          <template id="row-template">
             <tr>
-              <th>이름</th>
-              <th>나이</th>
+              <td class="name"></td>
+              <td class="age"></td>
             </tr>
-          </thead>
-          <tbody>
-            <!-- 새로운 행이 여기에 추가됩니다 -->
-          </tbody>
-        </table>
-
-        <template id="row-template">
-          <tr>
-            <td class="name"></td>
-            <td class="age"></td>
-          </tr>
-        </template>
-
+          </template>
+        </main>
+        <script src="/common.js"></script>
         <script>
           document
             .getElementById("data-form")

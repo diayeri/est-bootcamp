@@ -11,36 +11,34 @@
     </style>
   </head>
   <body>
-    이미지 태그
-    <div class="border">
-      <figure class="border">
-        <img
-          src="./src/skm03.jpg"
-          alt="엄마 코끼리와 아기 코끼리"
-          width="300"
+    <main>
+      <h1 class="title">이미지 태그</h1>
+      <h2 class="title">figure, figurecation</h2>
+      <div class="border">
+        <figure class="border">
+          <img
+            src="./src/skm03.jpg"
+            alt="엄마 코끼리와 아기 코끼리"
+            width="300"
+          />
+          <figcaption>관심 받고싶어하는 아기</figcaption>
+        </figure>
+      </div>
+      <hr />
+      <h2 class="title">map, area</h2>
+      <img src="./src/skm03.jpg" usemap="#image-map" alt="" />
+      <map name="image-map">
+        <area
+          target="_blank"
+          alt="mail to me"
+          title="mail to me"
+          href="mailto:ekdl1031@naver.com"
+          coords="458,570,758,608"
+          shape="rect"
+          rel="noopener"
         />
-        <figcaption>관심 받고싶어하는 아기</figcaption>
-      </figure>
-    </div>
-    <hr />
-    <img
-      src="./src/2024weniv.png"
-      alt="에라 모르겠다 ㅋ"
-      title="에공 ㅋ"
-      width="500"
-    />
-
-    <img src="./src/skm03.jpg" usemap="#image-map" alt="" />
-    <map name="image-map">
-      <area
-        target="_blank"
-        alt="mail to me"
-        title="mail to me"
-        href="mailto:ekdl1031@naver.com"
-        coords="458,570,758,608"
-        shape="rect"
-        rel="noopener"
-      />
-    </map>
+      </map>
+    </main>
+    <script src="/common.js"></script>
   </body>
 </html>
