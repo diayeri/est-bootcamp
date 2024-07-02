@@ -1,9 +1,25 @@
 body {
-  > header {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  > header,
+  > footer {
+    font-family: monospace;
     a {
       color: olivedrab;
       text-decoration: none;
     }
+  }
+  > header {
+    a {
+      font-weight: bold;
+    }
+  }
+  > footer {
+    border-top: 1px dashed olivedrab;
+  }
+  > main {
+    flex-grow: 1;
   }
 }
 
@@ -58,6 +74,7 @@ body {
 }
 
 .title {
+  font-family: monospace;
   line-height: 1;
   color: olivedrab;
   + p {

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Header and Footer Elements
   const headerHTML = `
       <nav>
-        <a href="/index.html">🏠 HOME</a>
+        <a href="/index.html">🏠HOME</a>
       </nav>
   `;
 
