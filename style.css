@@ -1,9 +1,9 @@
 body {
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
 }
 
 fieldset {
-  width: 300px;
+  width: 30%;
 }
 
 ol {
@@ -13,12 +13,27 @@ ol {
   /* padding-left: 1.2em; */
 }
 
-li::marker {
-  font-size: 0.8em;
+#content {
+  ul {
+    list-style: none;
+    padding-left: 1em;
+  }
+  li {
+    width: 100%;
+    padding: 2px 4px;
+    font-size: 1.2rem;
+    /* list-style-position: inside; */
+    &::marker {
+      font-size: 0.8em;
+    }
+    a {
+      color: olivedrab;
+      font-weight: bold;
+    }
+  }
 }
 
 a {
-  color: #0d0d0d;
   text-decoration: none;
 }
 
@@ -44,4 +59,25 @@ a:hover {
 
 .flex {
   display: flex;
+}
+
+.title {
+  line-height: 1;
+  color: olivedrab;
+  + p {
+    color: olivedrab;
+    padding-left: 16px;
+  }
+}
+
+h1.title {
+  color: #fff;
+  background-color: olivedrab;
+  padding: 6px 12px;
+}
+
+h2.title,
+h3.title {
+  border-left: 4px solid olivedrab;
+  padding-left: 12px;
 }

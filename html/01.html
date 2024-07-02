@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>text</title>
+    <link rel="stylesheet" href="/style.css" />
     <style>
       .keep-all {
         word-break: keep-all;
@@ -14,72 +15,92 @@
     </style>
   </head>
   <body>
-    <hr />
-    <p>
-      맥 브라우저 강력 새로고침 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>
-    </p>
-    <p>
-      쉽고 재미있는 <abbr title="Hypertext Markup Language">HTML</abbr>을
-      배웁시다!
-    </p>
-    <p>
-      <dfn id="html">
-        <abbr title="HyperText Markup Language">HTML</abbr>
-      </dfn>
-      : 웹 페이지의 의미론과 구조를 만드는 데 사용되는 마크업 언어입니다.
-    </p>
-    <p>
-      When Dave asks HAL to open the pod bay door, HAL answers:
-      <q cite="https://www.imdb.com/title/tt0062622/quotes/qt0396921">
-        I'm sorry, Dave. I'm afraid I can't do that.
-      </q>
-    </p>
-    <hr />
-    <q cite="me">줄바꿈이 없는 짧은 인용문 입니다</q>
-    <br />
-    <figure>
-      <blockquote>
-        <p>
-          "만약 네가 오후 네시에 온다면 난 세시부터 행복해질 거야. 그리고 널
-          만날 시간이 가까워질수록 점점 더 행복해지겠지. 네시가 되면, 흥분해서
-          안절부절 못할 거야. 그래서 행복이 얼마나 값진 것인지를 알게 될 거야."
-        </p>
-      </blockquote>
-      <cite>— 어린왕자 여우의 말 중</cite>
-    </figure>
-    <br />
-    <address>
-      Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br />
-      Visit us at:<br />
-      Example.com<br />
-      Box 564, Disneyland<br />
-      USA
-    </address>
-    <hr />
-    <h1>안녕하세요! h1</h1>
-    <h2>안녕하세요! h2</h2>
-    <h3>안녕하세요! h3</h3>
-    <h4>안녕하세요! h4</h4>
-    <h5>안녕하세요! h5</h5>
-    <h6>안녕하세요! h6</h6>
-    <a href="#" download="youtube.mp4">click me</a>
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia tempore
-      esse eum aliquam animi atque nobis odit officiis totam consectetur quo
-      similique iste, quia, perferendis, voluptatum quasi. Quae, non minus?
-    </p>
-    <p class="keep-all">
-      안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕<wbr />하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
-    </p>
-    <code>test</code>
-    <pre>
+    <header id="header"></header>
+    <main>
+      <h1 class="title">text tag</h1>
+      <hr />
+      <h2 class="title">kbd</h2>
+      <p>
+        맥 브라우저 강력 새로고침 <kbd>Cmd</kbd> + <kbd>Shift</kbd> +
+        <kbd>R</kbd>
+      </p>
+      <h2 class="title">abbr</h2>
+      <p>
+        쉽고 재미있는 <abbr title="Hypertext Markup Language">HTML</abbr>을
+        배웁시다!
+      </p>
+      <h2 class="title">dfn</h2>
+      <p>
+        <dfn id="html">
+          <abbr title="HyperText Markup Language">HTML</abbr>
+        </dfn>
+        : 웹 페이지의 의미론과 구조를 만드는 데 사용되는 마크업 언어입니다.
+      </p>
+      <h2 class="title">q</h2>
+      <p>
+        When Dave asks HAL to open the pod bay door, HAL answers:
+        <q cite="https://www.imdb.com/title/tt0062622/quotes/qt0396921">
+          I'm sorry, Dave. I'm afraid I can't do that.
+        </q>
+      </p>
+      <hr />
+      <h2 class="title">q cite=""</h2>
+      <q cite="me">줄바꿈이 없는 짧은 인용문 입니다</q>
+      <br />
+      <h2 class="title">figure > blockquote, cite</h2>
+      <figure>
+        <blockquote>
+          <p>
+            "만약 네가 오후 네시에 온다면 난 세시부터 행복해질 거야. 그리고 널
+            만날 시간이 가까워질수록 점점 더 행복해지겠지. 네시가 되면, 흥분해서
+            안절부절 못할 거야. 그래서 행복이 얼마나 값진 것인지를 알게 될
+            거야."
+          </p>
+        </blockquote>
+        <cite>— 어린왕자 여우의 말 중</cite>
+      </figure>
+      <br />
+      <h2 class="title">address</h2>
+      <address>
+        Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br />
+        Visit us at:<br />
+        Example.com<br />
+        Box 564, Disneyland<br />
+        USA
+      </address>
+      <hr />
+      <h2 class="title">h1~h6</h2>
+      <h1>안녕하세요! h1</h1>
+      <h2>안녕하세요! h2</h2>
+      <h3>안녕하세요! h3</h3>
+      <h4>안녕하세요! h4</h4>
+      <h5>안녕하세요! h5</h5>
+      <h6>안녕하세요! h6</h6>
+      <h2 class="title">a</h2>
+      <a href="#" download="youtube.mp4">click me</a>
+      <h2 class="title">p</h2>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia
+        tempore esse eum aliquam animi atque nobis odit officiis totam
+        consectetur quo similique iste, quia, perferendis, voluptatum quasi.
+        Quae, non minus?
+      </p>
+      <h3 class="title">keep-all</h3>
+      <p class="keep-all">
+        안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕<wbr />하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+      </p>
+      <h2 class="title">code</h2>
+      <code>test</code>
+      <h2 class="title">pre</h2>
+      <pre>
 🌙｀、、｀ヽ｀ヽ｀、、ヽヽ、｀、ヽ｀ヽ｀ヽヽ｀
 ヽ｀、｀ヽ｀、ヽ｀｀、ヽ｀ヽ｀、ヽヽ｀ヽ、ヽ
 ｀ヽ、ヽヽ｀ヽ｀、｀｀ヽ｀ヽ、ヽ、ヽ｀ヽ｀ヽ
 、ヽ｀ヽ｀、ヽヽ｀｀、ヽ｀、ヽヽ 🚶‍♀ ヽ｀｀ヽ｀｀、ヽ｀、
     this is pre tag
-    </pre>
-    <pre class="border">
+    </pre
+      >
+      <pre class="border">
 
       얍얍! 내 빼빼로를 받아라!
 
@@ -88,6 +109,9 @@
                         (つ　 <                —̳͟͞͞💗
                         | _つ      +  —̳͟͞͞💗         —̳͟͞͞💗 ˚
                         `し´
-    </pre>
+    </pre
+      >
+    </main>
+    <script src="/common.js"></script>
   </body>
 </html>
