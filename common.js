@@ -1,22 +1,46 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // 공통 <head> 요소
+  const commonHeadElements = `
+    <link rel="stylesheet" href="/style.css">
+  `;
+
+  // <head> 요소 업데이트
+  document.head.innerHTML += commonHeadElements;
+
+  // 각 페이지의 제목 설정
+  const pageTitle = document.querySelector("title").textContent;
+  if (!pageTitle) {
+    document.title = "기본 페이지 제목";
+  }
+
+  // Header and Footer Elements
+  const headerHTML = `
+      <nav>
+        <a href="/index.html">🏠 HOME</a>
+      </nav>
+  `;
+
+  const footerHTML = `
+      <p>&copy; 2024 Dayoung Jung. All rights reserved.</p>
+      <p>
+        For inquiries, please contact us at <a href="mailto:jdyoung1031@gmail.com">jdyoung1031@gmail.com</a>.
+      </p>
+  `;
+
+  // Header and Footer Insertion
+  if (document.body) {
+    const header = document.createElement("header");
+    header.innerHTML = headerHTML;
+    document.body.insertBefore(header, document.body.firstChild);
+
+    const footer = document.createElement("footer");
+    footer.innerHTML = footerHTML;
+    document.body.appendChild(footer);
+  }
+});
+
 // 페이지의 URL 경로를 가져옴
 const currentPath = window.location.pathname;
-
-// 공통 요소 (헤더와 푸터) 추가 함수
-function addHeaderAndFooter() {
-  document.getElementById("header").innerHTML = `
-        <nav>
-            <ul>
-                <a href="/index.html">👈 main</a>
-            </ul>
-        </nav>
-    `;
-
-  // document.getElementById("footer").innerHTML = `
-  //       <footer>
-  //           <p>&copy; 2024 My Practice Site</p>
-  //       </footer>
-  //   `;
-}
 
 // 페이지 내용 (리스트 항목) 동적으로 추가 함수
 function loadPageContent() {
@@ -52,7 +76,4 @@ function loadPageContent() {
 if (currentPath.endsWith("index.html")) {
   // 메인 페이지: 리스트 항목 추가
   loadPageContent();
-} else {
-  // 하위 페이지: 헤더와 푸터 추가
-  addHeaderAndFooter();
 }
