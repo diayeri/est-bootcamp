@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 페이지 내용 (리스트 항목) 동적으로 추가 함수
   function loadPageContent() {
-    fetch("pages.json")
+    fetch("./pages.json")
       .then((response) => response.json())
       .then((pages) => {
         const contentDiv = document.getElementById("content");
@@ -57,8 +57,12 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => console.error("Error fetching page data:", error));
   }
 
+  // index.html 파일 여부 확인
+  const isIndexPage =
+    currentPath === "/index.html" || currentPath === "./index.html";
+
   // 메인 페이지와 하위 페이지에 따라 다른 동작 수행
-  if (currentPath.endsWith("index.html")) {
+  if (isIndexPage) {
     // 메인 페이지: 리스트 항목 추가
     loadPageContent();
   } else {
