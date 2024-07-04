@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log(currentPath);
   // 메인 페이지와 하위 페이지에 따라 다른 동작 수행
-  if (currentPath.endsWith("index.html" || "est-bootcamp/")) {
+  if (currentPath.endsWith("index.html")) {
     // 메인 페이지: 리스트 항목 추가
     loadPageContent();
   } else {
