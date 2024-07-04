@@ -34,23 +34,25 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((pages) => {
         const contentDiv = document.getElementById("content");
 
-        let htmlContent = "<fieldset><legend>HTML</legend><ul>";
-        pages.html.forEach((page) => {
-          htmlContent += `<li><a href="${page.link}">${page.title}</a></li>`;
-        });
-        htmlContent += "</ul></fieldset>";
+        // createListItem 함수 정의
+        const createListItem = (page) => {
+          if (page.link) {
+            return `<li><a href="${page.link}">${page.title}</a></li>`;
+          } else {
+            return `<li class="empty">${page.title}</li>`;
+          }
+        };
 
-        htmlContent += "<fieldset><legend>CSS</legend><ul>";
-        pages.css.forEach((page) => {
-          htmlContent += `<li><a href="${page.link}">${page.title}</a></li>`;
-        });
-        htmlContent += "</ul></fieldset>";
+        const categories = ["html", "css", "javascript"];
+        let htmlContent = "";
 
-        htmlContent += "<fieldset><legend>JavaScript</legend><ul>";
-        pages.javascript.forEach((page) => {
-          htmlContent += `<li><a href="${page.link}">${page.title}</a></li>`;
+        categories.forEach((category) => {
+          htmlContent += `<fieldset><legend>${category.toUpperCase()}</legend><ul>`;
+          pages[category].forEach((page) => {
+            htmlContent += createListItem(page);
+          });
+          htmlContent += "</ul></fieldset>";
         });
-        htmlContent += "</ul></fieldset>";
 
         contentDiv.innerHTML = htmlContent;
       })

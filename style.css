@@ -52,6 +52,9 @@ body {
         text-decoration-thickness: 2px;
       }
     }
+    &.empty {
+      color: #aaa;
+    }
   }
 }
 
