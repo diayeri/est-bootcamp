@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>console.</title>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>콘솔 로그, 세미콜론, 콘솔 스타일</h1>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 콘솔
+      console.log("로그입니다");
+      console.error("오류를 만들수도 있어요");
+      console.warn("경고를 나타냅니다!");
+
+      // table에는 배열, 객체가 들어갈 수 있다
+      // 배열에서는 index 숫자가 부여된다
+      // 객체에서는 좌측(key), 우측(value)
+      console.table([1, 2, 3, "a", "b"]);
+      console.table({ name: "경현", company: "위니브" });
+
+      // 타이머
+      console.time("timer1");
+      console.log(1, 2, 3);
+      console.timeEnd("timer1");
+
+      // 아스키아트
+      console.log(
+        `
+%c▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█%c░░░░░░░░▀█▄▀▄▀██████░▀█▄▀▄▀██████░
+░░░░░░░░░░░▀█▄█▄███▀░░░ ▀██▄█▄███▀░`,
+        "color:pink; font-size: 18px",
+        "color:skyblue; font-size: 18px"
+      );
+      console.log(` 
+      `);
+    </script>
+  </body>
+</html>

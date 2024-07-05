@@ -104,7 +104,23 @@
     { "title": "Image Resolution", "link": "./css/61.html" }
   ],
   "javascript": [
-    { "title": "JavaScript Basics", "link": "js_basics.html" },
-    { "title": "JavaScript ES6", "link": "js_es6.html" }
+    {
+      "title": "01. 인라인, 내부, 외부 스크립트",
+      "link": "./javascript/001.html"
+    },
+    { "title": "02. 콘솔 - console.log", "link": "./javascript/002.html" },
+    { "title": "03. BOM API - window.alert", "link": "./javascript/003.html" },
+    { "title": "04. 변수 할당, 초기화, 참조", "link": "./javascript/004.html" },
+    { "title": "ex. console.log", "link": "./javascript/005.html" },
+    { "title": "05. 변수명, 네이밍 규칙", "link": "./javascript/006.html" },
+    {
+      "title": "06. 변수 키워드 - var, let, const",
+      "link": "./javascript/007.html"
+    },
+    {
+      "title": "07. scope - 전역, 지역(함수, 블록)",
+      "link": "./javascript/008.html"
+    },
+    { "title": "", "link": "./javascript/002.html" }
   ]
 }

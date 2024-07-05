@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scope</title>
+    <style></style>
+  </head>
+  <body>
+    <main></main>
+    <script src="../common.js"></script>
+    <script>
+      // 스코프 : 변수의 유효범위 (우리가 접근해서 사용할 수 있는 = 참조할 수 있는 범위)
+      // 1. 전역 스코프 (<-> 지역 스코프)
+      var a = 10;
+      let b = 20;
+      const c = 30;
+
+      // 2. 함수 스코프 (One of 지역 스코프)
+      // 함수 안에서 선언된 변수는 해당 함수 안에서만 참조 가능하다.
+      function func1() {
+        var fA = 40;
+        let fB = 50;
+        const fC = 60;
+
+        console.log(a, b, c);
+        console.log(fA, fB, fC);
+      }
+
+      // 3. 블록 스코프
+      // 마찬가지, 블록 안에서 선언된 함수는 해당 블록 안에서만 참조 가능
+      {
+        var bA = 40;
+        let bB = 50;
+        const bC = 60;
+
+        console.log(a, b, c);
+        console.log(fA, fB, fC);
+        console.log(bA, bB, bC);
+      }
+    </script>
+  </body>
+</html>

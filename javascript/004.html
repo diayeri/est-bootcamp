@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수, 할당, 초기화</title>
+    <style></style>
+  </head>
+  <body>
+    <main></main>
+    <script src="../common.js"></script>
+    <script>
+      // let name = window.prompt("이름을 입력하세요");
+      // console.log(`이 사람의 이름은 ${name}`);
+      // window.alert(`${name}님 안녕하세요!`);
+
+      // 변수 선언
+      var a;
+      // 변수 선언과 할당 = 초기화
+      let b = 10;
+      // const로 선언할때는 선언과 할당을 동시에 해주어야 한다!
+      const test = "weniv";
+
+      // 변수 할당 (재할당)
+      // 변수 = 값;
+      a = 30;
+      b = 20;
+      // const로 할당한 변수는 재할당 불가!
+      // test = "hello"; // TypeError: Assignment to constant variable.
+
+      // 변수 참조 : 값에 접근하기
+      console.log(a);
+      console.log(b);
+      console.log(test);
+      // "선언"하지 않은 변수 참조 -> 오류! 존재하지 않는 변수입니다
+      // console.log(c);  // ReferenceError: c is not defined
+    </script>
+  </body>
+</html>

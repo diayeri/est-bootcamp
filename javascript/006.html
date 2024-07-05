@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수명, 네이밍 규칙</title>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1 class="title">변수명 규칙, 네이밍 규칙 (컨벤션)</h1>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 변수명 규칙
+      // 1. 문자, 숫자, $, _ 포함 가능
+      // 2. 숫자로는 시작할 수 없다!
+      // 3. 예약어는 변수명으로 사용할 수 없다! - const, var 같은 기능을 가진 단어들
+      // 4. 대소문자를 구분함
+      // 5. 문자: 알파벳 뿐만 아니라 유니코드 문자를 의미하기때문에, 한글을 사용할 수도 있다. -> 비추
+      let 변수 = 10;
+      console.log("변수:", 변수);
+
+      // 네이밍 규칙 (컨벤션)
+      // 1. 카멜케이스
+      // 보통 변수명은 카멜케이스로 많이 사용
+      let userName;
+
+      // 2. 스네이크 케이스 - 파이썬에서 많이 사용, JS에선 많이 사용하지 않는 편
+      // 여러개 선언은 해도, 할당까지 하는건 잘 안씀
+      let first_name, last_name;
+      let first = "DY",
+        last = "J";
+
+      // 3. 파스칼 케이스: 모든 단어의 시작을 대문자로
+      // 클래스나 생성자함수를 쓸때 보통 사용
+      let MyName = "정이름";
+
+      // 4. 헝가리안 케이스: 변수명 앞에 타입을 적어줌
+      let strUserName;
+      let numberUserAge;
+
+      // value가 html 요소일 때는 $를 주로 사용함
+      let $htmlElement;
+    </script>
+  </body>
+</html>

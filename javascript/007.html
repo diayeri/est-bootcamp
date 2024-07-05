@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수 키워드별 특징</title>
+    <style></style>
+  </head>
+  <body>
+    <main></main>
+    <script src="../common.js"></script>
+    <script>
+      // "use strict";
+      // # 변수 키워드별 특징 - var, let, const
+      a = 10; // (선언) 키워드 없이 선언+할당이 가능함, var 생략 (권장X)
+      console.log(a);
+      // 레거시 코드 -> 예전에 그렇게 작성된 코드가 있어서 지금도 작동은 하고 오류로 표시하지 않음
+      // 그래서 필요한 "엄격 모드"
+
+      // ## 재선언 -> 이전 값이 대체됨, var 에서만 가능 (권장X)
+      // 재할당과는 다름
+      var name = "다영";
+      console.log(name);
+
+      var name = "위니브";
+      console.log(name);
+
+      // ## 재할당 -> var, let에서 가능
+      var x = 10;
+      x = 20;
+
+      let y = 30;
+      y = 40;
+    </script>
+  </body>
+</html>
