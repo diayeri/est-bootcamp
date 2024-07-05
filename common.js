@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // createListItem 함수 정의
         const createListItem = (page) => {
           if (page.link) {
-            return `<li><a href="${page.link}">${page.title}</a></li>`;
+            return `<li><a href="${page.link}" class="${page.class}">${page.title}</a></li>`;
           } else {
             return `<li class="empty">${page.title}</li>`;
           }

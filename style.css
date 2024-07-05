@@ -51,6 +51,12 @@ body {
         text-decoration-color: olivedrab;
         text-decoration-thickness: 2px;
       }
+      &.easy {
+        color: #aaa;
+      }
+      &.hard {
+        color: olivedrab;
+      }
     }
     &.empty {
       color: #aaa;
