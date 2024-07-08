@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>string type</title>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1 class="title">string</h1>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 문자열
+      // '작은따옴표', "큰따옴표", `백틱`으로 감싸진 텍스트
+      // 중간에 엔터(줄바꿈)을 넣으려면 백틱을 사용해야 함
+      let st1 = 'java"script';
+      let st2 = "javascript";
+      let st3 = `javascript`;
+
+      console.log(typeof st1, typeof st2, typeof st3);
+
+      // 템플릿 리터럴
+      const a = 10;
+      const b = 20;
+
+      console.log(a + " + " + b + " = " + (a + b));
+      console.log(a + " + " + b + " = " + a + b); // 1020
+      console.log(`${a} + ${b} = ${a + b}`);
+
+      // 문자열 특징 - 인덱스
+      let greet = "Hello world";
+      console.log(greet[0]);
+      console.log(greet[5]);
+      console.log(greet[15]);
+      console.log(greet[-1]); // undefined (not working)
+      console.log(greet.at(-1)); // 마지막 요소 접근!
+
+      console.log("문자열의 길이는", greet.length);
+      console.log(greet[greet.length - 1]); // 마지막 요소 접근!
+
+      // 문자열의 특징 - 원시타입의 불변성
+      greet[5] = "t"; // 코드를 실행하지 않음, "use strict" 사용시 오류 메시지
+      console.log(greet);
+
+      // 문자열의 특징 - "+" 연산자로 연결
+      let greet2 = "안녕";
+      let name = "다영";
+      console.log((greet2, name)); // false '다영'
+      console.log("안녕다영" === greet2 + name); // true
+    </script>
+  </body>
+</html>

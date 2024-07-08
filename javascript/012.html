@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>number type</title>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>숫자형의 특징</h1>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 숫자형
+      let num1 = 1;
+      let num2 = 3.2;
+
+      console.log(typeof num1, typeof num2);
+      console.log(num1, num2);
+      console.log(num1 + num2);
+
+      // 소수점 계산에서의 오차
+      console.log(0.1 + 0.2); // 0.3 이 아님!
+      // 숫자를 지정하는 형식 때문 - 10진수를 2진수로 전환하는 과정에서 무한 소수화 -> 오차 발생
+      // 해결방법 - 반올림, 소수점 지정 처리 / 라이브러리 (Decimal.js)
+
+      // 자바스크립트에서 안전하게 사용할 수 있는 숫자 (영역)
+      console.log(Number.MAX_SAFE_INTEGER); // 가장 큰 수
+      console.log(Number.MIN_SAFE_INTEGER); // 가장 작은 수
+
+      console.log(Number.MAX_SAFE_INTEGER + 1);
+      console.log(Number.MAX_SAFE_INTEGER + 2);
+      console.log(Number.MAX_SAFE_INTEGER + 3);
+
+      // 다양한 연산
+      const a = 10;
+      const b = 3;
+      console.log(`10 + 3 = ${10 + 3}`);
+      console.log(`10 - 3 = ${10 - 3}`);
+      console.log(`10 * 3 = ${10 * 3}`);
+      console.log(`10 / 3 = ${10 / 3}`);
+      console.log(`10 % 3 = ${10 % 3}`); // 나머지
+      console.log(`10 ** 3 = ${10 ** 3}`); // 10의 3승
+      console.log(`4 ** 0.5 = ${4 ** 0.5}`); // 4의 제곱근 (루트)
+
+      // 단항 연산 (연잔자와 피연산자가 한개씩)
+      console.log(`-${a} = ${-a}`); // -10 = -10
+      console.log(`-(-${a}) = ${-(-a)}`); // -(-10) = 10
+      console.log(+`-${a}`); // 숫자로 타입 변환
+      console.log(+`${-a}`); // 숫자로 타입 변환
+      console.log(-(-a)); // 숫자로 타입 변환
+
+      // 증감연산
+      // num 값이 재할당 됨
+      let num = 3;
+      console.log(num++); // 3, 연산 후에 증가
+      console.log(++num); // 5, 연산 전에 증가
+      console.log(num--); // 5, 연산 전에 증가
+      console.log(--num); // 3, 연산 전에 증가
+
+      // 특수한 값
+      console.log("1/0 은", 1 / 0);
+      console.log("-1/0 은", -1 / 0);
+
+      // e를 이용하여 10의 거듭제곱 표현
+      console.log(3e10); // 3*(10**10) = 3*10^10
+      console.log(2e-2); // 2*(10**(-2)) = 2*10^(-2)
+      console.log(2 * 10 ** -2);
+
+      // NaN (Not a Number)
+      console.log(typeof NaN); // number type
+      console.log("hello" * 2);
+
+      console.log(+`-(-${a})`);
+    </script>
+  </body>
+</html>

@@ -89,7 +89,8 @@ body {
   padding: 8px;
 }
 
-.title {
+.title,
+main > h1:first-child {
   font-family: monospace;
   line-height: 1;
   color: olivedrab;
@@ -102,7 +103,8 @@ body {
   }
 }
 
-h1.title {
+h1.title,
+main > h1:first-child {
   color: #fff;
   background-color: olivedrab;
   padding: 6px 12px;
