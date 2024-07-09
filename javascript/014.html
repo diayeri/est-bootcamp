@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math 객체</title>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>Math 객체</h1>
+      <p>
+        자바스크립트가 기본적으로 가지고 있는 연산 기능 <br />
+        Math works with the Number type. It doesn't work with BigInt.
+      </p>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // Math 객체
+
+      // 원주율
+      console.log(`Math.PI: ${Math.PI}`);
+
+      // 숫자 버림, 반올림(round), 올림
+      console.log(`Math.floor: ${Math.floor(4.8)}`);
+      console.log(`Math.floor: ${Math.floor(-1.5)}`);
+      console.log(`Math.round: ${Math.round(4.2)}`);
+      console.log(`Math.round: ${Math.round(4.8)}`);
+      console.log(`Math.ceil: ${Math.ceil(4.2)}`);
+
+      // 숫자의 정수부만 가져오기
+      console.log(`Math.trunc: ${Math.trunc(4.8)}`);
+      console.log(`Math.trunc: ${Math.trunc(-1.5)}`);
+      // 비교
+      console.log(`toFixed: ${(1.6).toFixed(0)}`);
+      console.log(`toFixed: ${(-1.6).toFixed(0)}`); // 반올림
+      console.log(`Math.round: ${Math.round(-1.6)}`);
+
+      // 제곱, 제곱근 (지수)
+      console.log(`Math.pow: ${Math.pow(2, 3)}`);
+      console.log(`2 ** 3 : ${2 ** 3}`);
+      console.log(`Math.sqrt: ${Math.sqrt(4)}`);
+
+      // 절대값
+      console.log(`Math.abs: ${Math.abs(-5)}`);
+      console.log(`Math.abs: ${Math.abs(4)}`);
+
+      // 랜덤숫자
+      console.log(`Math.random: ${Math.random()}`);
+      // 정수 랜덤숫자 (1~10) 구하기
+      // 0 <= random < 1
+      // 0 <= random < 10
+      // 1 <= random < 11
+      // random -> 1, 1.1, ..., 10.999
+      // 버림 사용하기 -> 1~10 까지의 랜덤정수 얻기
+      console.log(`1~10 랜덤정수 : ${Math.floor(Math.random() * 10 + 1)}`);
+
+      // 최대값, 최소값
+      console.log(`Math.max: ${Math.max(10, 20, 30, 40, 50)}`);
+      console.log(`Math.min: ${Math.min(10, 20, 30, 40, 50)}`);
+    </script>
+  </body>
+</html>

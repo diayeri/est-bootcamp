@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열 메서드</title>
+    <style></style>
+  </head>
+  <body>
+    <main></main>
+    <script src="../common.js"></script>
+    <script>
+      // 배열 메서드
+      const arr = [10, 20, 30];
+
+      // push, pop, unshift, shift
+      // 뒤 / 앞에서부터 배열의 요소를 한개씩 추가 / 삭제
+
+      // push -> 길이 값 반환
+      // 배열의 마지막 요소 값을 추가
+      console.log("----push----");
+      const pushArr = arr.push(40);
+      const pushArr2 = arr.push(arr);
+      console.log(arr);
+      console.log("pushArr:", pushArr); // 4 (길이값)
+      console.log("pushArr2:", pushArr2);
+
+      // pop -> (삭제된) 마지막 요소 반환
+      // 배열의 마지막 요소 값을 삭제
+      console.log("----pop----");
+      const popArr = arr.pop();
+      console.log(arr);
+      console.log("popArr:", popArr); // 40 (마지막요소)
+
+      // unshift -> 길이 값 반환
+      // 배열의 첫 번째 요소 값을 추가
+      console.log("----unshift----");
+      arr.unshift(50);
+      console.log("arr:", arr);
+
+      // shift -> (삭제된) 첫 번째 요소 반환
+      // 배열의 첫 번째 요소에 값을 삭제
+      console.log("----shift----");
+      arr.shift();
+      console.log("arr:", arr);
+
+      // splice(시작점, 개수, 새요소) -> 반환값이 없음
+      // 원하는 위치에 여러개의 요소를 추가 / 삭제 / 변경
+      // 인자1: 변경위치, 인자2: 변경할 기존 요소 개수, 인자3~: 대치할 새 요소
+      // 인자3부터 생략될 경우, 삭제만 되는 효과
+      console.log("----splice----");
+      const arr2 = [1, 2, 3];
+      arr2.splice(1, 0, 4, 5, 6);
+      console.log(arr2); // [1, 4, 5, 6, 2, 3], 추가됨
+      arr2.splice(2, 2);
+      console.log(arr2); // [1, 4, 2, 3], 삭제됨
+      arr2.splice(3, 1, 5, 8);
+      console.log(arr2); // [1, 4, 2, 5, 8], 변경됨
+
+      // slice(시작점, 개수) -> 지정한 영역만 뽑아서 새 배열을 반환
+      console.log("----slice----");
+      const fruits = ["apple", "orange", "cherry", "pineapple", "blueberry"];
+      console.log(fruits.slice(1, 3));
+      console.log(fruits.slice(3)); // 인자2 생략시, 마지막까지 반환
+      console.log(fruits);
+
+      const sliceFruits = fruits.slice(); // 동일한 배열 전체 복사
+      sliceFruits.splice(0, 1, "두리안");
+      sliceFruits[1] = "오랑지";
+      console.log("fruits:", fruits);
+      console.log("sliceFruits:", sliceFruits);
+
+      // sort
+      // 유니코드 순서로 정렬 (사전식)
+      // 유니코드 = 문자열로 취급함 주의!
+      console.log("----sort----");
+      fruits.sort();
+      console.log("sort:", fruits);
+
+      const nums = [1, 5, 4, 2];
+      console.log(nums.sort());
+
+      const nums2 = [6, 100, 24, 66];
+      nums2.sort();
+      console.log(nums2);
+
+      // 숫자 정렬시, 비교함수 사용
+      // 반환값의 부호랑 a, b / b, a 순서가 뭔상관인지 이해가 안되지만.. 외워라!! 그냥 자바스크립트 속성이다!
+
+      // 반환값이 양수면(a - b > 0), b - a 순으로 정렬
+      // 반환값이 음수면(a - b < 0), a - b 순으로 정렬
+      nums2.sort(function (a, b) {
+        return a - b;
+      }); // 오름차순
+      console.log(nums2);
+
+      // 반환값이 양수면(b - a > 0), a - b 순으로 정렬
+      // 반환값이 음수면(b - a > 0), b - a 순으로 정렬
+      nums2.sort(function (a, b) {
+        return b - a;
+      }); // 내림차순
+      console.log(nums2);
+
+      // indexOf(찾을값, (찾기 시작할 영역의 인덱스)) -> 인덱스 번호
+      console.log("----indexOf----");
+      const arr3 = [1, 2, 3, 1, 2, 3, 4];
+      console.log(arr3.indexOf(2));
+      console.log(arr3.indexOf(5));
+      console.log(arr3.indexOf(4));
+      console.log(arr3.indexOf(2, 3));
+
+      // includes -> 포함여부(boolean)
+      console.log("----includes----");
+      console.log(arr3.includes(1));
+      console.log(arr3.includes(6));
+
+      // ** forEach -> 반환값 없음
+      // 인자 = 함수
+      // 배열의 요소를 하나하나를 모두 순회하여, 함수를 실행할 때 사용
+      console.log("----forEach----");
+      const fruits3 = ["참외", "수박", "오이"];
+      fruits3.forEach(function (item, index) {
+        console.log(item, index);
+        fruits3[index] = item + "짱";
+      });
+      console.log(fruits3);
+      // ㄴ 원본 배열이 수정되는것이 문제가 될 수 있음
+
+      // 원본 배열을 수정하지 않기 위해 새로운 변수 지정
+      const result = [];
+      fruits3.forEach(function (item, index) {
+        console.log(item, index);
+        result.push(item + "조와");
+      });
+      console.log(fruits3);
+      console.log(result);
+
+      // forEach는 반환값이 없어서 아래처럼 사용하지 않는다
+      const resultArr = fruits3.forEach(function (item, index) {
+        console.log(item, index);
+        fruits3[index] = item + "짱";
+      });
+      console.log("resultArr:", resultArr); // undefined
+
+      // ** map -> 배열
+      // 인자 = 함수
+      // forEach와 유사하게 작동하나, 새로운 array를 반환함
+      // "반환값"이 새로운 배열의 요소가 됨
+      console.log("----map----");
+      const arr4 = [10, 20, 30];
+      const mapArr = arr4.map(function (item, index) {
+        console.log(item, index);
+        return `${item}-${index}`; // 반환값이 새로운 배열의 요소가 됨 (반환값이 없으면 empty값으로 이루어진 같은 length의 배열)
+      });
+      console.log(arr4);
+      console.log(mapArr);
+
+      // ** filter -> 배열
+      // 인자 = 함수
+      // 특정 조건을 만족하는 요소(반환값이 true)만 찾아서 새로운 배열 반환
+      // map과 유사하나, 특정 조건에서 true인 것만 추출한다는 점에서 다름
+      console.log("----filter----");
+      const arr5 = [1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5];
+      const filterArr = arr5.filter(function (item, index) {
+        // 홀수 찾기
+        return item % 2;
+        // 짝수 찾기
+        // return item % 2 === 0;
+      });
+      console.log(arr5);
+      console.log(filterArr);
+
+      // reduce
+      // 배열에 모든 요소를 더하기
+      // 배열에서 제공하는 기능, for문보다 속도가 빠르고 간결
+      console.log("----reduce----");
+      const arr6 = [1, 2, 3, 4, 5];
+      // 인자이름: accumulator 누적값, currentValue 현재값
+      const reduceRes = arr6.reduce(function (a, c) {
+        return a + c;
+      }, 0);
+      console.log(reduceRes);
+      // 초기값을 생략시, 초기값은 첫번째 요소가 된다 - 빈배열시 오류가 날수 있어서 초기값 넣는 습관!
+      // a <- 초기값, c <- 순회, a <- 반환값
+      // 1. a = 0, c = 1 -> 1
+      // 2. a = 1, c = 2 -> 3
+      // 3. a = 3, c = 3 -> 6
+      // 4. a = 6, c = 4 -> 10
+      // 5. a = 10, c = 5 -> 15
+      // return 15 -> reduceRes
+      // [].reduce(function (a, c) {
+      //   return a + c;
+      // }, 0);
+
+      // join -> 문자열
+      // 인자: 연결요소
+      // 배열을 이어서 문자열로 반환
+      console.log("----join----");
+      const arr7 = ["hi", "거기", "there"];
+      console.log(arr7.join("-"));
+      // 비교참고: split (반대 역할)
+
+      // concat
+      // 배열 연결, 얕은 복사 가능 - 배열은 1껍질 풀어서, 값은 요소로 추가됨 (원본배열 수정 안됨)
+      console.log("----concat----");
+      const arr8 = [1, 2, 3];
+      const arr9 = [4, 5, 6];
+      const concatRes = arr8.concat(arr9);
+      const concatRes2 = arr8.concat(arr9, 7, 8); // 요소바로 전달 가능 (순서대로)
+      const concatRes3 = arr8.concat([arr9], [[7, 8]]); // 다차원 배열 전달 가능
+      console.log(concatRes);
+      console.log(concatRes2);
+      console.log(concatRes3);
+      console.log(arr9); // 기존 배열은 그대로 유지
+
+      // 인자를 생략하면 복사가 됨 -> 얕은 복사...
+      const concatRes4 = arr8.concat();
+      concatRes4[0] = "메롱";
+      console.log("copy:", concatRes4);
+      console.log("origin:", arr8);
+
+      // 그러나... 다중배열 복사시 동일한 주소값을 가지는 원본 배열이 바뀌게 되는데...!
+      // 기존 배열을 새로운 배열로 복사하더라도 (원본이 바뀌지 않을때에도) 그 안에있는 다중배열은 같은 힙메모리 주소를 갖는다는 것
+      const arr10 = [0, 1, [2, 3]];
+      const copyArr = arr10.concat();
+      copyArr[0] = 10;
+      copyArr[2][0] = 20;
+      console.log("copy:", copyArr);
+      console.log("origin:", arr10);
+    </script>
+  </body>
+</html>

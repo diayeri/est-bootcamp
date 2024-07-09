@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array type</title>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>array type</h1>
+      <h2 class="title">배열 선언하기</h2>
+      <h2 class="title">배열의 특징</h2>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 배열
+
+      // # 배열 선언하기
+      // 1. 대괄호 사용
+      const arr1 = []; // 빈 배열
+      const arr2 = [1, 2, 3, 4]; // 요소를 가지는 배열
+      console.log(arr1);
+      console.log(arr2);
+
+      // 2. Array 생성자 함수 사용
+      const arr3 = new Array(10, 20, 30);
+      console.log(arr3);
+      // 인자가 하나인데 숫자일 경우 -> 길이로 취급 (하나의 배열 안에 빈 요소가 해당 개수만큼 생성됨)
+      const arr4 = new Array(5);
+      console.log(arr4);
+      console.log(new Array(1));
+      // 인자가 하나인데 문자일 경우는 의도대로 동작
+      const arr5 = new Array("a");
+      console.log(arr5);
+
+      // # 배열의 특징
+      console.log("----순서----");
+      arr = [10, 20, 30, 40, 60];
+      console.log(arr[0]);
+      console.log(arr[4]);
+      console.log(arr[10]); // undefined
+      console.log(arr[-1]); // undefined
+      console.log(arr.at(-2)); // 음수 인덱스
+
+      // ## 배열의 요소
+      // 배열 안에 배열이 들어갈 수 있다 = 차원
+      const arr6 = [10, 20, "hello"]; // 1차원 배열 = 벡터(vector)
+      console.log(arr6);
+
+      const arr7 = [
+        [10, 20],
+        [30, 40],
+      ]; // 2차원 배열 = 행렬(matrix)
+      console.log(`20값 찾기: ${arr7[0][1]}`);
+
+      const arr8 = [
+        [
+          [1, 2],
+          [3, 4],
+        ],
+        [
+          [5, 6],
+          [7, 8],
+        ],
+      ]; // 3차원 배열 = 텐서
+      // 마지막 배열닫고 콤마는 안넣어도 되나, 확장성 면에서 유리함
+      console.log(`5값 찾기: ${arr8[1][0][0]}`);
+    </script>
+  </body>
+</html>

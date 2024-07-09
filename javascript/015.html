@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BigInt</title>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>BigInt</h1>
+      <p>64bit보다 더 큰 크기의 숫자 나타내기</p>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // BigInt (ES2020~)
+      // 정수형 표현만 가능 (소수점 표현하지 않음)
+
+      console.log(Number.MAX_SAFE_INTEGER);
+      console.log(Number.MIN_SAFE_INTEGER);
+
+      let bigNum1 = 123456n;
+      console.log(typeof bigNum1);
+
+      // BigInt의 연산
+      // BigInt 끼리만 연산이 되고, 일반 숫자형과 연산 불가 (BigInt와 숫자형은 다른 타입)
+      console.log(5n / 2n); // 2n (소수점을 버린 BigInt값)
+      // console.log(5n / 2); // error
+      console.log(5n / BigInt(2));
+
+      // BigInt 변환시 주의사항
+      // 안전하지 않은 숫자값은 문자열로 전달하면 안전하게 사용가능
+      console.log(BigInt(9007199254740991));
+      console.log(BigInt(9007199254740992));
+      console.log(BigInt(9007199254740993));
+      console.log(BigInt(9007199254740994));
+      console.log(BigInt("9007199254740991"));
+      console.log(BigInt("9007199254740992"));
+      console.log(BigInt("9007199254740993"));
+      console.log(BigInt("9007199254740994"));
+    </script>
+  </body>
+</html>

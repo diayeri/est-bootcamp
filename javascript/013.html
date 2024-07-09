@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자형 메서드</title>
+    <style></style>
+  </head>
+  <body>
+    <main></main>
+    <script src="../common.js"></script>
+    <script>
+      // 숫자형 메서드
+
+      // parseInt
+      // int: 정수 (integer)
+      // 문자열 데이터 -> 숫자로 변환 (정수 반환)
+      console.log("----parseInt----"); // Integer: 정수
+      console.log(typeof "35");
+      console.log(parseInt("35"));
+      console.log(typeof parseInt("35"));
+      console.log(parseInt("30px")); // 수집가능한 정수 숫자까지만 반환
+      console.log(parseInt("30.55px")); // 수집가능한 정수 반환
+      console.log(parseInt("width: 30px")); // NaN, 숫자로 시작해야함
+
+      // parseFloat
+      // 정수가 아닌 실수를 반환
+      console.log("----parseFloat----");
+      console.log(parseFloat("12.5px")); // 12.5
+      console.log(parseFloat("12.5.2px")); // 12.5, 첫번째 점만 소수점으로 인식
+
+      // isNaN, Number.isNaN : NaN 판별도구
+      // isNaN: 값을 숫자로 변환해서 확인함 (형 변환)
+      // undefined를 숫자 변환하면 NaN이 됨
+      console.log("----isNaN----");
+      console.log(2 == 2); // NaN은 이 방법으로 판별 불가
+      console.log(isNaN(23)); // false, 숫자
+      console.log(isNaN(undefined)); // true, undefined -> isNaN
+      console.log(isNaN("hello")); // true
+      console.log(isNaN("23")); // false, 숫자 반환
+
+      // Number.isNaN: 형 변환이 일어나지 않음 (좀 더 엄격)
+      // 숫자형 NaN일 경우에만 true 반환
+      console.log("----Number.isNaN----");
+      console.log(Number.isNaN(23)); // false
+      console.log(Number.isNaN(undefined)); // false
+      console.log(Number.isNaN("hi")); // false
+      console.log(Number.isNaN("23")); // false
+      console.log(Number.isNaN("hi" * 3)); // true
+      console.log(Number.isNaN("hi" + 3)); // false, string
+
+      // toFixed
+      // "소수점 아래" 자리수 고정
+      // 자리수 변환시 반올림이 일어남
+      console.log("----toFixed----");
+      const pi = 3.14159226;
+      console.log(pi.toFixed(2));
+      console.log(typeof pi.toFixed(2)); // string
+      console.log(pi.toFixed(10));
+      console.log(typeof pi.toFixed(10)); // string
+      // console.log(pi.padEnd(10, "0")); // error, 숫자 불가
+      console.log("3.14159226".padEnd(12, "0")); // 전체 단위수 맞추기, 문자열
+      console.log((-1.6).toFixed(0)); // 반올림
+    </script>
+  </body>
+</html>

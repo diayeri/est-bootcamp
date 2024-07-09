@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>undefined</title>
+    <style></style>
+  </head>
+  <body>
+    <main><h1>undefined</h1></main>
+    <script src="../common.js"></script>
+    <script>
+      // undefined
+      // typeof와 함께 사용하여 선언/할당 여부 확인
+
+      let a;
+      console.log(a);
+      console.log(typeof a);
+
+      // if (b) { // error
+      //   console.log("b is working");
+      // }
+      // if (typeof b) { // 빈문자열이 아닌 문자열 -> true (의도상 기능 맞지 않음)
+      //   console.log("b is working");
+      // }
+      if (typeof k === "undefined") {
+        // typeof는 문자열을 반환하기에 ""안에 undefined 넣어줌
+        console.log("k is undefined");
+      }
+      if (typeof a === "undefined") {
+        console.log("a is undefined"); // 선언만 하고 할당 안한상태
+      }
+    </script>
+  </body>
+</html>

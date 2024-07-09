@@ -127,6 +127,16 @@
     { "title": "09. string type", "link": "./javascript/010.html" },
     { "title": "10. string type method", "link": "./javascript/011.html" },
     { "title": "11. number type", "link": "./javascript/012.html" },
-    { "title": "11. number type method", "link": "./javascript/013.html" }
+    { "title": "12. number type method", "link": "./javascript/013.html" },
+    { "title": "13. Math", "link": "./javascript/014.html" },
+    { "title": "14. BigInt", "link": "./javascript/015.html" },
+    { "title": "15. boolean", "link": "./javascript/016.html" },
+    { "title": "16. undefined", "link": "./javascript/017.html" },
+    { "title": "17. null", "link": "./javascript/018.html" },
+    { "title": "18. Symbol", "link": "./javascript/019.html" },
+    { "title": "--", "link": "" },
+    { "title": "19. 객체 타입", "link": "./javascript/020.html" },
+    { "title": "20. array type", "link": "./javascript/021.html" },
+    { "title": "21. array type method", "link": "./javascript/022.html" }
   ]
 }
