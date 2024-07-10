@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>최신도입 연산</title>
+    <style></style>
+  </head>
+  <body>
+    <main></main>
+    <script src="../common.js"></script>
+    <script>
+      // ES2020 도입 연산
+
+      // ?? nullish
+      // OR과 유사하나, null과 undefined가 아닌 최초값을 출력 (첫번쨰 truthy)
+      // 모두 null이나 undefined라면, 마지막 값 출력
+      console.log(null ?? null ?? null);
+      console.log(null ?? null ?? undefined);
+      console.log(null ?? "" ?? undefined);
+      // OR과의 차이점
+      const a = null;
+      const b = 23;
+      console.log(a ?? b); // 23
+      console.log(b ?? a); // 23
+
+      // let name = window.prompt("이름을 입력해주세요");
+      name = name ?? "사용자";
+      console.log("당신의 이름은...", name);
+      // 빈 문자열은 null 이나 undefined이 아님 (string)
+
+      // ?. 옵셔널 체이닝
+      // 값의 유효성 검사
+      console.log("----옵셔널 체이닝 ?.----");
+      let user = {
+        name: "mimi",
+        address: {
+          city: "jeju",
+        },
+        sayHello() {
+          console.log("Hello Dayoung");
+        },
+      };
+      console.log(user.number); // undefined
+      // console.log(user.number.location); // ERR: undefined.location
+      // user = null;
+      console.log("&& 사용시", user && user.number && user.number.location);
+      console.log("?. 사용시", user?.number?.location);
+      // 옵셔널에서는 null도 undefined로 반환한다는 점에서 특이허다~
+      console.log("함수", user?.sayHello?.()); // 함수에 쓰는 옵셔널 작성법
+
+      // 옵셔널과 널리쉬를 함께 사용
+      console.log("----옵셔널+널리쉬---");
+      console.log(user?.number?.location ?? "seoul");
+
+      // (참고)
+      // ES2021 도입
+
+      // &&= 연산자
+      // &&= 연산자는 왼쪽의 피연산자가 truthy 값일 때만 오른쪽 피연산자를 할당
+      let aa = true;
+      aa &&= "Hello";
+      console.log(a); // "Hello"
+
+      let bb = false;
+      bb &&= "World";
+      console.log(b); // false
+
+      // ||= 연산자
+      // ||= 연산자는 왼쪽의 피연산자가 falsy 값일 때만 오른쪽 피연산자를 할당합니다.
+      let testname;
+      testname ||= "사용자";
+      console.log(testname); // "사용자"
+
+      testname = "John";
+      testname ||= "사용자";
+      console.log(testname); // "John"
+
+      // ??= 연산자
+      // ??= 연산자는 왼쪽의 피연산자가 null이나 undefined일 때만 오른쪽 피연산자를 할당합니다.
+      let value = null;
+      value ??= "default";
+      console.log(value); // "default"
+
+      let anotherValue = 0;
+      anotherValue ??= 100;
+      console.log(anotherValue); // 0 (0은 null이나 undefined가 아니므로 변경되지 않음)
+    </script>
+  </body>
+</html>

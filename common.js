@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => console.error("Error fetching page data:", error));
   }
 
-  console.log(currentPath);
+  // console.log(currentPath);
   // 메인 페이지와 하위 페이지에 따라 다른 동작 수행
   if (currentPath.endsWith("index.html")) {
     // 메인 페이지: 리스트 항목 추가
@@ -79,4 +79,12 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.appendChild(footer);
     }
   }
+
+  // script 태그의 내용을 가져와서 pre 태그 안에 넣는 함수
+  document.addEventListener("DOMContentLoaded", () => {
+    const scriptContent = document.getElementById("show").textContent;
+    const codeBlock = document.getElementById("code");
+    codeBlock.textContent = scriptContent.trim();
+    Prism.highlightElement(codeBlock);
+  });
 });

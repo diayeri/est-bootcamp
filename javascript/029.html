@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>형 변환 to String</title>
+    <style></style>
+  </head>
+  <body>
+    <main></main>
+    <script src="../common.js"></script>
+    <script>
+      // 형 변환
+      console.log("----to String----");
+      // String() : function
+      console.log("----1. String()");
+      console.log(typeof String(23));
+      console.log(String(NaN));
+      console.log(String(true));
+      console.log(String(null));
+      console.log(String(undefined));
+      console.log(String("string"));
+
+      // toString : method
+      // null, undefined 오면 오류남
+      // n진수변환 가능
+      console.log("----2. toString()");
+      console.log((3).toString()); // 정수는 묶지 않으면 .을 소수점으로 인식하여 오류
+      console.log((2.3).toString()); // 실수는 묶지 않아도 제대로 작동함
+      console.log((3).toString(2)); // 진수변환 가능 (결과는 항상 string)
+      // console.log(null.toString()); // ERR
+      // console.log(undefined.toString()); // ERR
+
+      // 자동 형 변환 이용
+      console.log("----3. 자동 형 변환 이용 (+ 연결)");
+      console.log(23 + "");
+    </script>
+  </body>
+</html>

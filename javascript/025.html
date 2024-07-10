@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연산 - 산술연산</title>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>산술연산</h1>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 연산
+      // 1. 산술연산
+      // 자동 형 변환 (연산할 수 있게끔)
+      let x = 10;
+      // let y = 3;
+      // let y = "3";
+      let y = "hi";
+
+      // + 더하기 연산자, 연결 연산자
+      // 피연산자: 숫자 -> 더하기
+      // 문자가 하나라도 있으면 -> 연결
+      // 피연산자가 하나면 -> 숫자형으로 변환
+      console.log(+"hello");
+      console.log(+"4");
+
+      console.log("x + y =", x + y);
+      // 나머지 연산 -> 숫자로 형 변환하여 계산
+      console.log("x - y =", x - y);
+      console.log("x * y =", x * y);
+      console.log("x / y =", x / y);
+      console.log("x % y =", x % y);
+      console.log("x ** y =", x ** y);
+
+      // 산술할당연산 : 산술연산 + 할당연산
+      console.log("----산술할당연산----");
+      let a = 10;
+      console.log("a += 20", (a += 20));
+      console.log("a -= 5", (a -= 5));
+      console.log("a *= 2", (a *= 2));
+      console.log("a /= 5", (a /= 5));
+      console.log("a %= 4", (a %= 4));
+      console.log("a **= 4", (a **= 4));
+
+      // 증감연산자
+      console.log("----증감연산자----");
+      let num1 = 10;
+      // 연산자가 앞에 있으면: 전위연산자
+      // 연산자가 뒤에 있으면: 후위연산자
+      console.log(num1++);
+      console.log(num1);
+      console.log(++num1);
+      console.log(num1);
+
+      console.log(num1--);
+      console.log(num1);
+      console.log(--num1);
+      console.log(num1);
+    </script>
+  </body>
+</html>

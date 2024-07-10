@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>삼항연산자</title>
+    <style></style>
+  </head>
+  <body>
+    <main></main>
+    <script src="../common.js"></script>
+    <script>
+      // 삼항연산자
+      // (조건식) ? (참일때 실행) : (거짓일때 실행)
+      // 삼항연산자는 표현식이다. 값으로 평가될 수 있다. (if 실행구문은 값으로 평가될 수 없다)
+      // 변수에 넣을 수 있다. (선언 시 사용가능)
+      console.log("----삼항연산자----");
+      true ? console.log("true") : console.log("false");
+      const result = true ? console.log("true") : console.log("false");
+      console.log(result); //
+
+      let num = 10;
+      const item = num > 5 ? "5보다 크다" : "5보다 작다";
+      console.log(item); //
+
+      // 삼항연산자의 중첩
+      // 중첩이 많고 복잡해지면 오히려 if문으로 작성하는게 더 가독성이 좋을수도 있다.
+      console.log("----삼항연산자 중첩----");
+      let price = 2000;
+      // price > 6000 : 비싸요
+      // 6000 > price > 3000 : 적당해요
+      // 3000 > price : 저렴해요
+      let msg =
+        price > 6000 ? "비싸요" : price > 3000 ? "적당해요" : "저렴해요";
+      console.log(msg);
+    </script>
+  </body>
+</html>

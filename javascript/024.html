@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 메서드</title>
+    <style></style>
+  </head>
+  <body>
+    <main></main>
+    <script src="../common.js"></script>
+    <script>
+      // 객체 메서드
+
+      // 객체 프로퍼티 키, 밸류, 키-밸류 쌍
+      const user = {
+        name: "hati",
+        job: "fe",
+        sayHello() {
+          console.log("Hello world!");
+        },
+      };
+      // Object. - JS 내장 객체 (Math. 처럼)
+      // Object.keys
+      // key 값들을 배열로 반환
+      console.log(Object.keys(user));
+
+      // Object.values
+      // value 값들을 배열로 반환
+      console.log(Object.values(user));
+
+      // Object.entries
+      // [key, value] 쌍이 배열로 묶여서 반환
+      console.log(Object.entries(user));
+
+      // hasOwnProperty
+      // 프로퍼티 키를 검색하여 보유여부 판별 (in과 같은 역할)
+      // 상속받은 프로퍼티는 찾지 못함!
+      console.log("----hasOwnProperty----");
+      console.log(user.hasOwnProperty("name"));
+      console.log(user.hasOwnProperty("nickname"));
+
+      // for in
+      // key값을 이용하여 객체를 순회, 순서는 보장하지 않음
+      // emmet "forin" tab
+      for (const key in user) {
+        console.log(key, user[key]);
+      }
+      for (const elem in user) {
+        console.log(elem, user[elem]);
+      }
+    </script>
+  </body>
+</html>
