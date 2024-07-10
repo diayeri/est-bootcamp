@@ -58,9 +58,11 @@
       console.log(typeof pi.toFixed(2)); // string
       console.log(pi.toFixed(10));
       console.log(typeof pi.toFixed(10)); // string
-      // console.log(pi.padEnd(10, "0")); // error, 숫자 불가
-      console.log("3.14159226".padEnd(12, "0")); // 전체 단위수 맞추기, 문자열
-      console.log((-1.6).toFixed(0)); // 반올림
+      console.log((-1.6).toFixed(0)); // 음수값 테스트, 반올림
+
+      // padEnd vs toFixed
+      // console.log(pi.padEnd(10, "0")); // error, padEnd는 number에 적용 불가 (pi: number)
+      console.log("3.14159226".padEnd(12, "0")); // 전체 단위수 맞추기, padEnd는 문자열에 적용 가능
     </script>
   </body>
 </html>

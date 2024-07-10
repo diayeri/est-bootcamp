@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>문자열 메소드</title>
+    <title>문자열 메서드</title>
     <style></style>
   </head>
   <body>
@@ -53,7 +53,7 @@
       const str = "Hello world, Hello dayoung!";
 
       // indexOf
-      // 해당 문자열의 (최초) 인덱스 번호 찾기
+      // (앞에서부터) 해당 문자열의 인덱스 번호 찾기
       console.log("----indexOf----");
       console.log(str.indexOf("Hello")); // 0 (시작하는 첫번째 index만 찾음)
       console.log(str.indexOf("hello")); // -1 (없음)
@@ -61,12 +61,14 @@
       console.log(str.indexOf("Hello", 5)); // 13 (탐색을 시작하는 index 부여시 뒤에 있는 문자열 탐색시 사용가능)
 
       // lastIndexOf
-      // 해당 문자열의 (뒤에서부터! 최초) 인덱스 번호 찾기
+      // (뒤에서부터) 해당 문자열의 인덱스 번호 찾기
       console.log("----lastIndexOf----");
       console.log(str.lastIndexOf("Hello")); // 13
       console.log(str.lastIndexOf("g!")); // 25
       console.log(str.lastIndexOf("Hello", 12));
 
+      // includes
+      // 포함 여부 판별하여 반환
       console.log("----includes----");
       console.log(str.includes("Hello")); // true
       console.log(str.includes("hello")); // false
