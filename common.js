@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 공통 <head> 요소
   const commonHeadElements = `
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../style.css">
   `;
 
@@ -43,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         };
 
-        const categories = ["html", "css", "javascript"];
+        const categories = ["javascript2", "javascript", "css", "html"];
         let htmlContent = "";
 
         categories.forEach((category) => {

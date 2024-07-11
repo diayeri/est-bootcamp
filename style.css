@@ -26,18 +26,20 @@ body {
 }
 
 #content {
+  overflow: auto;
   fieldset {
-    width: 30%;
+    width: 20%;
+    min-width: 280px;
     font-family: monospace;
     font-weight: bold;
   }
   ul {
     list-style: none;
-    padding-left: 1em;
+    padding-left: 0.6em;
   }
   li {
     width: 100%;
-    padding: 2px 4px;
+    padding: 4px 0;
     font-size: 1rem;
     /* list-style-position: inside; */
     &::marker {
@@ -46,10 +48,14 @@ body {
     a {
       color: #454548;
       text-decoration: none;
+      padding: 0.2em 0.6em;
+      border-radius: 8px;
       &:hover {
-        text-decoration: underline;
+        background-color: #888;
+        color: #fff;
+        /* text-decoration: underline;
         text-decoration-color: olivedrab;
-        text-decoration-thickness: 2px;
+        text-decoration-thickness: 2px; */
       }
       &.easy {
         color: #aaa;
@@ -59,7 +65,9 @@ body {
       }
     }
     &.empty {
-      color: #aaa;
+      /* color: #aaa; */
+      color: olivedrab;
+      margin: 1em 0 0;
     }
   }
 }
