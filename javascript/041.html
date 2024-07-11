@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>label</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>for label</h1>
+      <pre><code class="language-javascript">
+// break "label" outer
+outer: for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    if (i + j === 3) {
+      break outer;
+    }
+    console.log(i, j);
+  }
+}
+
+
+// continue "label" outer2
+outer2: for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    if (i + j === 3) {
+      continue outer2;
+    }
+    console.log(i, j);
+  }
+}
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // for - label
+      // 반복문의 이름 지정 가능 -> break 반복문 -> 한번에 두껍질 빠져나옴
+      // break: 종료
+      // continue: 반복문의 처음으로
+
+      console.log("--- label - break ---");
+      outer: for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          if (i + j === 3) {
+            break outer;
+          }
+          console.log(i, j);
+        }
+      }
+
+      console.log("--- label - continue ---");
+      outer2: for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          if (i + j === 3) {
+            continue outer2;
+          }
+          console.log(i, j);
+        }
+      }
+    </script>
+  </body>
+</html>

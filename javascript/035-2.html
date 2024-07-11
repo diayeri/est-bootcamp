@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반복문 예제 다르게 구현하기</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>반복문 예제 다르게 구현하기 - reduce, forEach, for ... of</h1>
+      <pre><code class="language-javascript">
+// 2. 반의 평균을 구하는 반복문 코드 (reduce, forEach, for of 사용 X)
+const score = [84, 92, 39, 55, 71];
+let scoreSum = 0;
+for (let i = 0; i < score.length; i++) {
+  scoreSum += score[i];
+}
+let average = scoreSum / score.length;
+console.log("average:", +average.toFixed(2));
+
+
+// 3. reduce, forEach, for of 사용해서 만들어보기!
+const toAverage = function (sum, length) {
+  return (sum / length).toFixed(2);
+};
+
+
+// 3-1. reduce
+let reduceSum = score.reduce(function (a, c) {
+  return a + c;
+}, 0);
+console.log("reduce average:", (reduceSum / score.length).toFixed(2));
+console.log("reduce average:", toAverage(reduceSum, score.length));
+
+
+// 3-2. forEach
+let forEachSum = 0;
+score.forEach(function (item) {
+  forEachSum += item;
+});
+console.log("forEach average:", (forEachSum / score.length).toFixed(2));
+console.log("forEach average:", toAverage(reduceSum, score.length));
+
+
+// 3-3. for of
+let forOfSum = 0;
+for (item of score) {
+  forOfSum += item;
+}
+console.log("forOf average:", toAverage(forOfSum, score.length));
+
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 반복문 퀴즈
+
+      // 1. 1부터 100까지 짝수의 합을 구하는 반복문 코드
+      let evenSum = 0;
+      for (let i = 0; i <= 100; i += 2) {
+        evenSum += i;
+      }
+      console.log("evenSum:", evenSum);
+
+      // 1. 답안
+      let evenSum1 = 0;
+      for (let i = 2; i <= 100; i += 2) {
+        evenSum1 += i;
+      }
+      console.log("짝수의 합:", evenSum1);
+
+      // 조건식, 단축평가 사용하는 방법
+      let evenSum2 = 0;
+      for (let i = 1; i <= 100; i++) {
+        //if (i % 2 === 0) evenSum2 += i;
+        i % 2 === 0 && (evenSum2 += i);
+      }
+      console.log("짝수의 합:", evenSum2);
+
+      // 2. 반의 평균을 구하는 반복문 코드 (reduce, forEach, for of 사용 X)
+      const score = [84, 92, 39, 55, 71];
+      let scoreSum = 0;
+      for (let i = 0; i < score.length; i++) {
+        scoreSum += score[i];
+      }
+      let average = scoreSum / score.length;
+      console.log("average:", average);
+      console.log("average:", average.toFixed(2));
+      console.log("average:", +average.toFixed(2)); // 숫자형
+      // toFixed -> 문자열로 바뀜
+
+      // 3. reduce, forEach, for of 사용해서 만들어보기!
+      const toAverage = function (sum, length) {
+        return (sum / length).toFixed(2);
+      };
+
+      // 3-1. reduce
+      let reduceSum = score.reduce(function (a, c) {
+        return a + c;
+      }, 0);
+      console.log("reduce average:", (reduceSum / score.length).toFixed(2));
+      console.log("reduce average:", toAverage(reduceSum, score.length));
+
+      // 3-2. forEach
+      let forEachSum = 0;
+      score.forEach(function (item) {
+        forEachSum += item;
+      });
+      console.log("forEach average:", (forEachSum / score.length).toFixed(2));
+      console.log("forEach average:", toAverage(reduceSum, score.length));
+
+      // 3-3. for of
+      let forOfSum = 0;
+      for (item of score) {
+        forOfSum += item;
+      }
+      console.log("forOf average:", toAverage(forOfSum, score.length));
+    </script>
+  </body>
+</html>

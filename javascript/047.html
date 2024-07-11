@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구조분해할당</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>구조분해할당 (destructuring)</h1>
+      <h2 class="title">구조분해할당 도입 전/후 비교</h2>
+      <pre><code class="language-javascript">
+// # 구조분해 할당이 도입되기 전의 방식 - 속성값 가져오기
+const obj1 = {
+  key1: "value1",
+  key2: "value2",
+  key3: "value3",
+};
+let key1, key2, key3;
+key1 = obj1["key1"];
+key2 = obj1["key2"];
+key3 = obj1["key3"];
+console.log(key1, key2, key3);
+
+
+// # 구조분해할당 도입 후
+// 방법 1 - 객체 직접 사용
+let { one, two, three } = { one: 1, two: 2 };
+console.log(one, two, three);
+
+// 방법 2 - 객체 변수 사용
+const foods = {
+  food1: "과일",
+  food2: "생선",
+  food3: "채소",
+};
+let { food1, food2, food3 } = foods;
+console.log(food1, food2, food3);
+      </code></pre>
+      <h2 class="title">디스트럭처링 - 객체 / 배열 / 함수 매개변수</h2>
+      <pre><code class="language-javascript">
+// ## 객체의 디스트럭처링
+// 좌항: 디스트럭처링 구문, 우항: 객체 리터럴
+let { key1: var1 } = { key1: "value1", key2: "value2", key3: "value3" };
+let { key2: var2 } = obj1;
+
+// key값과 변수명이 동일한 경우, 축약 가능
+let { key1, key2 } = obj1;
+let { key3 } = { key1: "value1", key2: "value2", key3: "value3" };
+
+
+// ## 배열의 디스트럭처링
+// 순서대로 가져옴
+const arr = [1, 2, 3, 4, 5];
+
+// 빈 값으로 두면 필요한 값만 가져옴
+let [, , a, b, c] = [1, 2, 3, 4, 5];
+console.log(a, b, c);
+
+// 남은 자리는 선언만 됨 (undefined)
+let [x, y, z] = [1, 2];
+console.log(x, y, z);
+
+
+// ## 함수 매개변수의 디스트럭처링
+// 객체 인자
+function func1({ a, b }) {
+  console.log(a, b);
+}
+func1({ a: "hello", b: "world" });
+func1({ b: 20, a: 10 }); // 순서 없음
+
+// 배열 인자
+function func2([a, b, c]) {
+  console.log(a, b, c);
+}
+func2([10, 20, 30]);
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // # 구조분해할당 (destructuring)
+      // 구조를 분해해서 변수에 할당하는 기능
+      console.log("----객체의 디스트럭쳐링----");
+
+      const obj1 = {
+        key1: "value1",
+        key2: "value2",
+        key3: "value3",
+      };
+
+      // 구조분해 할당이 도입되기 전의 방식 -> 속성값 가져오기
+      // let key1, key2, key3;
+      // key1 = obj1["key1"];
+      // key2 = obj1["key2"];
+      // key3 = obj1["key3"];
+      // console.log(key1, key2, key3);
+
+      // 구조분해할당 이용 예
+      let { one, two, three } = { one: 1, two: 2 };
+      console.log(one);
+      console.log(two);
+      console.log(three);
+
+      const foods = {
+        food1: "과일",
+        food2: "생선",
+        food3: "채소",
+      };
+      let { food1, food2, food3 } = foods;
+      console.log(food1, food2, food3);
+
+      // ## 객체의 디스트럭처링
+      // 좌항: 디스트럭처링 구문, 우항: 객체 리터럴
+      let { key1: var1 } = { key1: "value1", key2: "value2", key3: "value3" };
+      let { key2: var2 } = obj1;
+      // key값과 변수명이 동일한 경우, "키":"변수" -> "키(=변수)" 로 생략가능
+      let { key1, key2 } = obj1;
+      let { key3 } = { key1: "value1", key2: "value2", key3: "value3" };
+      console.log("var1 :", var1);
+      console.log("var2 :", var2);
+      console.log("key1 :", key1);
+      console.log("key2 :", key2);
+      console.log("key3 :", key3);
+
+      // ## 배열의 디스트럭처링
+      // 순서대로 가져옴 -> 빈 값으로 두면 필요한 값만 가져올 수 있음
+      console.log("----배열의 디스트럭쳐링----");
+      const arr = [1, 2, 3, 4, 5];
+
+      let [, , a, b, c] = [1, 2, 3, 4, 5];
+      // 빈값으로 두면 필요한 값만 가져온다.
+      console.log(a, b, c);
+
+      let [x, y, z] = [1, 2];
+      console.log(x, y, z);
+
+      // ## 함수 매개변수의 디스트럭처링
+      console.log("--- 함수의 매개변수 디스트럭쳐링 ---");
+      function func1({ a, b }) {
+        console.log(a, b);
+      }
+      // obj['a'], obj['b']
+      func1({ a: "hello", b: "world" });
+      // 매개변수 {a, b} = {a:'hello', b:'world'} 인자
+
+      func1({ b: 20, a: 10 }); // 10 20
+      // {a, b} = {b: 20, a: 10}
+
+      function func2([a, b, c]) {
+        console.log(a, b, c);
+      }
+      func2([10, 20, 30]);
+      // 매개변수 [a, b, c] = [10, 20, 30] 인자
+      // 순서대로 들어간다!
+    </script>
+  </body>
+</html>

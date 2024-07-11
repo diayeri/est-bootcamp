@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for 선택적 사용</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>for 선택적 사용</h1>
+      <pre><code class="language-javascript">
+// 초기화식, 증감식 생략
+let i = 0;
+for (; i < 5; ) {
+  console.log(i);
+  i++;
+}
+
+// 위와 동일한 효과
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+
+// 조건식 생략시 탈출조건 작성
+console.log("----");
+for (let i = 0; ; i++) {
+  if (i > 10) break; // 탈출조건
+  console.log(i);
+}
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // for문의 선택적 사용 (식 생략)
+      // 조건식이 누락되면 무한루프에 빠지게 됨 -> 생략시 탈출문 작성
+      // for(초기화식;조건식;증감식){}
+
+      // 초기화식, 증감식 대체
+      let i = 0;
+      for (; i < 5; ) {
+        console.log(i);
+        i++;
+      }
+
+      // 위와 동일한 효과
+      for (let i = 0; i < 5; i++) {
+        console.log(i);
+      }
+
+      // 조건식 생략 -> 탈출조건 작성
+      console.log("----");
+      for (let i = 0; ; i++) {
+        // 조건식을 생략 -> 반복문 안에 탈출조건을 작성
+        // 탈출조건이 없는 경우 -> 무한 반복
+        if (i > 10) break;
+        console.log(i);
+      }
+    </script>
+  </body>
+</html>

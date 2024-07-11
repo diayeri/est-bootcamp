@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반복문</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>반복문</h1>
+      <pre><code class="language-javascript">
+for (초기화식; 조건식; 증감식) {
+  // 반복에서 실행할 코드
+}
+
+
+// 예) 반복문으로 html 제어하기
+const weniv_friends = ["licat", "binky", "gary", "soulgom", "mura"];
+
+
+// 1. 반복문을 사용하지 않았을 때
+let text = "<ul>\n";
+text += "<li>" + weniv_friends[0] + "</li>\n";
+text += "<li>" + weniv_friends[1] + "</li>\n";
+text += "<li>" + weniv_friends[2] + "</li>\n";
+text += "<li>" + weniv_friends[3] + "</li>\n";
+text += "<li>" + weniv_friends[4] + "</li>\n";
+text += "</ul>\n";
+
+console.log(text);
+document.body.innerHTML = text;
+
+
+// 2. 반복문을 사용하면
+let text2 = "<ul>";
+
+for (let i = 0; i < weniv_friends.length; i++) {
+  text2 += "<li>" + weniv_friends[i] + "</li>\n";
+}
+text2 += "</ul>";
+
+console.log(text2);
+document.body.innerHTML = text2;
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 반복문
+
+      // for
+      // 작동순서: 초기화 -> 조건판별 -> {} 동작 -> 증감식 -> 조건판별 -> ...
+      console.log("--- 반복문 for ---");
+
+      // 0부터 5까지 출력하는 코드를 작성
+      for (let i = 0; i <= 5; i++) {
+        console.log(i);
+      }
+
+      // 예) 반복문으로 html 제어하기 -> ul > li 구조 만들기
+      const weniv_friends = ["licat", "binky", "gary", "soulgom", "mura"];
+
+      // 반복문 사용 안할 때 : 동일한 코드가 반복됨
+      let text = "<ul>\n";
+      text += "<li>" + weniv_friends[0] + "</li>\n";
+      text += "<li>" + weniv_friends[1] + "</li>\n";
+      text += "<li>" + weniv_friends[2] + "</li>\n";
+      text += "<li>" + weniv_friends[3] + "</li>\n";
+      text += "<li>" + weniv_friends[4] + "</li>\n";
+      text += "</ul>\n";
+
+      console.log(text);
+      // document.body.innerHTML = text;
+
+      // 반복문으로 작성
+      let text2 = "<ul>";
+
+      // i <= weniv_friends.length - 1
+      for (let i = 0; i < weniv_friends.length; i++) {
+        text2 += "<li>" + weniv_friends[i] + "</li>\n";
+      }
+      text2 += "</ul>";
+
+      console.log(text2);
+      // document.body.innerHTML = text2;
+
+      // 반복문 퀴즈
+
+      // 1. 1부터 100까지 짝수의 합을 구하는 반복문 코드
+      let evenSum = 0;
+      for (let i = 0; i <= 100; i += 2) {
+        evenSum += i;
+      }
+      console.log("evenSum:", evenSum);
+
+      // 1. 답안
+      let evenSum1 = 0;
+      for (let i = 2; i <= 100; i += 2) {
+        evenSum1 += i;
+      }
+      console.log("짝수의 합:", evenSum1);
+
+      // 조건식, 단축평가 사용하는 방법
+      let evenSum2 = 0;
+      for (let i = 1; i <= 100; i++) {
+        //if (i % 2 === 0) evenSum2 += i;
+        i % 2 === 0 && (evenSum2 += i);
+      }
+      console.log("짝수의 합:", evenSum2);
+
+      // 2. 반의 평균을 구하는 반복문 코드 (reduce, forEach, for of 사용 X)
+      const score = [84, 92, 39, 55, 71];
+      let scoreSum = 0;
+      for (let i = 0; i < score.length; i++) {
+        scoreSum += score[i];
+      }
+      let average = scoreSum / score.length;
+      console.log("average:", average);
+      console.log("average:", average.toFixed(2));
+      console.log("average:", +average.toFixed(2)); // 숫자형
+      // toFixed -> 문자열로 바뀜
+
+      // reduce, forEach, for of 사용해서 만들어보기
+    </script>
+  </body>
+</html>

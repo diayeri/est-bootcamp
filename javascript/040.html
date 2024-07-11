@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>break, continue</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>(for, while) - break, continue</h1>
+      <pre><code class="language-javascript">
+// for - break
+for (let i = 0; i <= 5; i++) {
+  if (i === 3) break;
+
+  console.log(i);
+}
+
+
+// while - break
+let num = 0;
+while (num < 11) {
+  if (num === 5) break;
+
+  console.log(num);
+  num++;
+}
+
+
+// for - continue
+for (let i = 0; i <= 5; i++) {
+  if (i === 3) continue;
+
+  console.log(i);
+}
+
+
+// while - continue
+num = 0;
+while (num < 11) {
+  num++; // 증감식이 continue 보다 위에 위치해야 무한루프가 안생김
+  if (num === 5) continue;
+  console.log(num);
+}
+
+
+// do while - continue
+num = 0;
+do {
+  num++;
+  if (num === 5) continue;
+  console.log(num);
+} while (num < 11);
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // break, continue
+      // switch 문에서도 break 사용 참고
+      console.log("--- for break ---");
+      for (let i = 0; i <= 5; i++) {
+        if (i === 3) break;
+
+        console.log(i);
+      }
+
+      console.log("--- while break ---");
+      let num = 0;
+      while (num < 11) {
+        if (num === 5) break;
+
+        console.log(num);
+        num++;
+      }
+
+      console.log("--- for continue ---");
+      for (let i = 0; i <= 5; i++) {
+        if (i === 3) continue;
+
+        console.log(i);
+      }
+
+      console.log("--- while continue ---");
+      num = 0;
+      while (num < 11) {
+        num++;
+        // num++이 if continue 보다 밑에 있으면 무한반복 -> 5가 되는 순간 ++를 못하고 반복되기 때문!
+        if (num === 5) continue;
+        console.log(num);
+      }
+
+      console.log("--- do while continue ---");
+      num = 0;
+      do {
+        num++;
+        if (num === 5) continue;
+        console.log(num);
+      } while (num < 11);
+    </script>
+  </body>
+</html>
