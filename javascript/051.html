@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bind()</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>bind()</h1>
+      <pre><code class="language-javascript">
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      function sayName() {
+        console.log(this.name);
+      }
+
+      var bruce = {
+        name: "bruce",
+        sayName: sayName,
+      };
+
+      var peter = {
+        name: "peter",
+        sayName: sayName.bind(bruce),
+      };
+
+      peter.sayName();
+      bruce.sayName();
+
+      // 객체 안에 쓰는것보단 이렇게 더 많이 씀
+      const bruceSayName = sayName.bind(bruce);
+      bruceSayName();
+    </script>
+  </body>
+</html>

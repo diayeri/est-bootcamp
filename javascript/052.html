@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this quiz</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>this quiz</h1>
+      <pre><code class="language-javascript">
+// 퀴즈: this가 윈도우가 아닌 obj가 되도록 해봐라, 왜 윈도우인가?
+const obj = {
+  num: 1,
+  func() {
+    setTimeout(function () {
+      console.log(this);
+    }, 1000);
+  },
+};
+
+// 시도1. 메서드를 화살표함수로 정의? -> 안됨
+const obj2 = {
+  num: 1,
+  func: () => {
+    setTimeout(function () {
+      console.log(this);
+    }, 1000);
+  },
+};
+
+// 시도2. 내부를 화살표 함수로 -> 됨!
+const obj3 = {
+  num: 1,
+  func() {
+    setTimeout(() => {
+      console.log(this);
+    }, 1000);
+  },
+};
+
+
+// 근데 왜 obj.func() 는 this를 window로 인식하나?
+const obj4 = {
+  num: 1,
+  func() {
+    // func() - obj4 는 바인딩 되어있다...
+    console.log(this);
+    setTimeout(function () {
+      console.log(this);
+    }, 1000); // setTimeout이 실행하는 곳이 window 라서!!, this 바인딩이 안됨
+  },
+};
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 퀴즈: this가 윈도우가 아닌 obj가 되도록 해봐라, 왜 윈도우인가?
+      const obj = {
+        num: 1,
+        func() {
+          setTimeout(function () {
+            console.log(this);
+          }, 1000);
+        },
+      };
+      // 시도1. 메서드를 화살표함수로 정의? -> 안됨
+      const obj2 = {
+        num: 1,
+        func: () => {
+          setTimeout(function () {
+            console.log(this);
+          }, 1000);
+        },
+      };
+      // 시도2. 내부를 화살표 함수로 -> 됨!
+      const obj3 = {
+        num: 1,
+        func() {
+          setTimeout(() => {
+            console.log(this);
+          }, 1000);
+        },
+      };
+      // 근데 왜 obj.func() 는 this를 window로 인식하나?
+      const obj4 = {
+        num: 1,
+        func() {
+          // func() - obj4 는 바인딩 되어있다...
+          console.log(this);
+          setTimeout(function () {
+            console.log(this);
+          }, 1000); // setTimeout이 실행하는 곳이 window 라서!!, this 바인딩이 안됨
+        },
+      };
+    </script>
+  </body>
+</html>

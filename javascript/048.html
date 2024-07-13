@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 핸들러</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1></h1>
+      <button id="btn">Click me!</button>
+      <pre><code class="language-javascript">
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      const button = document.getElementById("btn");
+      button.addEventListener("click", function () {
+        console.log(this);
+      });
+    </script>
+  </body>
+</html>

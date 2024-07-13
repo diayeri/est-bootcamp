@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>apply()</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>apply()</h1>
+      <pre><code class="language-javascript">
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      var peter = {
+        name: "Peter Parker",
+        sayName: function (feature1, feature2) {
+          console.log(this.name + " is " + feature1 + " or " + feature2);
+        },
+      };
+
+      var bruce = {
+        name: "Bruce Wayne",
+      };
+
+      peter.sayName.apply(bruce, ["batman", "richman"]);
+    </script>
+  </body>
+</html>

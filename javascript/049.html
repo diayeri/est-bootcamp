@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>call()</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>call()</h1>
+      <pre><code class="language-javascript">
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      var peter = {
+        name: "Peter Parker",
+        sayName: function () {
+          console.log("Name is...", this.name);
+        },
+      };
+
+      var bruce = {
+        name: "Bruce Wayne",
+      };
+      peter.sayName.call(bruce);
+    </script>
+  </body>
+</html>
