@@ -177,6 +177,12 @@
     { "title": "call()", "link": "./javascript/049.html" },
     { "title": "apply()", "link": "./javascript/050.html" },
     { "title": "bind()", "link": "./javascript/051.html" },
-    { "title": "ex. this quiz", "link": "./javascript/052.html" }
+    { "title": "ex. this quiz", "link": "./javascript/052.html" },
+    { "title": "scope", "link": "./javascript/053.html" },
+    { "title": "콜백함수", "link": "./javascript/054.html" },
+    { "title": "함수 호이스팅", "link": "./javascript/055.html" },
+    { "title": "재귀함수", "link": "./javascript/056.html" },
+    { "title": "클로저", "link": "./javascript/057.html" },
+    { "title": "", "link": "./javascript/058.html" }
   ]
 }

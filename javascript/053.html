@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트 Scope</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>자바스크립트 Scope</h1>
+      <pre><code class="language-javascript">
+// # 함수스코프
+// ## 함수 내에서 키워드 생략후 선언시, 전역으로 선언된다 (함수 호출후)
+function func1() {
+  a = 1;
+}
+// console.log(a); // 호출 전 ERR
+func1();
+console.log(a); // 호출 후 전역
+
+function func2() {
+  var b = 2; // 키워드 생략 != var
+}
+func2();
+// console.log(b); // ERR: var = 함수스코프
+
+let z = 100;
+
+
+// ## 전역변수를 함수 내에서 재할당시, 전역에도 변화가 적용된다
+function sum(x) {
+  // x는 매개변수(parameter)이면서 지역변수(local val)
+  let y = 50; // y는 지역변수
+  z = z + y;
+  return x + y;
+}
+console.log(sum(10)); // 10은 전달인자(argument)
+// console.log(x); // ERR
+// console.log(y); // ERR
+console.log(z);
+console.log(sum(10)); // 10은 전달인자(argument)
+console.log(z);
+
+
+// # 블럭스코프
+// 블럭스코프 내에서 선언한 지역변수 중, var로 선언한 것은 전역으로 처리됨
+// ㄴ var 선언 : 함수 빼고 나머지에서 전역스코프 처럼 작동
+// 조건문, 등
+{
+  const c = 1;
+  let d = 2;
+  var e = 3;
+}
+// console.log(c); // ERR
+// console.log(d); // ERR
+console.log(e);
+
+
+// ## 블럭내 var로 선언된 변수는 전역에서도 남는다.
+// let으로 선언시 남아있지 않음
+for (var index = 0; index < 10; index++) {
+  console.log(index);
+}
+console.log(index); // 10
+
+for (let index = 0; index < 5; index++) {
+  console.log(index);
+}
+console.log(index); // 10
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // # 함수스코프
+      // ## 함수 내에서 키워드 생략후 선언시, 전역으로 선언된다 (함수 호출후)
+      function func1() {
+        a = 1;
+      }
+      // console.log(a); // 호출 전 ERR
+      func1();
+      console.log(a); // 호출 후 전역
+
+      function func2() {
+        var b = 2; // 키워드 생략 != var
+      }
+      func2();
+      // console.log(b); // ERR: var = 함수스코프
+
+      let z = 100;
+
+      // ## 전역변수를 함수 내에서 재할당시, 전역에도 변화가 적용된다
+      function sum(x) {
+        // x는 매개변수(parameter)이면서 지역변수(local val)
+        let y = 50; // y는 지역변수
+        z = z + y;
+        return x + y;
+      }
+      console.log(sum(10)); // 10은 전달인자(argument)
+      // console.log(x); // ERR
+      // console.log(y); // ERR
+      console.log(z);
+      console.log(sum(10)); // 10은 전달인자(argument)
+      console.log(z);
+
+      // # 블럭스코프
+      // 블럭스코프 내에서 선언한 지역변수 중, var로 선언한 것은 전역으로 처리됨
+      // ㄴ var 선언 : 함수 빼고 나머지에서 전역스코프 처럼 작동
+      // 조건문, 등
+      {
+        const c = 1;
+        let d = 2;
+        var e = 3;
+      }
+      // console.log(c); // ERR
+      // console.log(d); // ERR
+      console.log(e);
+
+      // ## 블럭내 var로 선언된 변수는 전역에서도 남는다.
+      // let으로 선언시 남아있지 않음
+      for (var index = 0; index < 10; index++) {
+        console.log(index);
+      }
+      console.log(index); // 10
+
+      for (let index = 0; index < 5; index++) {
+        console.log(index);
+      }
+      console.log(index); // 10
+    </script>
+  </body>
+</html>

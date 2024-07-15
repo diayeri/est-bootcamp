@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수 호이스팅</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>함수 호이스팅</h1>
+      <pre><code class="language-javascript">
+// ## 함수 선언식
+// function 으로 함수선언시 호이스팅되어, 선언보다 먼저 실행할수 있다
+sayHi(); // "Hello, lions!"
+function sayHi() {
+  console.log("Hello, lions!");
+}
+
+// ## 함수 표현식, 화살표함수 -> 변수 호이스팅
+// sayHello(); // ERR, undefined()
+sayHello; // undefined
+var sayHello = () => {
+  console.log("Hello, lions!");
+};
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // # 함수 호이스팅
+      // ## 함수 선언식
+      // function 으로 함수선언시 호이스팅되어, 선언보다 먼저 실행할수 있다
+      sayHi(); // "Hello, lions!"
+      function sayHi() {
+        console.log("Hello, lions!");
+      }
+
+      // ## 함수 표현식, 화살표함수 -> 변수 호이스팅
+      // sayHello();
+      sayHello; // undefined
+      var sayHello = () => {
+        console.log("Hello, lions!");
+      };
+    </script>
+  </body>
+</html>

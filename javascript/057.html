@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클로저</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>클로저</h1>
+      <pre><code class="language-javascript">
+// # 클로저
+function getNum() {
+  let y = 1;
+  return y;
+}
+
+const result = getNum();
+
+// innerFunc을 만들어주는 함수
+function outerFunc() {
+  let x = 10;
+  // 내부함수 innerFunc
+  function innerFunc(y) {
+    x += y;
+    return x;
+  }
+  return innerFunc;
+}
+// 결과값으로 outerFunc의 innerFunc을 반환
+const func = outerFunc();
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // # 클로저
+      function getNum() {
+        let y = 1;
+        return y;
+      }
+
+      const result = getNum();
+
+      // innerFunc을 만들어주는 함수
+      function outerFunc() {
+        let x = 10;
+        // 내부함수 innerFunc
+        function innerFunc(y) {
+          x += y;
+          return x;
+        }
+        return innerFunc;
+      }
+      // 결과값으로 outerFunc의 innerFunc을 반환
+      const func = outerFunc();
+    </script>
+  </body>
+</html>

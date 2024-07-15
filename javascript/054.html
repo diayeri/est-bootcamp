@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>콜백함수</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>콜백함수</h1>
+      <pre><code class="language-javascript">
+// 인자로 받은 함수는 괄호(실행)을 포함 할수도, 안할수도 있다
+// 예1) 함수 a를 대신 실행해주는 callback 함수
+const a = () => {
+  console.log("오");
+  return console.log("모르겠다");
+};
+const callback1 = (fn) => {
+  fn();
+};
+callback1(a);
+
+
+// 예2) 함수 a를 대신 실행해주는 callback함수
+// 함수를 "호출"해야 return이 작동한다.
+const fnFactory = () => {
+  console.log("엥?");
+  return () => {
+    console.log("오오");
+  };
+};
+
+const callback2 = (fn) => {
+  fn();
+};
+
+callback2(fnFactory); // 엥?
+callback2(fnFactory()); // 엥? 오오
+
+// 아래처럼 표현식으로 사용할수도 있음
+const CreatedFunction = fnFactory(); // (콘솔로그: 엥?)
+callback2(CreatedFunction); // 오오
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // # 콜백함수
+      // 예1) 함수 a를 대신 실행해주는 callback 함수
+      const a = () => {
+        console.log("오");
+        return console.log("모르겠다");
+      };
+      const callback1 = (fn) => {
+        fn();
+      };
+      callback1(a);
+
+      // ## 인자로 받은 함수는 괄호(실행)을 포함 할수도, 안할수도 있다
+      // 예2) 함수 a를 대신 실행해주는 callback함수
+
+      // 함수를 만들어주는 함수
+      const fnFactory = () => {
+        console.log("엥?");
+
+        // 함수 안에서 함수를 반환하는 경우에는, 콜백함수로 사용시 실행까지 포함해야 내부가 실행됨!
+        // 함수를 "호출"해야 return이 작동한다.
+        return () => {
+          console.log("오오");
+        };
+      };
+
+      const callback2 = (fn) => {
+        fn();
+      };
+
+      callback2(fnFactory);
+      callback2(fnFactory());
+      const CreatedFunction = fnFactory();
+      callback2(CreatedFunction);
+    </script>
+  </body>
+</html>
