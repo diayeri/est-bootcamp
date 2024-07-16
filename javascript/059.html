@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>set</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>set 객체</h1>
+      <pre><code class="language-javascript">
+// 0. set 객체 생성
+// 생성자함수 사용, 문자열과 배열을 사용할 수 있음!
+let s = new Set("abcdeeeeeeeee");
+console.log(s);
+console.log(`s.size`, s.size);
+
+// # 값이 배열인 경우
+let s2 = new Set("abcdeeeeeeeee".split(""));
+console.log(s2);
+console.log(`s2.size`, s2.size);
+
+// 1. 값 추가하기
+// .add
+s.add("f");
+s.add("bay");
+console.log(`add`, s);
+
+// 2. 값 제거하기
+// .delete
+s.delete("e");
+console.log(`delete`, s);
+
+// # 모든값 제거하기
+// .clear()
+s.clear();
+console.log(`clear`, s);
+
+// 3. 값 확인하기
+console.log(`s.has("e") :`, s.has("e"));
+console.log(`s2.has("e") :`, s2.has("e"));
+
+// . 순환하기
+// for .. of
+for (const variable of s) {
+  console.log(`for (const variable of s) :`, variable);
+}
+
+// --------------------------------
+
+// # 집합
+let a = new Set("abc");
+let b = new Set("cde");
+console.log(`a`, a);
+console.log(`b`, b);
+
+// ## 교집합
+let cro = [...a].filter((value) => b.has(value));
+console.log(`cro`, cro);
+
+// ## 합집합
+let union1 = new Set([...a].concat(...b));
+let union2 = new Set([...a, ...b]);
+console.log(`union1`, union1);
+console.log(`union2`, union2);
+
+// ## 차집합
+let dif = [...a].filter((i) => !b.has(i));
+console.log(`dif`, dif);
+
+// --------------------------------
+
+// # 연습문제 풀어보기
+회사게시판 = ["이호준", "이호준", "이호준", "김은하", "김은하", "이준근"];
+
+// 문제 1 : 몇 명이 게시판에 게시물을 썼나요?
+const setTest = new Set(회사게시판);
+console.log(`A1: `, setTest.size);
+
+// 문제 2 : 각각 몇 개의 게시물을 작성하였나요?
+for (const name of setTest) {
+  const itemLength = 회사게시판.filter((i) => i === name).length;
+  console.log(`A2:`, name, itemLength);
+}
+
+// 문제 2 -> map, for of, if 사용해서 풀어보기
+const mapTest = new Map();
+for (const item of 회사게시판) {
+  if (mapTest.has(item)) {
+    // 이미 있는 아이템이면
+    // console.log(mapTest.set(item, mapTest.get(item) + 1));
+    mapTest.set(item, mapTest.get(item) + 1);
+  } else {
+    // 아직 없는 아이템이면
+    // console.log(mapTest.set(item, 1));
+    mapTest.set(item, 1);
+  }
+}
+console.log(mapTest);
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 0. set 객체 생성
+      // 생성자함수 사용, 문자열과 배열을 사용할 수 있음!
+      let s = new Set("abcdeeeeeeeee");
+      console.log(s);
+      console.log(`s.size`, s.size);
+
+      // # 값이 배열인 경우
+      let s2 = new Set("abcdeeeeeeeee".split(""));
+      console.log(s2);
+      console.log(`s2.size`, s2.size);
+
+      // 1. 값 추가하기
+      // .add
+      s.add("f");
+      s.add("bay");
+      console.log(`add`, s);
+
+      // 2. 값 제거하기
+      // .delete
+      s.delete("e");
+      console.log(`delete`, s);
+
+      // # 모든값 제거하기
+      // .clear()
+      s.clear();
+      console.log(`clear`, s);
+
+      // 3. 값 확인하기
+      console.log(`s.has("e") :`, s.has("e"));
+      console.log(`s2.has("e") :`, s2.has("e"));
+
+      // . 순환하기
+      // for .. of
+      for (const variable of s) {
+        console.log(`for (const variable of s) :`, variable);
+      }
+
+      console.log("--------------------------------");
+
+      // # 집합
+      let a = new Set("abc");
+      let b = new Set("cde");
+      console.log(`a`, a);
+      console.log(`b`, b);
+      // ## 교집합
+      let cro = [...a].filter((value) => b.has(value));
+      console.log(`cro`, cro);
+      // ## 합집합
+      let union1 = new Set([...a].concat(...b));
+      let union2 = new Set([...a, ...b]);
+      console.log(`union1`, union1);
+      console.log(`union2`, union2);
+      // ## 차집합
+      let dif = [...a].filter((i) => !b.has(i));
+      console.log(`dif`, dif);
+
+      console.log("--------------------------------");
+
+      // # 연습문제 풀어보기
+      회사게시판 = ["이호준", "이호준", "이호준", "김은하", "김은하", "이준근"];
+
+      // 문제 1 : 몇 명이 게시판에 게시물을 썼나요?
+      const setTest = new Set(회사게시판);
+      console.log(`A1: `, setTest.size);
+
+      // 문제 2 : 각각 몇 개의 게시물을 작성하였나요?
+      for (const name of setTest) {
+        const itemLength = 회사게시판.filter((i) => i === name).length;
+        console.log(`A2:`, name, itemLength);
+      }
+
+      // 문제 2 -> map, for of, if 사용해서 풀어보기
+      const mapTest = new Map();
+      for (const item of 회사게시판) {
+        if (mapTest.has(item)) {
+          // 이미 있는 아이템이면
+          // console.log(mapTest.set(item, mapTest.get(item) + 1));
+          mapTest.set(item, mapTest.get(item) + 1);
+        } else {
+          // 아직 없는 아이템이면
+          // console.log(mapTest.set(item, 1));
+          mapTest.set(item, 1);
+        }
+      }
+      console.log(mapTest);
+    </script>
+  </body>
+</html>

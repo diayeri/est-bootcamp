@@ -183,6 +183,7 @@
     { "title": "함수 호이스팅", "link": "./javascript/055.html" },
     { "title": "재귀함수", "link": "./javascript/056.html" },
     { "title": "클로저", "link": "./javascript/057.html" },
-    { "title": "", "link": "./javascript/058.html" }
+    { "title": "Map 객체", "link": "./javascript/058.html" },
+    { "title": "Set 객체", "link": "./javascript/059.html" }
   ]
 }

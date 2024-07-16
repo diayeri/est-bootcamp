@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>map 객체</h1>
+      <pre><code class="language-javascript">
+// 0. map 객체 생성
+// 생성자함수
+const m = new Map();
+
+// 1. 프로퍼티 추가하기 (오브젝트에 값 넣기)
+// .set
+m.set("하나", 1);
+m.set(1, "하나");
+console.log(`m`, m);
+m.set(true, 1);
+m.set(false, 0);
+console.log(`m`, m);
+
+// ## 비교 - 일반객체에 프로퍼티 추가하기
+const obj = { name: "dy", age: 20 };
+obj.nickName = "yeri";
+obj["mbti"] = "ENFJ";
+
+const key = "hobby";
+obj[key] = "baking";
+
+// 일반객체 - 키에 문자열 외의 값을 넣을수 있을까?
+obj[true] = "초원범";
+console.log(obj[true]); // "초원범"
+console.log(obj["true"]); // "초원범"
+
+// 2. 값에 접근하기 (가져오기)
+// .get
+console.log(`m.get("하나")`, m.get("하나"));
+console.log(`m.get(true)`, m.get(true));
+console.log(`m["하나"]`, m["하나"]); // undefined, 일반 객체형태로 가져오기 안됨
+
+// 3. 요소여부 확인하기
+// .has
+console.log(`m.has("하나")`, m.has("하나"));
+console.log(`m.has(1)`, m.has(1));
+console.log(`m.has("초원범")`, m.has("초원범"));
+// ## 비교 - 일반 객체에서 값이 있는지 확인하기
+const obj2 = {
+  name: "matin",
+  age: 20,
+};
+console.log(`obj2.hasOwnProperty("age")`, obj2.hasOwnProperty("age"));
+console.log(`obj2.hasOwnProperty("mbti")`, obj2.hasOwnProperty("mbti"));
+
+// 4. 요소 삭제하기
+// .delete
+m.delete("하나");
+
+// ## 비교 - 일반 오브젝트에서 값 지우기: 예약어 사용
+delete obj.name;
+delete obj.true;
+
+// - 두가지 delete 차이점 : 매서드 .delete는 객체 자체가 가지고 있는 기능 (예약어 delete는 객체 자체의 기능이 아님)
+// - 메서드는 객체한테 시키는거다!
+// 철수.말하기()
+
+//Map의 모든 값을 지우기
+// m.clear();
+
+// 5. 길이(요소개수) 가져오기
+// .size
+m.size;
+console.log(`m.size`, m.size);
+
+// ## 비교 - 일반 오브젝트의 길이 가져오기 예시
+Object.keys(obj).length;
+
+// --------------------------------
+
+// 6. 순회하기
+// for ... of : 순서가 있는 map에서 사용 가능 (일반 객체에서는 사용 불가)
+for (const [key, value] of m) {
+  console.log(`for (const [key, value] of m)`, key, value);
+}
+// # 이터러블 확인하기
+console.log(`m[Symbol.iterator] :`, m[Symbol.iterator]);
+// m이 이터러블 객체라면 m[Symbol.iterator]는 이터레이터를 생성하는 함수입니다.
+// 만약 m이 이터러블이 아니라면 undefined가 됩니다.
+console.log(`typeof m[Symbol.iterator] :`, typeof m[Symbol.iterator]);
+// typeof 연산자를 사용하여 m[Symbol.iterator]의 타입을 확인합니다.
+// 이 값이 "function"이라면 m은 이터러블 객체입니다.
+
+// 7. Map의 값에 접근하기
+// .keys, .values, .entries
+console.log(m.keys()); // 키 가져오기
+console.log(m.values()); // 값 가져오기
+console.log(m.entries()); // 키-값 쌍 가져오기
+
+// --------------------------------
+
+// # 메서드체이닝
+const arr = [1, 2, 3, 4];
+const chainTest = arr.map((item) => item * 2).map((value) => value - 1);
+console.log(chainTest);
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 0. map 객체 생성
+      // 생성자함수
+      const m = new Map();
+
+      // 1. 프로퍼티 추가하기 (오브젝트에 값 넣기)
+      // .set
+      m.set("하나", 1);
+      m.set(1, "하나");
+      console.log(`m`, m);
+      m.set(true, 1);
+      m.set(false, 0);
+      console.log(`m`, m);
+
+      // ## 비교 - 일반객체에 프로퍼티 추가하기
+      const obj = { name: "dy", age: 20 };
+      obj.nickName = "yeri";
+      obj["mbti"] = "ENFJ";
+
+      const key = "hobby";
+      obj[key] = "baking";
+
+      // 일반객체 - 키에 문자열 외의 값을 넣을수 있을까?
+      obj[true] = "초원범";
+      console.log(obj[true]); // "초원범"
+      console.log(obj["true"]); // "초원범"
+
+      // 2. 값에 접근하기 (가져오기)
+      // .get
+      console.log(`m.get("하나")`, m.get("하나"));
+      console.log(`m.get(true)`, m.get(true));
+      console.log(`m["하나"]`, m["하나"]); // undefined, 일반 객체형태로 가져오기 안됨
+
+      // 3. 요소여부 확인하기
+      // .has
+      console.log(`m.has("하나")`, m.has("하나"));
+      console.log(`m.has(1)`, m.has(1));
+      console.log(`m.has("초원범")`, m.has("초원범"));
+      // ## 비교 - 일반 객체에서 값이 있는지 확인하기
+      const obj2 = {
+        name: "matin",
+        age: 20,
+      };
+      console.log(`obj2.hasOwnProperty("age")`, obj2.hasOwnProperty("age"));
+      console.log(`obj2.hasOwnProperty("mbti")`, obj2.hasOwnProperty("mbti"));
+
+      // 4. 요소 삭제하기
+      // .delete
+      m.delete("하나");
+
+      // ## 비교 - 일반 오브젝트에서 값 지우기: 예약어 사용
+      delete obj.name;
+      delete obj.true;
+
+      // - 두가지 delete 차이점 : 매서드 .delete는 객체 자체가 가지고 있는 기능 (예약어 delete는 객체 자체의 기능이 아님)
+      // - 메서드는 객체한테 시키는거다!
+      // 철수.말하기()
+
+      //Map의 모든 값을 지우기
+      // m.clear();
+
+      // 5. 길이(요소개수) 가져오기
+      // .size
+      m.size;
+      console.log(`m.size`, m.size);
+
+      // ## 비교 - 일반 오브젝트의 길이 가져오기 예시
+      Object.keys(obj).length;
+
+      console.log("--------------------------------");
+
+      // 6. 순회하기
+      // for ... of : 순서가 있는 map에서 사용 가능 (일반 객체에서는 사용 불가)
+      for (const [key, value] of m) {
+        console.log(`for (const [key, value] of m)`, key, value);
+      }
+      // # 이터러블 확인하기
+      console.log(`m[Symbol.iterator] :`, m[Symbol.iterator]);
+      // m이 이터러블 객체라면 m[Symbol.iterator]는 이터레이터를 생성하는 함수입니다.
+      // 만약 m이 이터러블이 아니라면 undefined가 됩니다.
+      console.log(`typeof m[Symbol.iterator] :`, typeof m[Symbol.iterator]);
+      // typeof 연산자를 사용하여 m[Symbol.iterator]의 타입을 확인합니다.
+      // 이 값이 "function"이라면 m은 이터러블 객체입니다.
+
+      // 7. Map의 값에 접근하기
+      // .keys, .values, .entries
+      console.log(m.keys()); // 키 가져오기
+      console.log(m.values()); // 값 가져오기
+      console.log(m.entries()); // 키-값 쌍 가져오기
+
+      console.log("--------------------------------");
+
+      // # 메서드체이닝
+      const arr = [1, 2, 3, 4];
+      const chainTest = arr.map((item) => item * 2).map((value) => value - 1);
+      console.log(chainTest);
+    </script>
+  </body>
+</html>
