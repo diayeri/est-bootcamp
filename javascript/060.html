@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM - addEventListener</title>
+    <style>
+      .blue {
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>addEventListener</h1>
+    <h2>DOM을 탐색해 봅시다.</h2>
+    <ul>
+      <li id="초원범">DOM 탐색해보기</li>
+      <li>DOM 트리 접근해보기</li>
+      <li>DOM 제어 명령어</li>
+      <li id="초원범" class="test">1</li>
+      <li class="test">2</li>
+    </ul>
+    <button>HELLO ME!</button>
+    <p>버튼에 마우스를 올리고, 클릭해보세요.</p>
+  </body>
+  <script>
+    // 버튼 요소 가져오기
+    const $button = document.querySelector("button");
+
+    // 버튼 클릭이벤트 등록하기
+    // element.addEventListener("이벤트이름", 함수);
+
+    function buttonClickHandler() {
+      console.log("클릭!");
+    }
+
+    function buttonMouseOver() {
+      console.log("마우스 올렸음");
+    }
+    $button.addEventListener("mouseover", buttonMouseOver);
+    $button.addEventListener("click", buttonClickHandler);
+
+    $button.addEventListener("click", function () {
+      console.log("클릭했음");
+    });
+
+    const $li = document.querySelector("li.test#초원범");
+    $button.addEventListener("click", function () {
+      $li.classList.toggle("blue");
+      $li.innerText = "엇 버튼 눌렸당";
+      $button.classList.toggle("blue");
+    });
+  </script>
+</html>

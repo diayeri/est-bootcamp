@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM - input</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>DOM - input 제어</h1>
+      <label for="input">입력해보세요</label>
+      <p class="preview"></p>
+      <input id="input" type="text" />
+      <button>뿅</button>
+      <p class="my"></p>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 입력한 값이 화면에 나타나도록 하기
+      const myBtn = document.querySelector("button");
+      const myP = document.querySelector("p.my");
+      const preP = document.querySelector("p.preview");
+      const myInput = document.querySelector("input");
+
+      myBtn.addEventListener("click", function () {
+        // 도전1) 두글자 미만일 때는 경고창 띄우기
+        if (myInput.value.length < 2) {
+          window.alert("더 길게!");
+          return;
+        }
+
+        // 기본기능 + 초기화
+        // myP.textContent = myInput.value;
+        // 도전3) 입력값이 누적되도록
+        myP.innerText += "\n" + myInput.value; // innerText로 할때, \n이 작동하네요!
+        myInput.value = "";
+        preP.textContent = "";
+      });
+
+      // 도전2) 입력값이 실시간으로 반영되도록 하기
+      // input 요소에 'input' 이벤트를 연결하면 실시간으로 값이 반영되게 만들 수도 있습니다.
+      myInput.addEventListener("input", () => {
+        preP.textContent = myInput.value;
+      });
+
+      // Element.innerHTML;
+      // 참고: 주의: <div>, <span>, <noembed> 노드가 (&), (<), (>) 문자를 포함하는 텍스트 노드를 자식으로 가지고 있다면, innerHTML은 이러한 문자들을 각각 "&amp;", "&lt;" ,"&gt;"로 반환합니다. Node.textContent를 사용하여 이러한 텍스트 노드 내용의 원본을 복사할 수 있습니다.
+    </script>
+  </body>
+</html>

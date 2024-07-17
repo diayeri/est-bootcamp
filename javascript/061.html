@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구구단 만들기</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>구구단 2단 만들기 비교</h1>
+      <div class="flex">
+        <div>
+          <button class="test0">구구단 만들기 - 다영</button>
+          <ul class="test0"></ul>
+        </div>
+        <div>
+          <button class="test1">구구단 만들기 - 참고1</button>
+          <ul class="test1"></ul>
+        </div>
+        <div>
+          <button class="test2">구구단 만들기 - 참고2</button>
+          <ul class="test2"></ul>
+        </div>
+      </div>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      const myBtn = document.querySelector("button.test0");
+      const myUl = document.querySelector("ul.test0");
+
+      myBtn.addEventListener("click", function () {
+        for (let i = 1; i < 10; i++) {
+          const myLi = document.createElement("li");
+          myUl.appendChild(myLi);
+          setTimeout(function () {
+            myLi.innerText = `2 * ${i} = ${2 * i}`;
+          }, 300);
+        }
+      });
+
+      // 참고1) by khs
+      const $button = document.querySelector("button.test1");
+      const $ul = document.querySelector("ul.test1");
+
+      $button.addEventListener("click", () => {
+        const liArr = [];
+        for (let i = 1; i <= 9; i++) {
+          liArr.push(`<li>2 * ${i} = ${2 * i}</li>`);
+        }
+        $ul.innerHTML = liArr.join("");
+      });
+
+      // 참고2) by msi
+      // 클릭 당 한 줄씩 출력하며, 18 이후 다시 2가 출력되는 코드입니다.
+      const $myBtn = document.querySelector("button.test2");
+      const $myUl = document.querySelector("ul.test2");
+
+      let i = 1;
+      $myBtn.addEventListener("click", function () {
+        const j = i % 9 === 0 ? 9 : i % 9;
+        const $myLi = document.createElement("li");
+        $myLi.innerHTML = "2 * " + j + " = " + 2 * j;
+        $myUl.appendChild($myLi);
+        i++;
+      });
+    </script>
+  </body>
+</html>
