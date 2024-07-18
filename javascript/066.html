@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex. todo list</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>TODO LIST</h1>
+      <div class="flex">
+        <div class="li-todo">
+          <p>
+            1. 오늘 저녁에는 부대찌게를 끓여 먹겠다.<button type="button">
+              삭제
+            </button>
+          </p>
+          <p>
+            2. 후식으로 슈팅스타를 먹겠다.<button type="button">삭제</button>
+          </p>
+          <p>
+            3. 자기 전에 반드시 내일 아침 메뉴를 생각해두겠다.<button
+              type="button"
+            >
+              삭제
+            </button>
+          </p>
+        </div>
+      </div>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // nodeName 알아내기
+      // const $p = document.querySelector("p");
+      // $p.addEventListener("click", function (event) {
+      //   console.log(event.target.nodeName);
+      // });
+
+      // 나의 풀이
+      document.addEventListener("click", function (event) {
+        if (event.target.nodeName === "P") {
+          const pText = event.target.innerText.slice(0, -2);
+          console.log(pText);
+          // 1. P 태그를 클릭하면 p 태그의 컨텐츠를 출력하는 alert 창을 띄워주고
+          // TODO: 버튼 내 "삭제"는 출력되지 않도록 하는 방법?
+          alert(pText);
+        } else if (event.target.nodeName === "BUTTON") {
+          // 2. 삭제 버튼을 클릭하면 삭제할 것인지를 물어보는 confirm 창을 띄워주고, 확인을 누르면 P태그를 삭제합니다.
+          const confirmDel = confirm("삭제할까요?");
+          // console.log(result);
+          confirmDel && event.target.parentElement.remove(); // 버튼의 부모요소(p) 제거
+        }
+      });
+
+      // 참고1
+      // const listText = document.querySelectorAll("p");
+      // const delBtn = document.querySelectorAll("button");
+
+      // listText.forEach((p, index) => {
+      //   p.addEventListener("click", function (e) {
+      //     e.stopPropagation();
+      //     alert(e.target.textContent);
+      //   });
+      //   delBtn[index].addEventListener("click", function (e) {
+      //     e.preventDefault();
+      //     e.stopPropagation();
+      //     confirm("삭제하시겠습니까?");
+      //     confirm ? e.target.parentNode.remove() : false;
+      //   });
+      // });
+
+      // document.addEventListener("click", function (event) {
+      //   if (event.target.nodeName === "BUTTON") {
+      //     // 2. 삭제 버튼을 클릭하면 삭제할 것인지를 물어보는 confirm 창을 띄워주고, 확인을 누르면 P태그를 삭제합니다.
+      //     const result = confirm("삭제할까?");
+      //     // console.log(result);
+      //     // result &&
+      //   }
+      // });
+
+      // forEach, querySelectorAll 사용해보기
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex. todo list +</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      #addListInput {
+        border-radius: 4px 0 0 4px;
+      }
+      #addListBtn {
+        border-radius: 0 4px 4px 0;
+        border-left: 0;
+      }
+      .li-todo {
+        li {
+          display: flex;
+          align-items: center;
+          p {
+            flex-grow: 1;
+            cursor: pointer;
+            padding: 4px 8px;
+            &:hover {
+              background-color: #ddd;
+            }
+          }
+          button {
+            right: 0;
+            color: #999;
+            padding: 8px;
+            &:hover {
+              color: red;
+            }
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>TODO LIST</h1>
+      <article class="max-w-[680px] p-10">
+        <div class="flex">
+          <label for="addListInput" class="grow">
+            <span class="sr-only">리스트 추가하기</span>
+            <input
+              type="text"
+              id="addListInput"
+              class="default h-[42px] w-full"
+              placeholder="할일 목록을 추가해보세요"
+            />
+          </label>
+          <button type="button" class="border" id="addListBtn">추가</button>
+        </div>
+
+        <ol class="li-todo">
+          <li>
+            <p>오늘 저녁에는 갈비를 먹겠다.</p>
+            <button type="button">삭제</button>
+          </li>
+          <li>
+            <p>후식으로 닐라닐라 바닐라를 먹겠다.</p>
+            <button type="button">삭제</button>
+          </li>
+          <li>
+            <p>자기 전에 반드시 TIL을 작성하겠다.</p>
+            <button type="button">삭제</button>
+          </li>
+        </ol>
+      </article>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      const $list = document.querySelector(".li-todo");
+      const $input = document.querySelector("#addListInput");
+      const $addBtn = document.querySelector("#addListBtn");
+      const $guide = document.querySelector(".guide");
+
+      $list.addEventListener("click", function (event) {
+        if (event.target.nodeName === "P") {
+          event.target.classList.toggle("line-through");
+          // 뭔가 상태관리가 필요하지 않을까? 체크박스 개념의...
+        } else if (event.target.nodeName === "BUTTON") {
+          const confirmDel = confirm("삭제할까요?");
+          confirmDel && event.target.parentElement.remove();
+        }
+      });
+
+      $addBtn.addEventListener("click", function (event) {
+        // console.log($input.value.length);
+        if ($input.value.length === 0) {
+          console.log("끝");
+          return;
+        }
+        let listItem = document.createElement("li");
+        listItem.innerHTML = `
+          <p>${$input.value}</p>
+          <button>삭제</button>
+          `;
+        $list.append(listItem);
+      });
+    </script>
+  </body>
+</html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>실습 - 경고 띄우기</title>
+    <title>ex. 우클릭 방지</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
     <style></style>
   </head>
@@ -12,14 +12,24 @@
       <h1></h1>
       <pre><code class="language-javascript">
       </code></pre>
+      <p id="no_right_click">날 우클릭 해봐!</p>
     </main>
     <script src="../common.js"></script>
     <script>
       // 이벤트 타입 contextmenu를 이용해 브라우저 오른쪽 버튼 이벤트 막고 '해당 페이지에서는 오른쪽 클릭을 제한합니다.’ 경고 띄우기
-      document.addEventListener("contextmenu", function (event) {
+      // document.addEventListener("contextmenu", function (event) {
+      //   // document 대신에 window로 넣은 사람이 많다~
+      //   event.preventDefault();
+      //   // console.log("contextmenu");
+      //   window.alert("해당 페이지에서는 오른쪽 클릭을 제한합니다.");
+      // });
+
+      const noRightClick = document.querySelector("#no_right_click");
+
+      noRightClick.addEventListener("contextmenu", (event) => {
         event.preventDefault();
-        // console.log("contextmenu");
-        window.alert("해당 페이지에서는 오른쪽 클릭을 제한합니다.");
+        alert("해당 페이지에서는 오른쪽 클릭을 제한합니다.");
+        console.log("잘 되고 있니?");
       });
     </script>
   </body>

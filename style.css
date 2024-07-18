@@ -90,6 +90,9 @@ body {
 
 .flex {
   display: flex;
+  &.flex-col {
+    flex-direction: column;
+  }
 }
 
 .border {
@@ -122,4 +125,10 @@ h2.title,
 h3.title {
   border-left: 4px solid olivedrab;
   padding-left: 12px;
+}
+
+input.default {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 8px;
 }

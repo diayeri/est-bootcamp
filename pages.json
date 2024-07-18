@@ -188,6 +188,11 @@
     { "title": "--", "link": "" },
     { "title": "DOM - addEventListener", "link": "./javascript/060.html" },
     { "title": "ex. 구구단 버튼", "link": "./javascript/061.html" },
-    { "title": "DOM - input", "link": "./javascript/062.html" }
+    { "title": "DOM - input", "link": "./javascript/062.html" },
+    { "title": "DOM - 이벤트객체", "link": "./javascript/063.html" },
+    { "title": "ex. select box", "link": "./javascript/064.html" },
+    { "title": "ex. 우클릭 방지", "link": "./javascript/065.html" },
+    { "title": "ex. todo list", "link": "./javascript/066.html" },
+    { "title": "ex. todo list +", "link": "./javascript/067.html" }
   ]
 }
