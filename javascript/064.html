@@ -112,6 +112,7 @@
       const $result = document.querySelector(".result");
 
       $btnSelect.addEventListener("click", function () {
+        this.classList.toggle("on");
         // $listMember.style.display = "block"; // 토글기능으로 대체
         $listMember.classList.toggle("show");
         return;
