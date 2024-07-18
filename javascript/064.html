@@ -114,8 +114,8 @@
       $btnSelect.addEventListener("click", function () {
         this.classList.toggle("on");
         // $listMember.style.display = "block"; // 토글기능으로 대체
-        $listMember.classList.toggle("show");
-        return;
+        // $listMember.classList.toggle("on");
+        // return; // 생략가능
       });
 
       $listMember.addEventListener("click", (event) => {
@@ -123,8 +123,8 @@
           let selectedValue = event.target.innerText;
           // $result.textContent = `선택한 값은...` + selectedValue; // 외부에 선택값 보여주기
           $btnSelect.textContent = selectedValue;
-          $listMember.classList.remove("show");
-          return;
+          $listMember.classList.remove("on");
+          // return; // 생략가능
         }
       });
 
@@ -132,6 +132,7 @@
 
       // ERR - $btns가 NodeList 객체이기 때문에 ...
       // NodeList는 배열과 유사하지만 배열이 아니므로 NodeList 객체에 바로 이벤트 리스너를 추가할 수 없습니다.
+      // forEach 사용해서 구현 가능
       // const $btns = document.querySelectorAll(".list-member button");
       // $btns.addEventListener("click", function () {
       //   console.log("hahah");
