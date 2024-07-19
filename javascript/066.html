@@ -71,6 +71,49 @@
       //   });
       // });
 
+      // 참고2
+      // const allP = document.querySelectorAll("p");
+
+      // const showAlertOrDelete = (e) => {
+      //   const val = e.target;
+      //   if (val.nodeName === "BUTTON") {
+      //     const confirm = window.confirm("해당 태그를 삭제하겠습니까?");
+      //     confirm ? val.parentNode.remove() : false;
+      //   } else {
+      //     alert(val.textContent);
+      //   }
+      // };
+
+      // allP.forEach((p, idx) => {
+      //   p.addEventListener("click", showAlertOrDelete);
+      // });
+
+      // 참고3 - 이건좀 신기하네
+      // const todoText = document.querySelectorAll("p");
+      // const todoDeleteButtons = document.querySelectorAll("button");
+
+      // todoText.forEach((todoText) => {
+      //   todoText.addEventListener("click", function (event) {
+      //     if (event.target.tagName === "P") {
+      //       alert(this.textContent.replace("삭제", "").trim());
+      //       console.log("당신은 TODO 항목을 클릭했습니다.");
+      //     }
+      //     return;
+      //   });
+      // });
+
+      // todoDeleteButtons.forEach((button) => {
+      //   button.addEventListener("click", function (event) {
+      //     if (confirm("정말로 이 항목을 삭제하시겠습니까?")) {
+      //       this.parentElement.remove();
+      //       event.stopPropagation();
+      //       console.log("당신은 TODO를 삭제했습니다.");
+      //     }
+      //     return;
+      //   });
+      // });
+
+      // 고민하던 것
       // document.addEventListener("click", function (event) {
       //   if (event.target.nodeName === "BUTTON") {
       //     // 2. 삭제 버튼을 클릭하면 삭제할 것인지를 물어보는 confirm 창을 띄워주고, 확인을 누르면 P태그를 삭제합니다.

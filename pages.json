@@ -185,14 +185,19 @@
     { "title": "클로저", "link": "./javascript/057.html" },
     { "title": "Map 객체", "link": "./javascript/058.html" },
     { "title": "Set 객체", "link": "./javascript/059.html" },
-    { "title": "--", "link": "" },
-    { "title": "DOM - addEventListener", "link": "./javascript/060.html" },
+    { "title": "-- DOM", "link": "" },
+    { "title": "addEventListener", "link": "./javascript/060.html" },
     { "title": "ex. 구구단 버튼", "link": "./javascript/061.html" },
-    { "title": "DOM - input", "link": "./javascript/062.html" },
-    { "title": "DOM - 이벤트객체", "link": "./javascript/063.html" },
+    { "title": "input", "link": "./javascript/062.html" },
+    { "title": "이벤트객체", "link": "./javascript/063.html" },
     { "title": "ex. select box", "link": "./javascript/064.html" },
     { "title": "ex. 우클릭 방지", "link": "./javascript/065.html" },
     { "title": "ex. todo list", "link": "./javascript/066.html" },
-    { "title": "ex. todo list +", "link": "./javascript/067.html" }
+    { "title": "ex. todo list 풀이", "link": "./javascript/066.html" },
+    { "title": "ex. todo list +", "link": "./javascript/067.html" },
+    { "title": "-- 객체지향", "link": "" },
+    { "title": "ex. intro", "link": "./javascript/068.html" },
+    { "title": "ex. 랜덤로봇", "link": "./javascript/069.html" },
+    { "title": "프로토타입", "link": "./javascript/070.html" }
   ]
 }

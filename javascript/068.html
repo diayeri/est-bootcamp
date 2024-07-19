@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체지향</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>객체지향</h1>
+      <pre><code class="language-javascript">
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 시도
+      const me = {
+        name: "dayoung",
+        health: 20,
+        hunger: 50,
+        fatigue: 30,
+
+        eat: function () {
+          this.hunger -= 10;
+        },
+      };
+
+      const food = {
+        name: "donut",
+        reduceHunger: function (human) {
+          human.hunger -= 10;
+        },
+      };
+
+      // 수정
+      const me2 = {
+        name: "dayoung",
+        health: 20,
+        hunger: 50,
+        fatigue: 30,
+
+        eat: function (food) {
+          this.reduceHunger(food.cal);
+        },
+        reduceHunger: function (cal) {
+          this.hunger -= cal;
+        },
+        // 단축
+        // reduceHunger2(cal) {
+        //   this.hunger -= cal;
+        // },
+      };
+
+      const food2 = {
+        name: "donut",
+        cal: 20,
+      };
+
+      me2.eat(food2);
+    </script>
+  </body>
+</html>

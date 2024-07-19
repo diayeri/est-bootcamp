@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체지향 - 프로토타입</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>객체지향 - 프로토타입</h1>
+      <pre><code class="language-javascript">
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      function Robot(name, foods) {
+        this.name = name;
+        this.foods = foods;
+        this.selectFood = function () {
+          console.log(foods);
+        };
+      }
+      robot1 = new Robot("로봇", [1, 2]);
+      robot2 = new Robot("로봇", [1, 2]);
+      Robot.prototype.protoFunc = function () {
+        console.log("func");
+      };
+      console.log(
+        "robot1.selectFood === robot2.selectFood",
+        robot1.selectFood === robot2.selectFood
+      ); // false!
+      console.log(
+        "robot1.selectFood == robot2.selectFood",
+        robot1.selectFood == robot2.selectFood
+      ); // false!
+      console.log(
+        "robot1.__proto__ === Robot.prototype",
+        robot1.__proto__ === Robot.prototype
+      ); // true!
+      console.log("Robot.prototype", Robot.prototype); //
+      console.log("robot1.__proto__", robot1.__proto__); //
+      const arr1 = [1, 2, 3];
+      const arr2 = [1, 2, 3];
+
+      arr1 === arr2; // false
+      arr1.forEach === arr2.forEach; // true
+
+      // 같이 해보는 실습
+      // 우리가 만들었던 음식 로봇객체의 메서드를 프로토타입으로 분리해보세요, 그리고 객체의 메서드가 서로 동일한 주소를 참조하는지 확인해보세요.
+      function Robot2(name, foods) {
+        this.name = name;
+        this.foods = foods;
+        this.selectFood = function () {
+          console.log(foods);
+        };
+      }
+    </script>
+  </body>
+</html>
