@@ -198,6 +198,14 @@
     { "title": "-- 객체지향", "link": "" },
     { "title": "ex. intro", "link": "./javascript/068.html" },
     { "title": "ex. 랜덤로봇", "link": "./javascript/069.html" },
-    { "title": "프로토타입", "link": "./javascript/070.html" }
+    { "title": "프로토타입", "link": "./javascript/070.html" },
+    { "title": "class", "link": "./javascript/071.html" },
+    { "title": "ex. 소시지 만들기", "link": "./javascript/072.html" },
+    { "title": "ex. 소시지 만들기 풀이", "link": "./javascript/072-2.html" },
+    { "title": "private", "link": "./javascript/073.html" },
+    { "title": "-- ajax", "link": "" },
+    { "title": "promise, XHR", "link": "./javascript/074.html" },
+    { "title": "ex. promise", "link": "./javascript/075.html" },
+    { "title": "", "link": "./javascript/076.html" }
   ]
 }

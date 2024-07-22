@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex. 소시지 만들기 풀이</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>ex. 소시지 만들기 풀이</h1>
+      <pre><code class="language-javascript">
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // this 사용 안할수도 있지만 class를 쓰는 의미가 없어진다 (일반 메소드랑 다를게 없으니까)
+      class Test {
+        taste(맛1, 맛2) {
+          console.log(`test: ${맛1}, ${맛2} 맛이 나요`);
+        }
+      }
+      const test = new Test();
+      test.taste("매운", "고기");
+
+      // 소세지
+      class Sausage {
+        constructor(맛1, 맛2) {
+          this.맛1 = 맛1;
+          this.맛2 = 맛2;
+        }
+        taste() {
+          console.log(`sausage: ${this.맛1}, ${this.맛2} 맛이 나요!`);
+        }
+        // taste: function() 으로 지정하면 taste() 보다 우선순위가 높음 주의!
+      }
+      const sausage = new Sausage("매운", "양파");
+      sausage.taste();
+
+      // 불맛 소세지
+      class FiresSausage extends Sausage {
+        // constructor이 부모와 동일할땐 생략 가능 -> 위로 올라가면서 찾기 때문
+        taste() {
+          super.taste();
+          console.log(`불맛이 나기 시작합니다 호호`);
+        }
+      }
+      const fireSausage = new FiresSausage("고기", "치즈");
+      fireSausage.taste();
+    </script>
+  </body>
+</html>

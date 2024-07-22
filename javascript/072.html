@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex. 소시지 만들기</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>ex. 소시지 만들기</h1>
+      <pre><code class="language-javascript">
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // 기본 소세지 클래스
+      class Sausage {
+        constructor(taste1, taste2) {
+          this.taste1 = taste1;
+          this.taste2 = taste2;
+        }
+        taste(taste1, taste2) {
+          console.log(
+            `이 소시지에서는 ${this.taste1}, ${this.taste2} 맛이 나는군요!`
+          );
+        }
+      }
+      const sausageFirst = new Sausage("달큰", "고소");
+      console.log(sausageFirst);
+      sausageFirst.taste();
+
+      // 매운 소세지 클래스
+      class FiresSausage extends Sausage {
+        constructor(taste1, taste2, taste3) {
+          // taste1, 2 생략하면 부모꺼 따라옴
+          super(taste1, taste2);
+          this.taste3 = taste3;
+        }
+        taste(taste1, taste2, taste3) {
+          console.log(`이제 ${this.taste3} 맛이 나기 시작합니다!`);
+        }
+      }
+      const sausageSecond = new FiresSausage("달큰", "고소", "매운");
+      console.log(sausageSecond);
+      sausageSecond.taste();
+
+      // 참고 - ido
+      // class Sausage {
+      //   constructor(ingredient1, ingredient2) {
+      //     this.ingredient1 = ingredient1;
+      //     this.ingredient2 = ingredient2;
+      //   }
+      //   taste() {
+      //     console.log(`${this.ingredient1}와 ${this.ingredient2}맛이 난다!`);
+      //   }
+      // }
+      // class FireSausage extends Sausage {
+      //   tasteFire() {
+      //     this.taste();
+      //     console.log("불맛🔥");
+      //   }
+      // }
+      // const sausage = new Sausage("사과", "땅콩");
+      // const fireSausage = new FireSausage("오렌지", "아몬드");
+      // sausage.taste();
+      // fireSausage.tasteFire();
+
+      // 참고 - khs
+      // class Sausage {
+      //   constructor(material1, material2) {
+      //     this.material1 = material1;
+      //     this.material2 = material2;
+      //   }
+
+      //   taste() {
+      //     console.log(`${this.material1}와(과) ${this.material2} 맛이 납니다.`);
+      //   }
+      // }
+
+      // class FiresSausage extends Sausage {
+      //   taste() {
+      //     console.log(`불맛이 나기 시작합니다.`);
+      //   }
+      // }
+
+      // const sausage = new Sausage("소고기", "파");
+      // const firesSausage = new FiresSausage();
+
+      // sausage.taste();
+      // firesSausage.taste();
+
+      // 참고 - ldb
+      // 소시지 클래스 정의
+      // class Sausage {
+      //   constructor(sugar, solt) {
+      //     this.sugar = sugar;
+      //     this.solt = solt;
+      //   }
+      //   taste() {
+      //     console.log(
+      //       `달콤한 ${this.sugar}맛과 짭짤한 ${this.solt} 맛이 나요!`
+      //     );
+      //   }
+      // }
+      // const sausage = new Sausage("설탕", "소금");
+      // sausage.taste();
+
+      // // 불맛소시지 클래스 정의(소시지 클래스 상속)
+      // class FiresSausage extends Sausage {
+      //   taste() {
+      //     super.taste(); // 부모 클래스의 taste 메서드 호출
+      //     console.log("불맛이 나기 시작한다!");
+      //   }
+      // }
+
+      // 참고 - msi
+      // class Sausage {
+      //   constructor(ingredients) {
+      //     this.ingredients = ingredients;
+      //   }
+      //   taste() {
+      //     console.log(
+      //       this.ingredients[0] + " & " + this.ingredients[1] + " 맛이 난다!"
+      //     );
+      //   }
+      // }
+      // class FiresSausage extends Sausage {
+      //   constructor(ingredients) {
+      //     super(ingredients);
+      //   }
+      //   taste() {
+      //     super.taste();
+      //     console.log("불맛!");
+      //   }
+      // }
+    </script>
+  </body>
+</html>

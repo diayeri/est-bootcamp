@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>private</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>private</h1>
+      <pre><code class="language-javascript">
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      class Robot1 {
+        #password;
+
+        constructor(name, pw) {
+          this.name = name;
+          this.#password = pw;
+        }
+
+        sayYourName() {
+          console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+        }
+
+        getPassword() {
+          return this.#password;
+        }
+
+        setPassword(pw) {
+          this.#password = pw;
+        }
+      }
+
+      // get, set 키워드 사용하기
+      class Robot2 {
+        #password;
+
+        constructor(name, pw) {
+          this.name = name;
+          this.#password = pw;
+        }
+
+        sayYourName() {
+          console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+        }
+
+        get password() {
+          console.log("비밀번호 get ->", this.#password);
+          return this.#password;
+        }
+
+        set password(pw) {
+          this.#password = pw;
+          console.log("비밀번호 set ->", this.#password);
+        }
+      }
+
+      const bot2 = new Robot2("재현", 1234);
+      bot2.password;
+      // bot2.password(); // ERR - bot2.password is not a function
+      // bot2.#password; // ERR
+      // 실제로는 바로 접근하는게 아님, 객체를 통해서만 가져올 수 있음(?)
+      bot2.password = "새로운 비번";
+    </script>
+  </body>
+</html>

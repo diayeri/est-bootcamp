@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>class</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>class</h1>
+      <pre><code class="language-javascript">
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      class Robot {
+        // constructor => 생성자함수 => 객체 생성
+        constructor(name) {
+          this.name = name;
+        }
+        sayYourName() {
+          console.log(`my name is ${this.name}`);
+        }
+      }
+      const robot = new Robot("엄마");
+      console.log(robot);
+
+      class BabyRobot extends Robot {
+        constructor(name, age) {
+          super(name); // this.name = name;
+          this.name = "baby is " + name;
+          this.age = age;
+        }
+        sayYourName() {
+          console.log(`새로 정의한 함수 : my name is ${this.name}`);
+        }
+      }
+      const babyRobot = new BabyRobot("아가", 2);
+      console.log(babyRobot);
+    </script>
+  </body>
+</html>
