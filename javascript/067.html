@@ -54,6 +54,8 @@
           </label>
           <button type="button" class="border" id="addListBtn">추가</button>
         </div>
+        <!-- 폼으로 만들걸! 필수적으로 폼으로 만들어야 할때는 데이터가 통신? 되어야 할 때인가요? -->
+        <!-- submit? -> -->
 
         <ol class="li-todo">
           <li>
@@ -79,10 +81,11 @@
       const $guide = document.querySelector(".guide");
 
       // 리스트 내 클릭시 이벤트 - 완료 처리, 삭제 버튼
+      // click 대신 onSubmit 으로 하면 엔터치면 입력됨
       $list.addEventListener("click", function (event) {
         if (event.target.nodeName === "P") {
           event.target.classList.toggle("line-through");
-          // FIX: 뭔가 상태관리가 필요하지 않을까? 체크박스 개념의...
+          // FIX: 뭔가 상태관리가 필요하지 않을까? 체크박스 개념의... (상태 ==> 데이터)
         } else if (event.target.nodeName === "BUTTON") {
           const confirmDel = confirm("삭제할까요?");
           confirmDel && event.target.parentElement.remove();
@@ -92,18 +95,32 @@
       // 입력하기
       $addBtn.addEventListener("click", function (event) {
         // console.log($input.value.length);
+        // trim 추가했으면 더 좋았겠다~
+        // 분리가능할지 한번 보기
         if ($input.value.length === 0) {
           alert("내용을 입력하셔요");
           return;
         }
-        let listItem = document.createElement("li");
-        listItem.innerHTML = `
-          <p>${$input.value}</p>
-          <button>삭제</button>
+
+        // createElement는 요소를 객체로 관리할수 있음
+        // 참고! innerHTML -> unsafe
+        $list.innerHTML += `
+          <li>
+            <p>${$input.value}</p>
+            <button>삭제</button>
+          </li>
           `;
-        $list.append(listItem);
+
+        // 분리가능할지 한번 보기
         $input.value = "";
       });
+
+      // 추가과제!!
+      // 1. 배열이나 객체로 데이터(상태)를 관리하는애랑, UI 그려주는 애랑 분리하기
+      // 2. 진행여부 : 진행완료 시에도 데이터 상태 관리
+      // 3. 순서 : 내가 등록한 순서대로 TODO가 데이터가 존재하도록
+      // 4. 내용수정 : 이미 등록한 TODO 내용 수정하는 기능
+      // 나머지 기능 : 전체 삭제 등 알아서...
     </script>
   </body>
 </html>
