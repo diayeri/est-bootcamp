@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise 객체</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>Promise 객체</h1>
+      <pre><code class="language-javascript">
+// # 프로미스 객체
+// resolve는 작업이 성공했을 때 호출되고, reject는 작업이 실패했을 때 호출
+
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("성공");
+  }, 1000); // 1초 후에 resolve를 호출하여 프로미스를 성공 상태로 만듭니다.
+});
+console.log(promise1);
+
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject("실패");
+  }, 1000); // 1초 후에 reject를 호출하여 프로미스를 실패 상태로 만듭니다.
+});
+console.log(promise2);
+// promise 객체를 콘솔에 출력. 이 시점에서는 아직 Pending 상태
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // # 프로미스 객체
+      // resolve는 작업이 성공했을 때 호출되고, reject는 작업이 실패했을 때 호출
+      const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("성공");
+        }, 1000); // 1초 후에 resolve를 호출하여 프로미스를 성공 상태로 만듭니다.
+      });
+      console.log(promise1);
+
+      const promise2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject("실패");
+        }, 1000); // 1초 후에 reject를 호출하여 프로미스를 실패 상태로 만듭니다.
+      });
+      console.log(promise2);
+      // promise 객체를 콘솔에 출력. 이 시점에서는 아직 Pending 상태
+    </script>
+  </body>
+</html>

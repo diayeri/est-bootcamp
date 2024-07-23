@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XHR to Promise</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>XHR to Promise</h1>
+      <pre><code class="language-javascript">
+// # XHR to Promise
+// ## resolve - then, result - catch
+const req = new Promise((resolve, reject) => {
+  const requestObj = new XMLHttpRequest();
+  requestObj.open("GET", "https://test.api.weniv.co.kr/mall");
+  requestObj.onreadystatechange = () => {
+    if (requestObj.readyState === 4 && requestObj.status === 200) {
+      const result = requestObj.responseText;
+      resolve(result); // resolve 값을 then 콜백의 인자로 보내줌
+    } else if (requestObj.readyState === 4 && requestObj.status !== 200) {
+      // reject(new Error("에러입니다."));
+      const error = "저런, 실패했습니다";
+      reject(new Error(error)); // reject 값을 catch 콜백의 인자로 보내줌
+    }
+  };
+  requestObj.send();
+});
+
+req
+  .then((result) => {
+    console.log(JSON.parse(result));
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // # Promise
+      // 콜백으로 처리하면 콜백지옥에 빠질수 있지만 -> 순서대로 진행되어야 하기 때문
+      // promise는 메서드체이닝을 사용함
+
+      // 프로미스
+      // .처리가끝나고나서할일((result)=>{
+      //
+      // })
+      // .처리가끝나고나서할일((result)=>{
+      //
+      // })
+      // .처리가끝나고나서할일((result)=>{
+      //
+      // })
+      // .처리가끝나고나서할일((result)=>{
+      //
+      // })
+
+      // vs
+
+      // 콜백
+      // .처리가끝나고나서할일(()=>{
+      //// .처리가끝나고나서할일(()=>{
+      // //    .처리가끝나고나서할일(()=>{
+      // //        .처리가끝나고나서할일(()=>{
+      //
+      //              })
+      //          })
+      //      })
+      // })
+
+      const promise = new Promise((resolve, reject) => {
+        resolve("성공함");
+      });
+
+      console.log(promise);
+      // promise 뒤에는 then이나 catch가 오곤 한다.
+      promise
+        .then((result) => {
+          console.log(result);
+          return "다음값";
+        })
+        .then((result1) => {
+          console.log(result1);
+        });
+
+      // # XHR to Promise
+      // ## resolve - then, result - catch
+      const req = new Promise((resolve, reject) => {
+        const requestObj = new XMLHttpRequest();
+        requestObj.open("GET", "https://test.api.weniv.co.kr/mall");
+        requestObj.onreadystatechange = () => {
+          if (requestObj.readyState === 4 && requestObj.status === 200) {
+            const result = requestObj.responseText;
+            resolve(result); // resolve 값을 then 콜백의 인자로 보내줌
+          } else if (requestObj.readyState === 4 && requestObj.status !== 200) {
+            // reject(new Error("에러입니다."));
+            const error = "저런, 실패했습니다";
+            reject(new Error(error)); // reject 값을 catch 콜백의 인자로 보내줌
+          }
+        };
+        requestObj.send();
+      });
+
+      req
+        .then((result) => {
+          console.log(JSON.parse(result));
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    </script>
+  </body>
+</html>

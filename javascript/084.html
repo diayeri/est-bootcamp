@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 - Promise</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>실습 - Promise</h1>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // # Promise
+      // const req = new Promise((resolve, reject) => {
+      //   const requestObj = new XMLHttpRequest();
+      //   requestObj.open("GET", "https://test.api.weniv.co.kr/mall");
+      //   requestObj.onreadystatechange = () => {
+      //     if (requestObj.readyState === 4 && requestObj.status === 200) {
+      //       const result = requestObj.responseText;
+      //       // resolve(result);
+      //       resolve(JSON.parse(result)[0]);
+      //     } else if (requestObj.readyState === 4 && requestObj.status !== 200) {
+      //       reject("ERR: 통신 실패했다. GET 할수 없다.");
+      //     }
+      //   };
+      //   requestObj.send();
+      // });
+
+      // const main = document.querySelector("main");
+      // req
+      //   .then((result) => {
+      //     const div = document.createElement("div");
+      //     const h2 = document.createElement("h2");
+      //     const p = document.createElement("p");
+      //     // div.textContent = JSON.parse(result)[0]; // textContent 가 스트링이라 안되나?
+      //     p.textContent = "id:" + result.id;
+      //     h2.textContent = result.productName;
+      //     main.appendChild(div).append(p, h2);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+
+      // # Promise + forEach 곁들이기
+      const req1 = new Promise((resolve, reject) => {
+        const requestObj = new XMLHttpRequest();
+        requestObj.open("GET", "https://test.api.weniv.co.kr/mall");
+        requestObj.onreadystatechange = () => {
+          if (requestObj.readyState === 4 && requestObj.status === 200) {
+            const result = requestObj.responseText;
+            resolve(result);
+            // resolve(JSON.parse(result)[0]);
+          } else if (requestObj.readyState === 4 && requestObj.status !== 200) {
+            reject("ERR: 통신 실패했다. GET 할수 없다.");
+          }
+        };
+        requestObj.send();
+      });
+
+      const main1 = document.querySelector("main");
+      req1
+        .then((result) => {
+          const resultArray = JSON.parse(result);
+
+          resultArray.forEach(function (item, index) {
+            console.log(item, index);
+            console.log(result[index]);
+
+            const div = document.createElement("div");
+            const h2 = document.createElement("h2");
+            const p = document.createElement("p");
+
+            p.textContent = "id:" + item.id;
+            h2.textContent = item.productName;
+            main1.appendChild(div).append(p, h2);
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>

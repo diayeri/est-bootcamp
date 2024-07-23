@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XHR과 프로미스</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>XHR과 프로미스</h1>
+      <pre><code class="language-javascript">
+// # XHR과 프로미스 같이 사용하기
+// 1. 프로미스 객체 생성
+const orderCoffee = new Promise((resolve, reject) => {
+  // 2. XHR 요청 생성
+  const requestObj = new XMLHttpRequest(); // 새로운 XHR 객체를 생성
+  requestObj.open("GET", "hello.txt"); // 비동기 GET 요청을 초기화
+  // requestObj.open("GET", "notFoundorderCoffee.txt"); // 비동기 GET 요청을 초기화
+  requestObj.onreadystatechange = () => {
+    // readyState가 변화할 때마다 호출되는 이벤트 리스너를 설정
+    if (requestObj.readyState === 4) {
+      // 요청이 완료되었을 때 (readyState === 4) 내부의 조건을 확인
+      if (requestObj.status === 200) {
+        // 요청이 성공했을 때 (status === 200) resolve를 호출
+        const result = requestObj.responseText;
+        resolve(result);
+      } else {
+        // 요청이 실패했을 때 reject를 호출
+        reject(
+          new Error(
+            `커피주문이 정상적으로 이뤄지지 않았습니다.: ${requestObj.status}`
+          )
+        );
+      }
+    }
+  };
+  requestObj.send();
+});
+
+orderCoffee // then과 catch 메서드를 사용하여 프로미스의 결과를 처리
+  .then((asyncResult) => {
+    // 프로미스가 성공했을 때 실행되는 콜백을 등록
+    console.log(asyncResult);
+    console.log("약속이 이루어졌습니다.");
+    return asyncResult;
+  })
+  .catch((error) => {
+    // 프로미스가 실패했을 때 실행되는 콜백을 등록
+    console.log(error);
+  });
+      </code></pre>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // # XHR과 프로미스 같이 사용하기
+      // 1. 프로미스 객체 생성
+      const orderCoffee = new Promise((resolve, reject) => {
+        // 2. XHR 요청 생성
+        const requestObj = new XMLHttpRequest(); // 새로운 XHR 객체를 생성
+        requestObj.open("GET", "hello.txt"); // 비동기 GET 요청을 초기화
+        // requestObj.open("GET", "notFoundorderCoffee.txt"); // 비동기 GET 요청을 초기화
+        requestObj.onreadystatechange = () => {
+          // readyState가 변화할 때마다 호출되는 이벤트 리스너를 설정
+          if (requestObj.readyState === 4) {
+            // 요청이 완료되었을 때 (readyState === 4) 내부의 조건을 확인
+            if (requestObj.status === 200) {
+              // 요청이 성공했을 때 (status === 200) resolve를 호출
+              const result = requestObj.responseText;
+              resolve(result);
+            } else {
+              // 요청이 실패했을 때 reject를 호출
+              reject(
+                new Error(
+                  `커피주문이 정상적으로 이뤄지지 않았습니다.: ${requestObj.status}`
+                )
+              );
+            }
+          }
+        };
+        requestObj.send();
+      });
+
+      orderCoffee // then과 catch 메서드를 사용하여 프로미스의 결과를 처리
+        .then((asyncResult) => {
+          // 프로미스가 성공했을 때 실행되는 콜백을 등록
+          console.log(asyncResult);
+          console.log("약속이 이루어졌습니다.");
+          return asyncResult;
+        })
+        .catch((error) => {
+          // 프로미스가 실패했을 때 실행되는 콜백을 등록
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>

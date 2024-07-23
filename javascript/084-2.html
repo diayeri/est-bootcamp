@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 풀이 - Promise</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="root">
+      <main>
+        <h1>실습 풀이 - Promise</h1>
+        <p>
+          1. 서버에 요청을 보내서 데이터를 받아오자 <br />2. 데이터를 잘
+          받아오는지 확인 <br />3. 데이터의 구조 확인 <br />4. 받아온 데이터를
+          화면에 보여주기
+        </p>
+      </main>
+    </div>
+    <script src="../common.js"></script>
+    <script>
+      // # Promise
+      /*
+      1. 서버에 요청을 보내서 데이터를 받아오자
+      2. 데이터를 잘 받아오는지 확인
+      3. 데이터의 구조 확인
+      4. 받아온 데이터를 화면에 보여주기
+      */
+
+      const req = new Promise((resolve, reject) => {
+        const requestObj = new XMLHttpRequest();
+        requestObj.open("GET", "https://test.api.weniv.co.kr/mall");
+        requestObj.onreadystatechange = () => {
+          if (requestObj.readyState === 4 && requestObj.status === 200) {
+            const result = requestObj.responseText;
+            resolve(result);
+          } else if (requestObj.readyState === 4 && requestObj.status !== 200) {
+            reject("실패");
+          }
+        };
+        requestObj.send();
+      });
+
+      // 상품 UI를 그려줄 함수
+      function drawProduct(data) {
+        // 상품을 그려줄 콘테이너
+        const $root = document.querySelector("#root");
+        const $productDiv = document.createElement("div");
+        const $productName = document.createElement("h2");
+        const $productImage = document.createElement("img");
+
+        // 각 요소에 데이터 넣기
+        $productName.textContent = data.productName;
+        $productImage.src = "https://test.api.weniv.co.kr/" + data.thumbnailImg;
+        $productDiv.append($productName, $productImage);
+        $productImage.style.width = "100px";
+        $root.append($productDiv);
+      }
+
+      // resolve 나 reject 한번 실행되면 promise는 종료된다!!
+      req.then((res) => {
+        // 비동기요청 성공 후, 응답받은 값을 이용해서 무언가 할 수 있는 공간
+        // 데이터 가공하는 공간으로 만들기 위해, 함수는 외부로 분리함
+
+        // drawProuct(json[0]); // "응답 결과중 하나"를 이용해서 테스트
+        const json = JSON.parse(res);
+        // console.log(json);
+        json.forEach(drawProduct);
+      });
+
+      // 응답 결과중 하나
+      // {
+      //     "id": 1,
+      //     "productName": "버그를 Java라 버그잡는 개리씨 키링 개발자키링 금속키링",
+      //     "price": 12500,
+      //     "stockCount": 100,
+      //     "thumbnailImg": "asset/img/1/thumbnailImg.jpg",
+      //     "option": [],
+      //     "discountRate": 0,
+      //     "shippingFee": 1500,
+      //     "detailInfoImage": [
+      //         "asset/detail/2/detail1.png",
+      //         "asset/detail/2/detail2.png"
+      //     ],
+      //     "viewCount": 0,
+      //     "pubDate": "2022-02-28",
+      //     "modDate": "2022-02-28"
+      // }
+    </script>
+  </body>
+</html>

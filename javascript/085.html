@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>Fetch</h1>
+    </main>
+    <script src="../common.js"></script>
+    <script>
+      // # Fetch가 등장하기 전
+      // ## 방법 1: 직접 Promise 생성
+      // const req = new Promise((resolve, reject) => {
+      //   const requestObj = new XMLHttpRequest();
+      //   requestObj.open("GET", "https://test.api.weniv.co.kr/mall");
+      //   requestObj.onreadystatechange = () => {
+      //     if (requestObj.readyState === 4 && requestObj.status === 200) {
+      //       const result = requestObj.responseText;
+      //       resolve(result);
+      //     } else if (requestObj.readyState === 4 && requestObj.status !== 200) {
+      //       reject("실패했다");
+      //     }
+      //   };
+      //   requestObj.send();
+      // });
+
+      // ## 방법 2: 함수를 사용하여 Promise 생성
+      // function getRequest(url) {
+      //   const req = new Promise((resolve, reject) => {
+      //     const requestObj = new XMLHttpRequest();
+      //     requestObj.open("GET", url);
+      //     requestObj.onreadystatechange = () => {
+      //       if (requestObj.readyState === 4 && requestObj.status === 200) {
+      //         const result = requestObj.responseText;
+      //         resolve(result);
+      //       } else if (
+      //         requestObj.readyState === 4 &&
+      //         requestObj.status !== 200
+      //       ) {
+      //         reject("실패했다");
+      //       }
+      //     };
+      //     requestObj.send();
+      //   });
+      //   return req;
+      // }
+      // const req = getRequest("https://test.api.weniv.co.kr/mall");
+      // req.then;
+
+      // # Fetch
+      const req = fetch("https://test.api.weniv.co.kr/mall");
+      // fetch 함수는 URL을 인자로 받아 HTTP GET 요청을 보냄
+      // fetch 함수는 Promise 객체를 반환
+
+      console.log(req); // Promise 출력
+      // 이 Promise는 fetch 요청이 완료되면 응답(Response 객체)을 전달
+
+      req
+        .then((res) => {
+          console.log("res", res); // res가 Response 객체임을 출력
+          console.log(res.json()); // 응답을 JSON으로 변환하는 Promise를 반환
+          // json(): Response 객체의 메서드, 응답 본문을 JSON 형태로 파싱하는 비동기 함수 -> Promise 반환
+        })
+        .then((data) => {
+          console.log(data);
+        });
+    </script>
+  </body>
+</html>

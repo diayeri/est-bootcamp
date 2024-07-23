@@ -204,8 +204,15 @@
     { "title": "ex. 소시지 만들기 풀이", "link": "./javascript/072-2.html" },
     { "title": "private", "link": "./javascript/073.html" },
     { "title": "-- ajax", "link": "" },
-    { "title": "promise, XHR", "link": "./javascript/074.html" },
-    { "title": "ex. promise", "link": "./javascript/075.html" },
-    { "title": "", "link": "./javascript/076.html" }
+    { "title": "XHR", "link": "./javascript/080.html" },
+    { "title": "XHR 2", "link": "./javascript/080-2.html" },
+    { "title": "XHR, Promise", "link": "./javascript/082.html" },
+    { "title": "XHR, Promise 2", "link": "./javascript/082-2.html" },
+    { "title": "XHR, Promise 3", "link": "./javascript/082-3.html" },
+    { "title": "Promise", "link": "./javascript/083.html" },
+    { "title": "ex. Promise", "link": "./javascript/084.html" },
+    { "title": "ex. Promise 풀이", "link": "./javascript/084-2.html" },
+    { "title": "Fetch", "link": "./javascript/085.html" },
+    { "title": "ex. Fetch", "link": "./javascript/085-2.html" }
   ]
 }
