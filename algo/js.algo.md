@@ -10,7 +10,7 @@
   - 학문적 접근: The Art of Computer Programming(도널드 커누스)
   - 코딩테스트 접근: 파이썬 알고리즘 인터뷰(박상길)
   - 자바스크립트 코딩 테스트 책: 코딩 테스트 합격자 되기 - 자바스크립트 편
-- 요즘은 ChatGPT가 이러한 책의 역할을 하고 있습니다. 그래서 https://100.jsalgo.co.kr/와 같은 곳에서 문제를 풀어보시면서 자료구조와 알고리즘을 설명해달라고 ChatGPT에게 요청하시면서 공부하시는 방법이 더 효율적입니다.
+- 요즘은 ChatGPT가 이러한 책의 역할을 하고 있습니다. 그래서 https://100.jsalgo.co.kr/ 와 같은 곳에서 문제를 풀어보시면서 자료구조와 알고리즘을 설명해달라고 ChatGPT에게 요청하시면서 공부하시는 방법이 더 효율적입니다.
 
 ## 1.1 코테 전 준비사항
 
@@ -46,6 +46,7 @@
 ## 1.2 문제 유형과 출제 방식
 
 - 5 ~ 6시간, 6 ~ 7문제
+  - 구현 테스트의 경우, 짧으면 1일, 길면 4 ~ 5일 주는 경우도 있다
 - 30분씩 4문제, 2시간씩 2문제
 - 2 ~ 3시간, 3 ~ 5문제
 - 30분씩 3 ~ 4문제, 변별력 1문제
@@ -77,3 +78,233 @@
       - 트리
         - 힙
         - 트라이
+
+## 간단한 코드 스니펫
+
+```js
+// python에 있는 유용한 코드를 js로 모듈화
+
+// 1-1. 묶음
+const zip = (a, b) => a.map((e, i) => [e, b[i]]);
+// 제약조건, a가 map을 사용하기 위하여, array 형태여야 한다 -> 새로운 array 반환
+
+// 1-2. 범위 안에 수 생성
+const range = (start, end) =>
+  Array.from({ length: end - start + 1 }, (_, i) => start + i);
+// * 함수나 변수이름에 "_"가 들어가면 -> 사용하지 않는 변수라는 뜻
+
+Array.from("hello"); // ['h','e','l','l','o']
+Array.from({ one: 10, two: 20 }); // 인자가 이터러블 하지 않아서 사용 불가
+Array.from([1, 2, 3]);
+Array.from(new Set([1, 2, 3]));
+Array.from(new Map([1, 2], [3, 4]));
+
+// map function
+Array.from([1, 2, 3], (x) => x + x);
+Array.from("hello", (x) => x + x);
+// * 이터러블 : next 값이 있는 값
+
+// 1-3. 평평하게 만들기 (평탄화)
+const flatten = (arr, depth = Infinity) => arr.flat(depth);
+// const flatten = (arr) =>
+//   arr.reduce(
+//     (acc, val) =>
+//       Array.isArray(val) ? acc.concat(flatten(val)) : acc.concat(val),
+//     []
+//   );
+
+[1, [2, [3, [4]]]].flat();
+[(1, [2, [3, [4]]])].flat(1);
+[(1, [2, [3, [4]]])].flat(infinite);
+
+// 2. js에서 사용할 유용한 코드 - 알고리즘에서 사용할 일이 많은
+Array(5).fill(0);
+Array(5)
+  .fill(0)
+  .map((v, i) => i + 1);
+
+".".repeat(5);
+".".repeat(5).split("."); // 권하진 않음
+
+Array.from("ab".repeat(5));
+
+Infinity;
+-Infinity;
+
+Math.ceil(1.1); // 올림
+Math.floor(1.1); // 내림
+Math.max(1, 2, 3, 4, 5);
+Math.max([1, 2, 3, 4, 5]); // NaN
+Math.max(...[1, 2, 3, 4, 5]); // 전개구문
+
+// 형변환
+parseInt("1234", 10); // 10진수를 10진수로 변환
+parseInt("1001", 2); // 2진수를 10진수로 변환
+parseInt("aa1234.abc"); // 오류는 안남
+parseInt("12aa34.abc"); // 12까지 변환해줌
+
+Math.floor(10 / 3);
+
+// 참고) 비트단위 연산자 이용 - 안전한 parseInt를 사용하길 권장
+// 비트단위 연산자는 실무에서 쓸 일이 없긴 하다. 이런 방법도 있기는 하다.
+~~(10 / 3); // 소수점 제거 (비트단위 not 연산자 *2 -> 정수가 됨, "~" 연산자를 알필요는 없음)
+(10 / 3) | 0;
+(10 / 3) >> 0;
+5 << 3;
+
+// 자릿수 고정
+(1234.56789).toFixed(2); // 1234.57
+(1234.56789).toFixed(0); // 1235
+(1234.56789).toFixed(4); // 1234.5679
+(1234.56789).toFixed(6); // 1234.567890
+
+// match는 문자열에서 정규식을 사용할 수 있습니다.
+"2345678910111213".match(/1/g); // g는 global이에요. 전역에서 찾겠다는 것입니다. 앞에 슬러시와 뒤에 슬러시는 정규식을 사용할 때 사용합니다.
+"2345678910111213".match("1");
+"2345678910111213".match(/1/);
+"2345678910111213".match(/1/g);
+"2345678910111213".match(/1/g).length;
+"hello world, it is my world.".match(/world/g).length;
+```
+
+- 참고) 2, 8, 16, 10진수 - 보통 알고리즘에서만 쓰임
+  - 진수의 변환 시, 쉽게 10 -> 2진수로 변환하는 법
+  - 가까운 2의 제곱수를 찾아서 그 값에서 얼마를 더 더할지 확인
+  - 1000 -> 순서대로, 2^3, 2^2, 2^1, 2^0
+
+## 워밍업 문제
+
+- 링크: https://codingdojang.com/scode/393
+
+```js
+// 이렇게 풀지 마세요 1
+// xxx8:000 ~ 999개
+// xx8x:000 ~ 999개
+// x8xx:000 ~ 999개
+// 8xxx:000 ~ 999개
+// 중복 => 중복을 허락해야 합니다. 4000개가 답이 맞습니다.
+// 이런식으로 풀이하는 것을 보려고 하는 문제가 아닙니다!
+
+// 이렇게 풀지 마세요 2
+// 이런 카운팅 하는 문제에 lv1문제는 대부분 문자열 문제입니다.
+// [0, 0, 0, 0] ~ [9, 9, 9, 9] 반복을 돌며 풀지 마세요.
+
+// 이렇게 풀지 마세요 3
+count = 0;
+for (let i of "12345678910111213") {
+  console.log(i);
+  if (i === "1") {
+    count++;
+  }
+}
+count;
+
+// 최대한 내장 메서드를 이용해주세요.
+// 효율적으로 풀 수 있는 방법을 찾아주세요.
+
+// 권장 풀이법 1
+"12345678910111213".match(/1/g).length;
+
+// 추가 풀이법 2
+Array(100)
+  .fill(0)
+  .map((_, i) => i)
+  .join("")
+  .split("")
+  .filter((v) => v === "1").length;
+
+// 모든 코드를 다 한줄로 만들려는 것은 좋지 않습니다.
+Array(100)
+  .fill(0)
+  .map((_, i) => i)
+  .join("")
+  .match(/1/g).length;
+```
+
+## 워밍업 문제 2
+
+- 링크: https://codingdojang.com/scode/408
+- 순서쌍, 최댓값, 최솟값, 특정값의 정렬 문제 -> 모두 정렬 문제!
+
+```js
+const s = [1, 3, 4, 8, 13, 17, 20];
+
+// 이렇게 풀지마세요 1
+let min = Infinity;
+let index = 0;
+for (let i = 0; i < s.length - 1; i++) {
+  console.log(s[i + 1] - s[i]);
+  if (s[i + 1] - s[i] < min) {
+    min = s[i + 1] - s[i];
+    index = i;
+  }
+}
+
+console.log(s[index], s[index + 1]);
+
+// 최솟값: 최댓값을 먼저 저장해야 함
+// 최댓값: 최솟값을 먼저 저장해야 함
+
+// 권장 풀이 1 - 이렇게 풀면 간단하다
+const s = [1, 3, 4, 8, 13, 17, 20];
+const zip = (a, b) => a.map((e, i) => [e, b[i]]);
+const pair = zip(s, s.slice(1));
+
+// 이 상태에서 정렬을 하고 최솟값을 찾으면 됩니다.
+pair.sort((a, b) => a[1] - a[0] - (b[1] - b[0]));
+pair.sort((a, b) => a[1] - a[0] - (b[1] - b[0]))[0];
+
+// 권장 풀이 2
+const s = [1, 3, 4, 8, 13, 17, 20];
+const zip = (a, b) => a.map((e, i) => [e, b[i]]);
+const pair = zip(s, s.slice(1));
+let min = Infinity;
+let result = [];
+
+for (let [i, j] of pair) {
+  console.log(i, j);
+  if (j - i < min) {
+    min = j - i;
+    result = [i, j];
+  }
+}
+
+console.log(result);
+```
+
+## 워밍업 문제 3
+
+- 링크: https://100.jsalgo.co.kr/?page=4#
+
+```js
+const cookies = ["쿠키 3개", "쿠키 2개", "쿠키 5개"];
+
+// 제일 간단한 방법 - match로 풀기
+function solution(data) {
+  let result = 0;
+  let tmep = 0;
+  data.forEach((v) => {
+    console.log(v.match(/\d+/g)[0]);
+    result += parseInt(v.match(/\d+/g)[0] * temp);
+    temp++;
+  });
+  return result;
+}
+// 참고) parseInt : 숫자가 먼저 나올때만 찾을 수 있다!
+// ㄴ 따라서 match 정규표현식으로 숫자만 찾아야 함 \d: 숫자만, \w: 문자만(?)
+// ㄴ \d+ : +는 ...
+
+// 정규표현식 쓰지 않고 풀기
+function solution(data) {
+  let result = 0;
+  let temp = 1;
+  data.forEach((v) => {
+    result += parseInt(v.split(" ")[1]) * temp;
+    temp++;
+  });
+  return result;
+}
+```
+
+- 코딩테스트는 보통 통과되는지 여부만 확인한다
+- 코딩테스트시
