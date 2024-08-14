@@ -6,19 +6,18 @@ const items = [
   { id: 3, name: "Cherry", desc: "체리는 비싸" },
 ];
 
-function Dl() {
-  return items.map((i) => (
-    <dl key={i.id}>
+function Fragment() {
+  const dts = items.map((i) => (
+    <React.Fragment key={i.id}>
       <dt>{i.name}</dt>
       <dd>{i.desc}</dd>
-    </dl>
+    </React.Fragment>
   ));
-}
 
-function Fragment() {
   return (
     <React.Fragment>
-      <Dl />
+      <h1>정의 리스트</h1>
+      <dl>{dts}</dl>
     </React.Fragment>
   );
 }
