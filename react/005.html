@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>documnetFragment + 바닐라로 랜더링</title>
+  </head>
+
+  <body>
+    <h1>닐라닐라 바닐라</h1>
+    <div id="root"></div>
+    <script>
+      const $root = document.querySelector("#root");
+      const frag = document.createDocumentFragment(); // mini DOM
+      const article = `
+        <article class="parent">
+          <figure>
+              <img class="figImg"
+                  src="https://file.mk.co.kr/meet/neds/2021/07/image_readtop_2021_654175_16256093474708254.jpg"
+                  height="100"
+                  alt="">
+              <figcaption class="figCap">
+                  유재석씨가 수상식에서 환하게 웃고 있다.
+              </figcaption>
+          </figure>
+        </article>
+      `;
+      // 루프 내에서 프래그먼트에 요소 추가
+      for (let i = 0; i < 10; i++) {
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = article;
+        frag.append(tempDiv.firstElementChild);
+      }
+
+      // 한 번에 모든 요소를 DOM에 추가
+      $root.append(frag);
+    </script>
+  </body>
+</html>
