@@ -1,3 +1,4 @@
+import Fragment from "./Fragment";
 import "./App.css";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   ];
   return (
     <div className="div">
+      <Fragment />
       <h1>time: {time.toString()}</h1>
       <div className="flex">
         <h2 style={{ ...timeStyle, color: "red" }}>{time.getFullYear()}년</h2>
@@ -23,7 +25,7 @@ function App() {
       </div>
       <ol>
         {list.map((i) => (
-          <li className={i.visited ? "visited" : ""} key={i.no}>
+          <li className={(i.visited = true ? "visited" : null)} key={i.no}>
             {i.area}
           </li>
         ))}
