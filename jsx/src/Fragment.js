@@ -16,7 +16,7 @@ function Fragment() {
 
   return (
     <React.Fragment>
-      <h1>정의 리스트</h1>
+      <h2>정의 리스트</h2>
       <dl>{dts}</dl>
     </React.Fragment>
   );
