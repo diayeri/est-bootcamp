@@ -1,6 +1,7 @@
 import Fragment from "./components/Fragment";
 import Time from "./components/Time";
 import Props from "./components/Props";
+import Resume from "./components/Resume";
 import "./App.css";
 
 function App() {
@@ -12,6 +13,13 @@ function App() {
   ];
   return (
     <div className="div">
+      <Resume
+        hello="안녕하세요"
+        name="개리"
+        hobby="게임"
+        food="고기"
+        color="blue"
+      />
       <Props name="dy" age="30" />
       <Fragment />
       <Time />
