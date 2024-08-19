@@ -2,6 +2,9 @@ import Fragment from "./components/Fragment";
 import Time from "./components/Time";
 import Props from "./components/Props";
 import Resume from "./components/Resume";
+import ColorText from "./components/ColorText";
+import LikeButton from "./components/LikeButton";
+import LikeToggle from "./components/LikeToggle";
 import "./App.css";
 
 function App() {
@@ -12,7 +15,12 @@ function App() {
     { no: 4, area: "제주도", visited: false },
   ];
   return (
-    <div className="div">
+    <>
+      <LikeToggle />
+      <LikeButton />
+      <ColorText color="red" />
+      <ColorText color="green" />
+      <ColorText color="blue" />
       <Resume
         hello="안녕하세요"
         name="개리"
@@ -30,7 +38,7 @@ function App() {
           </li>
         ))}
       </ol>
-    </div>
+    </>
   );
 }
 export default App;
