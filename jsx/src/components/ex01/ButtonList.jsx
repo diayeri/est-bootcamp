@@ -8,7 +8,10 @@ function MoodButton(props) {
 
   return (
     <li>
-      <button className={`btn btn-block`} onClick={clickMoodBtn}>
+      <button
+        className={`btn btn-block ${props.isSelected ? "active" : ""}`}
+        onClick={clickMoodBtn}
+      >
         기분이: {props.mood}
       </button>
     </li>
@@ -25,8 +28,13 @@ const moodList = [
 function ButtonList(props) {
   return (
     <ul id="moodList">
-      {moodList.map((item, index) => (
-        <MoodButton setMood={props.setMood} key={index} mood={item} />
+      {moodList.map((mood, index) => (
+        <MoodButton
+          setMood={props.setMood}
+          key={index}
+          mood={mood}
+          isSelected={props.currentMood === mood}
+        />
       ))}
     </ul>
   );

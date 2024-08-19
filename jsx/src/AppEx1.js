@@ -4,13 +4,13 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [mood, setMood] = useState("");
+  const [currentMood, setCurrentMood] = useState("");
   return (
     <>
       <h1>오늘의 기분을 선택해주세요 😅</h1>
       <article style={{ width: "300px" }}>
-        <ButtonList setMood={setMood} />
-        <MoodScreen mood={mood} />
+        <ButtonList setMood={setCurrentMood} currentMood={currentMood} />
+        <MoodScreen mood={currentMood} />
       </article>
     </>
   );
