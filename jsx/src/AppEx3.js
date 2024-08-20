@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 const data = [
@@ -8,24 +8,26 @@ const data = [
 ];
 
 function App() {
-  const [isSelected, setIsSelected] = useState("");
+  const [isSelected, setIsSelected] = useState();
   const select = (id) => {
     setIsSelected(id);
   };
   return (
-    <ul>
+    <dl>
       {data.map((el) => (
-        <li key={el.id} onClick={() => select(el.id)}>
-          {el.name}
+        <React.Fragment key={el.id}>
+          <dt>
+            <button onClick={() => select(el.id)}>{el.name}</button>
+          </dt>
           {isSelected === el.id && (
-            <div>
-              <p>Email: {el.email}</p>
-              <p>Job: {el.job}</p>
-            </div>
+            <>
+              <dd>Email: {el.email}</dd>
+              <dd>Job: {el.job}</dd>
+            </>
           )}
-        </li>
+        </React.Fragment>
       ))}
-    </ul>
+    </dl>
   );
 }
 export default App;
