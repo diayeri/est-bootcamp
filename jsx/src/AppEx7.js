@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PriceFormatter from "./components/PriceFormatter";
 
 const ProductImage = styled.img`
   width: 100%;
@@ -28,8 +29,12 @@ const CardWrapper = styled.div`
   border-radius: 20px;
 `;
 
-function ProductPrice({ unit }) {
-  return <p>100,000{unit}</p>;
+function ProductPrice({ price, currencyCode }) {
+  return (
+    <p>
+      <PriceFormatter price={price} currencyCode={currencyCode} />
+    </p>
+  );
 }
 
 function ContCard(props) {
@@ -51,7 +56,7 @@ export default function AppEx7() {
         aliquam esse non nam consectetur minima atque consequuntur voluptates,
         eum quia.
       </ProductDescription>
-      <ProductPrice unit="원" />
+      <ProductPrice price={1000} currencyCode="USD" />
     </ContCard>
   );
 }
