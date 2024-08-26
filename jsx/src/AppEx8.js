@@ -34,14 +34,6 @@ export default function AppEx7() {
     fetchData();
   }, []);
 
-  const [loc, setLoc] = useState();
-  const selectLoc = (loc) => {
-    setLoc(loc);
-  };
-  const initLoc = () => {
-    setLoc();
-  };
-
   return (
     <>
       <h1>나라 목록</h1>
@@ -51,10 +43,10 @@ export default function AppEx7() {
         ))}
       </ul>
       <div>
-        <button type="button" onClick={initLoc}>
+        <button type="button" onClick={() => {}}>
           전체목록
         </button>
-        <button type="button" onClick={() => selectLoc("europe")}>
+        <button type="button" onClick={() => {}}>
           유럽목록
         </button>
       </div>
