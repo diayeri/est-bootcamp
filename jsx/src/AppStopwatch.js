@@ -19,11 +19,15 @@ export default function Stopwatch() {
   function handleStop() {
     clearInterval(intervalIdRef.current);
   }
+  function handleReset() {
+    clearInterval(intervalIdRef.current);
+    setSecondPassed(0);
+  }
 
   return (
     <>
       <h1>Time passed: {(secondsPassed / 1000).toFixed(3)}</h1>
-      <button onClick={handleStop}>Reset</button>
+      <button onClick={handleReset}>Reset</button>
       <button onClick={handleStart}>Start</button>
       <button onClick={handleStop}>Stop</button>
     </>
