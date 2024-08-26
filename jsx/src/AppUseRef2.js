@@ -35,3 +35,4 @@ const App = () => {
 };
 
 export default App;
+// 참고) 사실 이러한 form 에서는 useEffect가 더 효과적이다
