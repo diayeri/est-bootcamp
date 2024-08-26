@@ -21,18 +21,17 @@ export default function AppEx7() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/nations")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error();
-        }
-        return res.json();
-      })
-      .then((json) => {
-        console.log(json);
+    const fetchData = async () => {
+      try {
+        const req = await fetch("http://localhost:4000/nations");
+        if (!req.ok) throw new Error();
+        const json = await req.json();
         return setData(json);
-      })
-      .catch((err) => console.error("ERR", err));
+      } catch (err) {
+        console.error("ERR", err);
+      }
+    };
+    fetchData();
   }, []);
 
   const [loc, setLoc] = useState();
@@ -47,9 +46,9 @@ export default function AppEx7() {
     <>
       <h1>나라 목록</h1>
       <ul>
-        {/* {data.map((i) => (
+        {data.map((i) => (
           <Li key={i.id} title={i.title} population={i.population} />
-        ))} */}
+        ))}
       </ul>
       <div>
         <button type="button" onClick={initLoc}>
