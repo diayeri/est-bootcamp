@@ -2,6 +2,10 @@ import React, { createContext, useContext, useState } from "react";
 // import { productsInfo } from "./context/ProductsInfo";
 
 const CartContext = createContext();
+
+// 커스텀 훅
+const useCart = () => useContext(CartContext);
+
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
@@ -24,10 +28,13 @@ const CartProvider = ({ children }) => {
   };
 
   // 카트에서 제거하기
-  const removeCart = () => {};
+  const removeCart = (productId) => {
+    setCart((prevCart) => prevCart.filter((item) => productId !== item.id));
+  };
 
   // 카트 상품 총 개수
-  const getTotalCount = () => {};
+  const getTotalCount = () =>
+    cart.reduce((total, item) => total + item.count, 0);
 
   return (
     <CartContext.Provider value={{ cart, addCart, removeCart, getTotalCount }}>
@@ -37,19 +44,17 @@ const CartProvider = ({ children }) => {
 };
 
 function Header() {
+  const { getTotalCount } = useCart();
   return (
     <>
       <h1>쇼핑몰</h1>
-      <p>
-        카트에 있는 상품 개수:
-        {/* {carts.reduce((a, c) => a + c)} */}
-      </p>
+      <p>카트에 있는 상품 개수: {getTotalCount()}</p>
     </>
   );
 }
 
 function ProductList() {
-  const { addToCart } = useContext(CartContext);
+  const { addCart } = useCart();
 
   const products = [
     { id: 1, name: "노트북", price: 1000 },
@@ -64,7 +69,7 @@ function ProductList() {
         {products.map((product) => (
           <li key={product.id}>
             {product.name} - ₩{product.price}
-            <button type="button" onClick={() => addToCart(product)}>
+            <button type="button" onClick={() => addCart(product)}>
               카트에 추가
             </button>
           </li>
@@ -75,10 +80,23 @@ function ProductList() {
 }
 
 function CartList() {
+  const { cart, removeCart } = useCart();
+
   return (
     <>
       <h2>장바구니</h2>
-      {/* {!carts.length ? <p>장바구니가 비어있습니다.</p> : <ul></ul>} */}
+      {cart.length === 0 ? (
+        <p>장바구니가 비어있습니다.</p>
+      ) : (
+        <ul>
+          {cart.map((item) => (
+            <li key={item.id}>
+              {item.name} - 수량: {item.count}
+              <button onClick={() => removeCart(item.id)}>삭제</button>
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 }
@@ -86,6 +104,7 @@ function CartList() {
 export default function AppEx9() {
   return (
     <CartProvider>
+      <Header />
       <ProductList />
       <CartList />
     </CartProvider>
