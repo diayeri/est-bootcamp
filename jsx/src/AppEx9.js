@@ -1,8 +1,8 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 // import { productsInfo } from "./context/ProductsInfo";
 
 const CartContext = createContext();
-const CartProvider = () => {
+const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   // 카트에 상품 추가하기
@@ -13,9 +13,27 @@ const CartProvider = () => {
 
   // 카트 상품 총 개수
   const getTotalCount = () => {};
+
+  return (
+    <CartContext.Provider value={{ cart, addCart, removeCart, getTotalCount }}>
+      {children}
+    </CartContext.Provider>
+  );
 };
 
-function ProductList({ carts, setCarts }) {
+function Header() {
+  return (
+    <>
+      <h1>쇼핑몰</h1>
+      <p>
+        카트에 있는 상품 개수:
+        {/* {carts.reduce((a, c) => a + c)} */}
+      </p>
+    </>
+  );
+}
+
+function ProductList() {
   const products = [
     { id: 1, name: "노트북", price: 1000 },
     { id: 2, name: "스마트폰", price: 500 },
@@ -37,23 +55,20 @@ function ProductList({ carts, setCarts }) {
   );
 }
 
-function CartList({ carts, setCarts }) {
+function CartList() {
   return (
     <>
       <h2>장바구니</h2>
-      {!carts.length ? <p>장바구니가 비어있습니다.</p> : <ul></ul>}
+      {/* {!carts.length ? <p>장바구니가 비어있습니다.</p> : <ul></ul>} */}
     </>
   );
 }
 
 export default function AppEx9() {
-  const [carts, setCarts] = useState([]);
   return (
-    <div>
-      <h1>쇼핑몰</h1>
-      <p>카트에 있는 상품 개수: {carts.reduce((a, c) => a + c)}</p>
-      <ProductList carts={carts} setCarts={setCarts} />
-      <CartList carts={carts} setCarts={setCarts} />
-    </div>
+    <CartProvider>
+      <ProductList />
+      <CartList />
+    </CartProvider>
   );
 }
