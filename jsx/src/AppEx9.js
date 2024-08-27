@@ -1,11 +1,27 @@
-import React, { useContext, useState } from "react";
-import { productsInfo } from "./context/ProductsInfo";
+import React, { createContext, useContext, useState } from "react";
+// import { productsInfo } from "./context/ProductsInfo";
+
+const CartContext = createContext();
+const CartProvider = () => {
+  const [cart, setCart] = useState([]);
+
+  // 카트에 상품 추가하기
+  const addCart = () => {};
+
+  // 카트에서 제거하기
+  const removeCart = () => {};
+
+  // 카트 상품 총 개수
+  const getTotalCount = () => {};
+};
 
 function ProductList({ carts, setCarts }) {
-  const products = useContext(productsInfo);
-  const addCart = (item) => {
-    setCarts([...carts]((carts[item.id - 1] += 1)));
-  };
+  const products = [
+    { id: 1, name: "노트북", price: 1000 },
+    { id: 2, name: "스마트폰", price: 500 },
+    { id: 3, name: "태블릿", price: 300 },
+  ];
+
   return (
     <>
       <h2>상품목록</h2>
@@ -13,9 +29,7 @@ function ProductList({ carts, setCarts }) {
         {products.map((product) => (
           <li key={product.id}>
             {product.name} - ₩{product.price}
-            <button type="button" onClick={() => addCart(product)}>
-              카트에 추가
-            </button>
+            <button type="button">카트에 추가</button>
           </li>
         ))}
       </ul>
