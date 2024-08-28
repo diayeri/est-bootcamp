@@ -1,7 +1,8 @@
 import React from "react";
 // import ReactDOM from 'react-dom'; //구버전
 import { createRoot } from "react-dom/client";
-import App from "./AppHookFlow";
+import "./index.css";
+import App from "./AppCustomHook";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
