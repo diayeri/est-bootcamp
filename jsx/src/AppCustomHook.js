@@ -1,8 +1,12 @@
 import React from "react";
 import Input from "./components/Input";
 import useScroll from "./hook/useScroll";
+import useMouseLocation from "./hook/useMouseLocation";
+
 export default function AppCustomHook() {
   useScroll();
+  useMouseLocation();
+
   return (
     <div style={{ height: "200vh" }}>
       <Input />

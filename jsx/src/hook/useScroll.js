@@ -7,17 +7,14 @@ const useScroll = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      // console.log("Scroll");
-      // console.log(document.documentElement.scrollTop);
       setIsBottom(
         window.innerHeight + document.documentElement.scrollTop >=
           document.documentElement.offsetHeight
       );
-      console.log(window.innerHeight + document.documentElement.scrollTop);
-      console.log(document.documentElement.offsetHeight);
-      console.log(isBottom);
+      // console.log(isBottom);
     });
   }, []);
+  // console.log(isBottom);
 
   return isBottom;
 };
