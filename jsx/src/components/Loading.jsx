@@ -1,4 +1,5 @@
 import React from "react";
+import loading from "../assets/loading.gif";
 
 export default function Loading() {
   return (
@@ -12,9 +13,9 @@ export default function Loading() {
         }}
       >
         <img
-          src="/dancing.gif"
+          src={loading}
           alt="dancing loading"
-          style={{ width: "100px", height: "100px" }}
+          style={{ width: "100px", height: "auto" }}
         />
       </div>
     </div>
