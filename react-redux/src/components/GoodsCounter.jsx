@@ -1,16 +1,29 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { increaseNum, decreaseNum } from "../modules/goodsCounter";
+import { sale, soldOut } from "../modules/stockCounter";
 
 export default function GoodsCounter() {
-  const { stock, goods } = useSelector((state) => {
-    return { stock: state.goodsReducer.stock, goods: state.goodsReducer.goods };
+  const { stock, goods, message } = useSelector((state) => {
+    return {
+      stock: state.goodsReducer.stock,
+      goods: state.goodsReducer.goods,
+      message: state.stockReducer.message,
+    };
   }, shallowEqual);
 
   const dispatch = useDispatch();
 
   const onDecreaseNum = () => dispatch(decreaseNum());
   const onIncreaseNum = () => dispatch(increaseNum());
+
+  const checkStock = () => {
+    if (stock > goods) {
+      dispatch(sale());
+    } else {
+      dispatch(soldOut());
+    }
+  };
 
   return (
     <div>
@@ -32,7 +45,7 @@ export default function GoodsCounter() {
         <strong>{goods * 17500}</strong>원
       </div>
       <div>
-        재고 <strong>{stock}</strong>
+        재고 <strong>{stock}</strong> ({message})
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ export const decreaseNum = () => {
 };
 
 const initialState = {
-  stock: 100,
+  stock: 3,
   goods: 1,
 };
 
