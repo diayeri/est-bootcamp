@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { increaseNum, decreaseNum } from "../modules/goodsCounter";
-import { sale, soldOut } from "../modules/stockCounter";
 
 export default function GoodsCounter() {
-  const { stock, goods, message } = useSelector((state) => {
+  const { stock, goods } = useSelector((state) => {
     return {
       stock: state.goodsReducer.stock,
       goods: state.goodsReducer.goods,
-      message: state.stockReducer.message,
     };
   }, shallowEqual);
 
@@ -17,14 +15,6 @@ export default function GoodsCounter() {
   const onDecreaseNum = () => dispatch(decreaseNum());
   const onIncreaseNum = () => dispatch(increaseNum());
 
-  const checkStock = () => {
-    if (stock > goods) {
-      dispatch(sale());
-    } else {
-      dispatch(soldOut());
-    }
-  };
-
   return (
     <div>
       <h2>딥러닝 개발자 무릎 담요</h2>
@@ -32,11 +22,13 @@ export default function GoodsCounter() {
         <strong>17,500</strong>원
       </span>
       <div>
-        <button type="button" onClick={onDecreaseNum}>
+        <button type="button" onClick={onDecreaseNum} disabled={goods <= 0}>
           -MINUS
         </button>
         <span>{goods}</span>
-        <button onClick={onIncreaseNum}>+PLUS</button>
+        <button onClick={onIncreaseNum} disabled={stock <= 0}>
+          +PLUS
+        </button>
       </div>
       <div>
         총 수량 <strong>{goods}</strong>
@@ -45,7 +37,7 @@ export default function GoodsCounter() {
         <strong>{goods * 17500}</strong>원
       </div>
       <div>
-        재고 <strong>{stock}</strong> ({message})
+        재고 <strong>{stock}</strong>
       </div>
     </div>
   );
