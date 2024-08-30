@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery 연습문제!</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>TITLE</h1>
+      <ol>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+      </ol>
+    </div>
+    <script>
+      // 1. div 앞에 p 태그로 hello world를 넣어주세요.
+      $("div").before("<p>Hello world</p>");
+      // 2. ol 자식으로 맨 마지막에 li태그로 hello를 넣어주세요.
+      $("ol").append("<li>Hello world</li>");
+      // 3. h1의 글자색을 파란색으로 바꿔주세요.
+      $("h1").css("color", "blue");
+      // 4. ol 안에 짝수는 색을 파란색으로 바꿔주시고, 이것을 클릭했을 때 alert로 'hello'라고 출력되게 해주세요.
+      // 참고) 0부터 세져서 짝수번째가 예상과는 다름
+      $("li:even")
+        .css("color", "blue")
+        .click(function () {
+          alert("Hello");
+        });
+    </script>
+  </body>
+</html>
