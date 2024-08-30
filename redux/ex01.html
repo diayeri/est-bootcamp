@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>redux ex01</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.js"></script>
+    <style>
+      .wrap-btn {
+        margin-top: 10px;
+        display: flex;
+        gap: 16px;
+      }
+      .preview {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 8px;
+        padding: 8px;
+        border: 2px solid #000;
+        margin-top: 20px;
+        > div {
+          border: 2px solid indianred;
+          padding: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <label for="text">텍스트를 입력하세요</label>
+        <input type="text" id="text" />
+        <button type="button">Click</button>
+        <div class="wrap-btn">
+          <span>
+            <button type="button">Rounded</button>
+            <button type="button">Circle</button>
+            <button type="button">Rect</button>
+          </span>
+          <span>
+            <button type="button">Red</button>
+            <button type="button">Green</button>
+            <button type="button">Blue</button>
+          </span>
+        </div>
+      </section>
+      <section class="preview">
+        <div>hi</div>
+        <div>hi</div>
+      </section>
+    </main>
+    <script></script>
+  </body>
+</html>
