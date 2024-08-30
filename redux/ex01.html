@@ -11,15 +11,17 @@
         display: flex;
         gap: 16px;
       }
-      .preview {
+      .container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 8px;
         padding: 8px;
         border: 2px solid #000;
         margin-top: 20px;
-        > div {
-          border: 2px solid indianred;
+        .box {
+          border: 2px solid grey;
+        }
+        .box-inner {
           padding: 8px;
         }
       }
@@ -33,22 +35,100 @@
         <button type="button">Click</button>
         <div class="wrap-btn">
           <span>
-            <button type="button">Rounded</button>
+            <button
+              type="button"
+              onclick="store.dispatch({type:'RADIUS', radius:'20px'});"
+            >
+              Rounded
+            </button>
             <button type="button">Circle</button>
             <button type="button">Rect</button>
           </span>
           <span>
-            <button type="button">Red</button>
-            <button type="button">Green</button>
-            <button type="button">Blue</button>
+            <button
+              type="button"
+              onclick="store.dispatch({type:'COLOR', color:'red'});"
+            >
+              Red
+            </button>
+            <button
+              type="button"
+              onclick="store.dispatch({type:'COLOR', color:'green'});"
+            >
+              Green
+            </button>
+            <button
+              type="button"
+              onclick="store.dispatch({type:'COLOR', color:'blue'});"
+            >
+              Blue
+            </button>
           </span>
         </div>
       </section>
-      <section class="preview">
-        <div>hi</div>
-        <div>hi</div>
+      <section class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
       </section>
     </main>
-    <script></script>
+    <script>
+      // state는 현재 상태, action은 주문 받은 것!
+      function reducer(state, action) {
+        console.log(
+          (state = {
+            text: "hi",
+          }),
+          action
+        );
+
+        switch (action.type) {
+          case "TEXT":
+            return {
+              ...state,
+              text: action.text,
+            };
+          case "RADIUS":
+            return {
+              ...state,
+              borderRadius: action.radius,
+            };
+          case "COLOR":
+            return {
+              ...state,
+              borderColor: action.color,
+            };
+          default:
+            return {
+              ...state,
+            };
+        }
+      }
+      // Redux는 cdn으로 생깁니다.
+      var store = Redux.createStore(
+        reducer,
+        window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__() // redux dev tools를 사용하기 위한 코드
+      );
+
+      function box() {
+        var state = store.getState();
+        //type은 반드시 있어야 합니다.
+        // 바뀔 때마다 console에 store.getState()를 실행해보세요.
+        const input = document.getElementById("text").value;
+        const boxInner = `
+                <div class="box-inner" style="border-color:${state.color}; border-radius:${state.radius}">${state.text}</div>
+            `;
+        document
+          .querySelectorAll(".box")
+          .forEach((i) => (i.innerHTML = boxInner));
+      }
+      // 값이 바뀔 때마다 box 함수를 호출
+      store.subscribe(box);
+      box();
+    </script>
   </body>
 </html>
