@@ -26,14 +26,17 @@
         text
         <input type="text" class="input-text" id="text" />
       </label>
+      <!-- 실행코드를 UI에서 분리해야 함 -->
       <button class="btn" onclick="push()">적용</button>
     </article>
 
     <script>
+      // 함수로 묶이지 않은 부분은 테스트할 수 없음
       let text = "hello ESTsoft";
       const viewer = document.querySelector(".viewer");
       viewer.textContent = text;
 
+      // 재사용성 떨어짐 -> 예외처리 필요 -> "input, viewer가 존재한다면"
       function push() {
         const input = document.querySelector(".input-text");
         viewer.textContent = input.value;
