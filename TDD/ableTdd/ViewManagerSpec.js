@@ -29,9 +29,27 @@ describe("클릭이벤트처리 및 뷰를 담당하는 함수", () => {
     expect(actual).toThrowError();
   });
 
-  const viewManager = new ViewManager();
+  const textManager = new TextManager();
+  const elements = {
+    inputEl: document.createElement("input"),
+    viewerEl: document.createElement("div"),
+    btnEl: document.createElement("button"),
+  };
+  const viewManager = new ViewManager(textManager, elements);
 
-  it("click이벤트 발생시, changeValue 함수가 호출되었는지 확인", () => {});
+  it("click이벤트 발생시, changeValue 함수가 호출되었는지 확인", () => {
+    // 특정 객체의 함수를 감시합니다.
+    spyOn(viewManager, "changeValue");
+    btnEl.click();
 
-  it("changeValue 함수 호출시, updateView 함수가 호출되는지 확인", () => {});
+    expect(viewManager.changeValue).toHaveBeenCalled();
+  });
+
+  it("changeValue 함수 호출시, updateView 함수가 호출되는지 확인", () => {
+    // 특정 객체의 함수를 감시합니다.
+    spyOn(viewManager, "updateView");
+    viewManager.changeValue();
+
+    expect(viewManager.updateView).toHaveBeenCalled();
+  });
 });
