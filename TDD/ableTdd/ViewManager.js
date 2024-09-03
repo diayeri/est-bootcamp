@@ -7,23 +7,23 @@ class ViewManager {
     }
 
     if (!elements.btnEl || !elements.viewerEl || !elements.inputEl) {
-      throw new Error("세가지 중 요소 누락됨");
+      throw new Error("세가지 중 누락된 요소가 있다");
     }
 
     this.inputEl = elements.inputEl;
     this.viewerEl = elements.viewerEl;
     this.textManager = textManager;
 
-    elements.btnEl.addEventListener("click", (e) => {
+    elements.btnEl.addEventListener("click", () => {
       this.changeValue();
     });
   }
   changeValue() {
     this.textManager.setValue({ data: this.inputEl.value });
-    this.updateViewer();
+    this.updateView();
   }
 
-  updateViewer() {
+  updateView() {
     this.viewerEl.textContent = this.textManager.getValue();
   }
 }
