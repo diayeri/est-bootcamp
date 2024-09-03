@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      article {
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 20px;
+      }
+
+      strong.viewer {
+        display: block;
+        margin: 20px 0 30px;
+        text-align: center;
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <strong class="viewer"> 사용자 텍스트 </strong>
+      <label for="text">
+        text
+        <input type="text" class="input-text" id="text" />
+      </label>
+      <button class="btn" onclick="push()">적용</button>
+    </article>
+
+    <script>
+      let text = "hello ESTsoft";
+      const viewer = document.querySelector(".viewer");
+      viewer.textContent = text;
+
+      function push() {
+        const input = document.querySelector(".input-text");
+        viewer.textContent = input.value;
+      }
+    </script>
+  </body>
+</html>
