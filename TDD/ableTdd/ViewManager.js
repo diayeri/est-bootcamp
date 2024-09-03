@@ -11,8 +11,8 @@ class ViewManager {
     }
 
     this.inputEl = elements.inputEl;
-    this.viewerEl = elements.viewer;
-    this.textManager = elements.textManager;
+    this.viewerEl = elements.viewerEl;
+    this.textManager = textManager;
 
     elements.btnEl.addEventListener("click", (e) => {
       this.changeValue();
