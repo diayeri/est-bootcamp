@@ -26,6 +26,10 @@ module.exports = {
           path.resolve("./myLoader.js"),
         ],
       },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
 };
