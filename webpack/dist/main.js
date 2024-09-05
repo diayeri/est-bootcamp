@@ -1,4 +1,12 @@
-/*! 안뇽하세요/ 배너입니다. */
+/*!
+ * 
+ *           Commit version : 6d890db
+ *
+ *           Committer : dia
+ *
+ *           Commit Date : 9/5/2024, 2:40:53 PM
+ *
+ */
 /*
  * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
  * This devtool is neither made for production nor for readable output files.

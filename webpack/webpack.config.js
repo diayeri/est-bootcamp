@@ -3,6 +3,7 @@ const webpack = require("webpack");
 // - 운영체제별 경로 문법(구분자: / 혹은 \)을 절대 경로로 반환
 const path = require("path");
 const { plugin } = require("postcss");
+const childProcess = require("child_process");
 
 // 모듈을 밖으로 빼내는 노드 JS문법
 // - 엔트리, 아웃풋, 번들링 모드 설정
@@ -49,7 +50,14 @@ module.exports = {
   },
   plugins: [
     new webpack.BannerPlugin({
-      banner: "안뇽하세요/ 배너입니다.",
+      // banner: "마지막 빌드 시간은 " + new Date().toLocaleString() + " 입니다.",
+      banner: `
+          Commit version : ${childProcess.execSync(
+            "git rev-parse --short HEAD"
+          )}
+          Committer : ${childProcess.execSync("git config user.name")}
+          Commit Date : ${new Date().toLocaleString()}
+      `,
     }),
   ],
 };
