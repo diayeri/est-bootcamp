@@ -11,7 +11,7 @@ const todoDatas = [
 
 // 용도와 역할을 명확히 분리하기
 
-const addTodoData = (todoText) => {
+const addTodoData = (todoText: string) => {
   // todoText를 받아서 todoDatas를 업데이트
   const newTodoId = todoDatas[todoDatas.length - 1].id + 1;
   const newTodo = {
@@ -23,18 +23,19 @@ const addTodoData = (todoText) => {
 };
 
 const addTodoList = () => {
-  const $todoInput: any = document.querySelector("#todoInput");
-  const todoText: any = $todoInput?.value;
-  $todoInput.value = "";
-
-  const todoDatas = addTodoData(todoText);
-  todoRender(todoDatas);
+  const $todoInput = document.querySelector("#todoInput");
+  if ($todoInput && $todoInput instanceof HTMLInputElement) {
+    const todoText = $todoInput.value;
+    $todoInput.value = "";
+    const todoDatas = addTodoData(todoText);
+    todoRender(todoDatas);
+  }
 };
 
 const $todoInputBtn = document.querySelector("#todoBtn");
 $todoInputBtn?.addEventListener("click", addTodoList);
 
-const todoRender = (todoDatas) => {
+const todoRender = (todoDatas: { id: number; todo: string }[]) => {
   const $todoCont = document.querySelector("#todoCont");
   $todoCont!.innerHTML = "";
   todoDatas.forEach((todoData) => {
