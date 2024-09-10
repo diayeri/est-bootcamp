@@ -1,4 +1,6 @@
-const todoDatas = [
+type TodoData = { id: number; todo: string };
+
+const todoDatas: TodoData[] = [
   {
     id: 1,
     todo: "아침먹기",
@@ -11,10 +13,10 @@ const todoDatas = [
 
 // 용도와 역할을 명확히 분리하기
 
-const addTodoData = (todoText: string) => {
+const addTodoData = (todoText: string): TodoData[] => {
   // todoText를 받아서 todoDatas를 업데이트
   const newTodoId = todoDatas[todoDatas.length - 1].id + 1;
-  const newTodo = {
+  const newTodo: TodoData = {
     id: newTodoId,
     todo: todoText,
   };
@@ -35,10 +37,7 @@ const addTodoList = () => {
 const $todoInputBtn = document.querySelector("#todoBtn");
 $todoInputBtn?.addEventListener("click", addTodoList);
 
-const createTodoLi = (todoData: {
-  id: number;
-  todo: string;
-}): HTMLLIElement => {
+const createTodoLi = (todoData: TodoData): HTMLLIElement => {
   // li추가를 따로 함수로 만들고 append 하는 방식으로, 한 목록씩 추가하게 만들 수도 있다
   const $todoLi = document.createElement("li");
   const $todoP = document.createElement("p");
@@ -47,7 +46,7 @@ const createTodoLi = (todoData: {
   return $todoLi;
 };
 
-const todoRender = (todoDatas: { id: number; todo: string }[]) => {
+const todoRender = (todoDatas: TodoData[]) => {
   const $todoCont = document.querySelector("#todoCont");
   $todoCont!.innerHTML = "";
   todoDatas.forEach((todoData) => {
