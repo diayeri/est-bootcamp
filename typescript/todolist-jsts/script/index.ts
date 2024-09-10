@@ -35,15 +35,23 @@ const addTodoList = () => {
 const $todoInputBtn = document.querySelector("#todoBtn");
 $todoInputBtn?.addEventListener("click", addTodoList);
 
+const createTodoLi = (todoData: {
+  id: number;
+  todo: string;
+}): HTMLLIElement => {
+  // li추가를 따로 함수로 만들고 append 하는 방식으로, 한 목록씩 추가하게 만들 수도 있다
+  const $todoLi = document.createElement("li");
+  const $todoP = document.createElement("p");
+  $todoP.innerText = todoData.todo;
+  $todoLi.append($todoP);
+  return $todoLi;
+};
+
 const todoRender = (todoDatas: { id: number; todo: string }[]) => {
   const $todoCont = document.querySelector("#todoCont");
   $todoCont!.innerHTML = "";
   todoDatas.forEach((todoData) => {
-    // li추가를 따로 함수로 만들고 append 하는 방식으로, 한 목록씩 추가하게 만들 수도 있다
-    const $todoLi = document.createElement("li");
-    const $todoP = document.createElement("p");
-    $todoP.innerText = todoData.todo;
-    $todoLi.append($todoP);
+    const $todoLi = createTodoLi(todoData);
     $todoCont!.append($todoLi);
   });
 };
