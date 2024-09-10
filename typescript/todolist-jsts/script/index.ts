@@ -1,36 +1,49 @@
-type TodoData = { id: number; todo: string };
+type TodoData = { id: number; todo: string; done: boolean };
 
-const todoDatas: TodoData[] = [
-  {
-    id: 1,
-    todo: "아침먹기",
-  },
-  {
-    id: 2,
-    todo: "양치하기",
-  },
-];
+// const todoDatas: TodoData[] = [
+//   {
+//     id: 1,
+//     todo: "아침먹기",
+//   },
+//   {
+//     id: 2,
+//     todo: "양치하기",
+//   },
+// ];
 
-// 용도와 역할을 명확히 분리하기
-
-const addTodoData = (todoText: string): TodoData[] => {
-  // todoText를 받아서 todoDatas를 업데이트
-  const newTodoId = todoDatas[todoDatas.length - 1].id + 1;
-  const newTodo: TodoData = {
-    id: newTodoId,
-    todo: todoText,
-  };
-  todoDatas.push(newTodo);
+const getTodoData = async (): Promise<TodoData[]> => {
+  const res = await fetch("http://localhost:3000/todos");
+  const todoDatas: TodoData[] = await res.json();
   return todoDatas;
 };
 
-const addTodoList = () => {
+// 용도와 역할을 명확히 분리하기
+
+const addTodoData = async (todoText: string): Promise<TodoData[]> => {
+  const newTodo: Partial<TodoData> = {
+    // id는 보통 서버에서 자동으로 생성해준다 (Id 세팅하던 코드 제거!)
+    todo: todoText,
+  };
+  const res = await fetch(`http://localhost:3000/todos`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newTodo),
+  });
+  const newTodoData = await res.json();
+  return newTodoData;
+};
+
+const addTodoList = async () => {
   const $todoInput = document.querySelector("#todoInput");
   if ($todoInput && $todoInput instanceof HTMLInputElement) {
     const todoText = $todoInput.value;
     $todoInput.value = "";
-    const todoDatas = addTodoData(todoText);
-    todoRender(todoDatas);
+
+    await addTodoData(todoText); // 서버에 todo 추가 요청
+    const newTodoDatas = await getTodoData(); // 최신 todolist 받아오기
+    todoListRender(newTodoDatas);
   }
 };
 
@@ -46,7 +59,7 @@ const createTodoLi = (todoData: TodoData): HTMLLIElement => {
   return $todoLi;
 };
 
-const todoRender = (todoDatas: TodoData[]) => {
+const todoListRender = (todoDatas: TodoData[]) => {
   const $todoCont = document.querySelector("#todoCont");
   $todoCont!.innerHTML = "";
   todoDatas.forEach((todoData) => {
@@ -55,4 +68,8 @@ const todoRender = (todoDatas: TodoData[]) => {
   });
 };
 
-todoRender(todoDatas);
+const init = async () => {
+  const todoDatas = await getTodoData();
+  todoListRender(todoDatas);
+};
+init();
