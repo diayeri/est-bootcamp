@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>멋져부러 할일목록</title>
+  </head>
+  <body>
+    <h1>할일목록</h1>
+    <ul id="todoCont"></ul>
+    <script>
+      const todoDatas = [
+        {
+          id: 1,
+          todo: "아침먹기",
+        },
+        {
+          id: 2,
+          todo: "양치하기",
+        },
+      ];
+
+      const todoRender = (todoDatas) => {
+        const $todoCont = document.querySelector("#todoCont");
+        todoDatas.forEach((todoData) => {
+          const $todoLi = document.createElement("li");
+          const $todoP = document.createElement("p");
+          $todoP.innerText = todoData.todo;
+          $todoLi.append($todoP);
+          $todoCont.append($todoLi);
+        });
+      };
+
+      todoRender(todoDatas);
+
+      const addTodoData = (todoText) => {
+        // todoText를 받아서 todoDatas를 업데이트
+      };
+    </script>
+  </body>
+</html>
