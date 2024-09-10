@@ -8,6 +8,8 @@
   <body>
     <h1>할일목록</h1>
     <ul id="todoCont"></ul>
+    <input type="text" id="todoInput" />
+    <button type="button" id="todoBtn">추가</button>
     <script>
       const todoDatas = [
         {
@@ -19,6 +21,28 @@
           todo: "양치하기",
         },
       ];
+
+      // 용도와 역할을 명확히 분리하기
+
+      const addTodoData = (todoText) => {
+        // todoText를 받아서 todoDatas를 업데이트
+        const newTodoId = todoDatas[todoDatas.length - 1].id + 1;
+        const newTodo = {
+          id: newTodoId,
+          todo: todoText,
+        };
+        todoDatas.push(newTodo);
+        todoRender(todoDatas);
+      };
+
+      const addTodoList = () => {
+        const $todoInput = document.querySelector("#todoInput");
+        const todoText = $todoInput.value;
+        addTodoData(todoText);
+      };
+
+      const $todoInputBtn = document.querySelector("#todoBtn");
+      $todoInputBtn.addEventListener("click", addTodoList);
 
       const todoRender = (todoDatas) => {
         const $todoCont = document.querySelector("#todoCont");
@@ -32,10 +56,6 @@
       };
 
       todoRender(todoDatas);
-
-      const addTodoData = (todoText) => {
-        // todoText를 받아서 todoDatas를 업데이트
-      };
     </script>
   </body>
 </html>
