@@ -24,10 +24,10 @@ const AppCustomHook = () => {
       const json = await req.json();
 
       setImageData((prevImages) => [...prevImages, ...json]);
-      setIsLoading(false);
+      // setIsLoading(false);`
     } catch (err) {
       console.error("ERR", err);
-      setIsLoading(false);
+      // setIsLoading(false);
     }
   };
 

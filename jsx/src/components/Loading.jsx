@@ -14,8 +14,18 @@ export default function Loading() {
       >
         <img
           src={loading}
-          alt="dancing loading"
+          alt="loading"
           style={{ width: "100px", height: "auto" }}
+        />
+        <img
+          src="../../dancing.gif"
+          alt=""
+          style={{ width: "100px", height: "100px" }}
+        />
+        <img
+          src="../assets/loading.gif"
+          alt=""
+          style={{ width: "100px", height: "100px" }}
         />
       </div>
     </div>
