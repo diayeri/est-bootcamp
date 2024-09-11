@@ -1,23 +1,23 @@
 @mixin pri-button($width, $height, $radius: 10px) {
-    width: $width;
-    height: $height;
-    border-radius: $radius;
-    background-color: aqua;
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  background-color: aqua;
 }
 
 @mixin pri-button_($width: 100px, $height: 50px, $radius: 10px) {
-    width: $width;
-    height: $height;
-    border-radius: $radius;
-    background-color: aqua;
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  background-color: aqua;
 }
 
 .btn {
-    @include pri-button(100px, 50px, 20px)
+  @include pri-button(100px, 50px, 20px);
 }
 
 .btn_ {
-    @include pri-button(110px, 60px)
+  @include pri-button(110px, 60px);
 }
 
 // .btn__ {
@@ -25,7 +25,13 @@
 // }
 
 .btn__ {
-    @include pri-button_(100px, null, 20px)
+  // null : 해당 속성 생략하기
+  @include pri-button_(100px, null, 20px);
+}
+
+.btn__2 {
+  // 일부 인자만 전달 (나머지는 기본값)
+  @include pri-button_($width: 100%, $height: 100%);
 }
 
 // 중앙값 비우기
