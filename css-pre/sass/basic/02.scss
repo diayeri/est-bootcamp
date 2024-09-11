@@ -1,0 +1,108 @@
+// # 변수
+// 한글변수 지정가능 (권장X)
+// ## 사용예
+// - 경로명, 파일명
+// - 미디어 쿼리 너비, 높이
+// - 폰트명, 폰트사이즈, 여백, 색상
+
+$path: "./asset/images/";
+$image: "apple.png";
+
+$one: #000000;
+$two: #999999;
+$three: #ffffff;
+
+.box-one {
+  color: $one;
+}
+
+.text {
+  // 이미지 경로를 함수, for 사용하여 더 쉽게 사용 가능
+  background-image: url($path + $image);
+  background-image: url($path + "orange.png");
+}
+
+// 색상
+$bg-color: #3e5e9e;
+$link-color: red;
+$p-color: #282a36;
+
+// 폰트사이즈
+$font-p: 13px;
+$font-h1: 28px;
+
+// 폰트
+$base-font: "Noto Sans KR", sans-serif;
+
+// lists (배열형태)
+$sizes: 40px, 50px, 80px;
+$valid-sides: top, bottom, left, right;
+
+// maps (객체형태)
+$font-sizes: (
+  "h1": 45px,
+  "h2": 19px,
+  "p": 16px,
+);
+$font-sizes-test: (
+  "one": #fff,
+  "two": #ff0,
+  "three": #f00,
+);
+
+// array, object로도 저장
+// - 단, 0부터 시작하지는 않음
+// - 마이너스 인덱싱 가능
+
+// lists (배열형태)
+.title1 {
+  font-size: nth($sizes, 1);
+}
+.title2 {
+  font-size: nth($sizes, -1);
+}
+
+// maps (객체형태)
+.title3 {
+  font-size: map-get($font-sizes, "h2");
+}
+.title4 {
+  font-size: map-get($font-sizes-test, "three");
+}
+
+// 문제 입니다. 아래와 같이 CSS가 만들어지도록 SCSS를 만들어주세요.
+// .test1 {
+//     font-size: 45px;
+//     background-color: #f00;
+// }
+
+// $valid-sides
+// top, bottom, left, right
+// test2 {
+//     margin-top: 40px;
+//     margin-bottom: 40px;
+//     background-color: #f00;
+// }
+
+$font-test: 45px;
+$bg-color: #f00;
+$margin: (
+  "top": 40px,
+  "right": 0,
+  "bottom": 40px,
+  "left": 0,
+);
+
+.test {
+  &1 {
+    font-size: $font-test;
+    background-color: $bg-color;
+  }
+  &2 {
+    margin: {
+      top: map-get($margin, "top");
+      bottom: map-get($margin, "bottom");
+    }
+    background-color: $bg-color;
+  }
+}

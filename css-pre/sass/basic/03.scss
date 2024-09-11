@@ -1,0 +1,11 @@
+// # 변수 - 지역변수
+.one {
+  $value: red;
+  // !global: 지역변수를 전역변수로 만들기
+  $global: yellow !global;
+  .two {
+    color: $value;
+  }
+}
+
+// ## 변수선언 스코프

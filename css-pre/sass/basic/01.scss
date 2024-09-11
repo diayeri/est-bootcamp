@@ -1,0 +1,55 @@
+// # import, nesting
+
+@import "a.scss";
+@import "b.scss";
+
+.icon {
+  width: 100px;
+  height: 100px;
+  // 세부설정 묶음 가능
+  background: {
+    color: #f00;
+    image: url("icon.png");
+    position: center;
+    repeat: no-repeat;
+  }
+}
+
+.one {
+  .box {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    transition: all 0.3s;
+    &:hover {
+      height: 200px;
+      width: 200px;
+      background-color: blue;
+    }
+  }
+}
+
+.box {
+  // 접미사 사용 가능
+  &-yellow {
+    background-color: yellow;
+  }
+  // 접두사는 추가 불가
+  // my-&-red {
+  //   background-color: red;
+  // }
+}
+
+// @at-root 지정시, nesting 밖으로 나옴 (전역)
+.one {
+  color: blue;
+  .two {
+    color: red;
+    .three {
+      color: yellow;
+      @at-root .four {
+        color: aqua;
+      }
+    }
+  }
+}
