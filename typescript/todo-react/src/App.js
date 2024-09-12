@@ -1,6 +1,24 @@
 import { useState, useEffect } from "react";
-import logo from "./logo.svg";
 import "./App.css";
+
+// 기능/로직과 화면에 보이는 요소를 분리 - 유지보수시 용이, 역할도 분명해짐
+function TodoView({ todoList, todoText, handleInput, handleBtn }) {
+  return (
+    <div>
+      <h1>멋진 투두</h1>
+      <ul>
+        {todoList.map((i) => (
+          <li key={i.id}>
+            <p>{i.todo}</p>
+          </li>
+        ))}
+      </ul>
+      {/* 제어 컴포넌트? */}
+      <input type="text" value={todoText} onChange={handleInput} />
+      <button onClick={handleBtn}>추가</button>
+    </div>
+  );
+}
 
 function Todo() {
   // console.log(<div id="id_name"></div>);
@@ -35,22 +53,9 @@ function Todo() {
       return newTodoList;
     });
   };
-
-  return (
-    <div>
-      <h1>멋진 투두</h1>
-      <ul>
-        {todoList.map((i) => (
-          <li key={i.id}>
-            <p>{i.todo}</p>
-          </li>
-        ))}
-      </ul>
-      {/* 제어 컴포넌트? */}
-      <input type="text" value={todoText} onChange={handleInput} />
-      <button onClick={handleBtn}>추가</button>
-    </div>
-  );
+  // 키와 값이 동일할때는 하나로 생략해서 넣을수 있다는 점
+  const props = { todoList, todoText, handleInput, handleBtn };
+  return <TodoView {...props} />;
 }
 
 function App() {
