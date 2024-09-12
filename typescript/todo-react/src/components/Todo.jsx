@@ -8,6 +8,9 @@ function Todo() {
     const newTodoText = e.target.value;
     setTodoText(newTodoText);
   };
+  const handleBtn = () => {
+    postTodo(todoText);
+  };
 
   // # 컴포넌트 / 서버와 연결된 것들을 분리할 것이다
   const [todoList, setTodoList] = useState([]);
@@ -27,8 +30,7 @@ function Todo() {
 
   // handleBtn 처럼 컴포넌트(클라이언트), 서버 둘다 의존하는 경우는?
   // - 내부 코드를 나누어서 작업할것
-  const postTodo = (newTodo) => {};
-  const handleBtn = () => {
+  const postTodo = (todoText) => {
     fetch("http://localhost:3300/todos", {
       method: "POST",
       headers: {
