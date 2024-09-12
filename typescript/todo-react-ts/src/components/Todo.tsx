@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import TodoView from "./TodoView";
 import useTodoData from "../hooks/todoHook";
 
 function Todo() {
-  const [todoText, setTodoText] = useState("");
+  const [todoText, setTodoText] = useState<string>("");
   const [todoList, postTodo, isLoading] = useTodoData();
 
-  const handleInput = (e) => {
+  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     const newTodoText = e.target.value;
     setTodoText(newTodoText);
   };

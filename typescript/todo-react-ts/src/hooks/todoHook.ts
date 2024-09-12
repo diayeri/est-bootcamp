@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 
-function useTodoData() {
-  const [isLoading, setIsLoading] = useState(false);
+export interface TodoItem {
+  id: string;
+  todo: string;
+}
 
-  // # 컴포넌트 / 서버와 연결된 것들을 분리할 것이다
-  const [todoList, setTodoList] = useState([]);
+// 튜플: 배열, 그런데 각 위치의 타입과 전체 길이가 정해진.
+function useTodoData(): [TodoItem[], (todoText: string) => void, boolean] {
+  const [isLoading, setIsLoading] = useState(false);
+  const [todoList, setTodoList] = useState<TodoItem[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3300/todos")
@@ -21,7 +25,7 @@ function useTodoData() {
 
   // handleBtn 처럼 컴포넌트(클라이언트), 서버 둘다 의존하는 경우는?
   // - 내부 코드를 나누어서 작업할것
-  const postTodo = (todoText) => {
+  const postTodo = (todoText: string): void => {
     fetch("http://localhost:3300/todos", {
       method: "POST",
       headers: {
