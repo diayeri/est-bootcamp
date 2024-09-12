@@ -2,8 +2,16 @@ import { useState, useEffect } from "react";
 import TodoView from "./TodoView";
 
 function Todo() {
-  const [todoList, setTodoList] = useState([]);
   const [todoText, setTodoText] = useState("");
+
+  const handleInput = (e) => {
+    const newTodoText = e.target.value;
+    setTodoText(newTodoText);
+  };
+
+  // # 컴포넌트 / 서버와 연결된 것들을 분리할 것이다
+  const [todoList, setTodoList] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:3300/todos")
       .then((res) => {
@@ -17,11 +25,9 @@ function Todo() {
       });
   }, []);
 
-  const handleInput = (e) => {
-    const newTodoText = e.target.value;
-    setTodoText(newTodoText);
-    // console.log(todoText);
-  };
+  // handleBtn 처럼 컴포넌트(클라이언트), 서버 둘다 의존하는 경우는?
+  // - 내부 코드를 나누어서 작업할것
+  const postTodo = (newTodo) => {};
   const handleBtn = () => {
     fetch("http://localhost:3300/todos", {
       method: "POST",
@@ -40,20 +46,8 @@ function Todo() {
           return [...prevTodoList, newTodo];
         });
       });
-    // setTodoList((prevTodoList) => {
-    //   const newTodo = {
-    //     id: +todoList[todoList.length - 1].id + 1,
-    //     todo: todoText,
-    //   };
-    //   // push 사용시 기존 배열의 요소를 바꾸는 것인데, 이러한 변화는 감지하지 못한다
-    //   const newTodoList = [...prevTodoList, newTodo];
-
-    //   if (newTodoList.length > 5) {
-    //     newTodoList.shift();
-    //   }
-    //   return newTodoList;
-    // });
   };
+
   // 키와 값이 동일할때는 하나로 생략해서 넣을수 있다는 점
   const props = { todoList, todoText, handleInput, handleBtn };
   return <TodoView {...props} />;
