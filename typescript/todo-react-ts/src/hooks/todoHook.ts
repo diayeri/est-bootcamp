@@ -12,39 +12,41 @@ function useTodoData(): [TodoItem[], (todoText: string) => void, boolean] {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:3300/todos")
-      .then((res) => {
-        return res.json();
-      })
-      .then((todoData) => {
-        setIsLoading(false);
-        setTodoList(todoData);
-      });
+    const getTodoData = async () => {
+      const res = await fetch("http://localhost:3300/todos");
+      const todoData = await res.json();
+      setIsLoading(false);
+      setTodoList(todoData);
+    };
+    getTodoData();
   }, []);
 
-  // handleBtn 처럼 컴포넌트(클라이언트), 서버 둘다 의존하는 경우는?
-  // - 내부 코드를 나누어서 작업할것
-  const postTodo = (todoText: string): void => {
-    setIsLoading(true);
-    fetch("http://localhost:3300/todos", {
+  const postTodo = async (newTodo: Partial<TodoItem>): Promise<TodoItem> => {
+    const res = await fetch("http://localhost:3300/todos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ todo: todoText }),
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((newTodo) => {
-        setIsLoading(false);
-        setTodoList((prevTodoList) => {
-          return [...prevTodoList, newTodo];
-        });
-      });
+      body: JSON.stringify(newTodo),
+    });
+    const addedTodo = await res.json();
+    return addedTodo;
   };
 
-  return [todoList, postTodo, isLoading];
+  const addTodo = async (todoText: string): Promise<void> => {
+    setIsLoading(true);
+    const newTodo = {
+      todo: todoText,
+    };
+    const addedTodo = await postTodo(newTodo);
+    setIsLoading(false);
+
+    setTodoList((prevTodoList) => {
+      return [...prevTodoList, addedTodo];
+    });
+  };
+
+  return [todoList, addTodo, isLoading];
 }
 
 export default useTodoData;
