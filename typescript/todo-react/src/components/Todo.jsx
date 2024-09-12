@@ -23,19 +23,36 @@ function Todo() {
     // console.log(todoText);
   };
   const handleBtn = () => {
-    setTodoList((prevTodoList) => {
-      const newTodo = {
-        id: +todoList[todoList.length - 1].id + 1,
-        todo: todoText,
-      };
-      // push 사용시 기존 배열의 요소를 바꾸는 것인데, 이러한 변화는 감지하지 못한다
-      const newTodoList = [...prevTodoList, newTodo];
+    fetch("http://localhost:3300/todos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ todo: todoText }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((newTodo) => {
+        setTodoList((prevTodoList) => {
+          // prevTodoList.push() 를 하면 prevTodoList가 바뀐게 아니다 (내부 요소만 변함, 변화감지 못함)
+          // 리액트에서는 props/state가 바뀌면 리렌더링을 한다
+          return [...prevTodoList, newTodo];
+        });
+      });
+    // setTodoList((prevTodoList) => {
+    //   const newTodo = {
+    //     id: +todoList[todoList.length - 1].id + 1,
+    //     todo: todoText,
+    //   };
+    //   // push 사용시 기존 배열의 요소를 바꾸는 것인데, 이러한 변화는 감지하지 못한다
+    //   const newTodoList = [...prevTodoList, newTodo];
 
-      if (newTodoList.length > 5) {
-        newTodoList.shift();
-      }
-      return newTodoList;
-    });
+    //   if (newTodoList.length > 5) {
+    //     newTodoList.shift();
+    //   }
+    //   return newTodoList;
+    // });
   };
   // 키와 값이 동일할때는 하나로 생략해서 넣을수 있다는 점
   const props = { todoList, todoText, handleInput, handleBtn };
