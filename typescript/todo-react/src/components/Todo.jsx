@@ -2,18 +2,21 @@ import { useState, useEffect } from "react";
 import TodoView from "./TodoView";
 
 function Todo() {
-  // console.log(<div id="id_name"></div>);
-  const [todoList, setTodoList] = useState([
-    {
-      id: "1",
-      todo: "아침먹기",
-    },
-    {
-      id: "2",
-      todo: "점심먹기",
-    },
-  ]);
+  const [todoList, setTodoList] = useState([]);
   const [todoText, setTodoText] = useState("");
+  useEffect(() => {
+    fetch("http://localhost:3300/todos")
+      .then((res) => {
+        return res.json();
+      })
+      .then((todoData) => {
+        // 이 상태에서는 반복해서 감지,작동함 -> useEffect 추가하기
+        // - 컴포넌트 최상단: 컴포넌트가 렌더링 될때 실행됨 (=함수실행)
+        // - 비교하기 위해 실행을 하다가 또 실행을 하게 되는?거 (무한반복)
+        setTodoList(todoData);
+      });
+  }, []);
+
   const handleInput = (e) => {
     const newTodoText = e.target.value;
     setTodoText(newTodoText);
