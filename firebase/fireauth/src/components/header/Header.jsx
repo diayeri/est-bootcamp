@@ -1,18 +1,21 @@
 import React from "react";
+import styles from "./Header.module.css";
+import { Link } from "react-router-dom";
+import logo from "../../img/logo.svg";
 
 export default function Header() {
   return (
     <header>
-      <div className="header-wrap">
+      <div className={styles["header-wrap"]}>
         <h1>
-          <a href="./">
-            <img className="logo" src="img/logo.svg" alt="두근두근 비밀일기" />
-          </a>
+          <Link to="/">
+            <img className={styles.logo} src={logo} alt="두근두근 비밀일기" />
+          </Link>
         </h1>
         <div>
-          <a href="./join.html" className="btn-join">
+          <Link to="/signup" className={styles["btn-join"]}>
             회원가입
-          </a>
+          </Link>
         </div>
       </div>
     </header>
