@@ -13,11 +13,16 @@ export default function Login() {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(id, pw);
+  };
+
   return (
     <main>
       <h2 className={styles["img-title"]}>
         {/* svg */}
-        {/* <svg
+        <svg
           className="svg"
           width={156}
           height={75}
@@ -153,11 +158,11 @@ export default function Login() {
               <rect width={156} height={75} fill="white" />
             </clipPath>
           </defs>
-        </svg> */}
+        </svg>
         {/* // svg */}
         <strong className={styles.line}>로그인</strong>
       </h2>
-      <form className={styles["form-wrap"]}>
+      <form className={styles["form-wrap"]} onSubmit={handleSubmit}>
         <label className="label-style" htmlFor="user-email">
           이메일
         </label>
