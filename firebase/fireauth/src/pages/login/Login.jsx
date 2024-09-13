@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import styles from "./Login.module.css";
 
 export default function Login() {
-  const [id, setId] = useState("");
+  const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
 
   const handleData = (e) => {
     if (e.target.type === "email") {
-      setId(e.target.value);
+      setEmail(e.target.value);
     } else {
       setPw(e.target.value);
     }
@@ -15,7 +15,7 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(id, pw);
+    console.log(email, pw);
   };
 
   return (
@@ -172,7 +172,7 @@ export default function Login() {
           type="email"
           required=""
           onChange={handleData}
-          value={id}
+          value={email}
         />
         <label className="label-style" htmlFor="user-pw">
           비밀번호

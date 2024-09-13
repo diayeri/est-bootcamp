@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styles from "../login/Login.module.css";
 
 export default function Signup() {
-  const [id, setId] = useState("");
+  const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [displayName, setDisplayName] = useState("");
 
   const handleData = (e) => {
     if (e.target.type === "email") {
-      setId(e.target.value);
+      setEmail(e.target.value);
     } else if (e.target.type === "password") {
       setPw(e.target.value);
     } else if (e.target.type === "text") {
@@ -18,7 +18,7 @@ export default function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(id, pw);
+    console.log(email, pw);
   };
 
   return (
@@ -175,7 +175,7 @@ export default function Signup() {
           type="email"
           required=""
           onChange={handleData}
-          value={id}
+          value={email}
         />
         <label className="label-style" htmlFor="user-pw">
           비밀번호
