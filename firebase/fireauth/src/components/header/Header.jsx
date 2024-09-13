@@ -13,7 +13,8 @@ export default function Header() {
           </Link>
         </h1>
         <div>
-          <Link to="/signup" className={styles["btn-join"]}>
+          {/* <Link to="/signup" className={styles["btn-join"]}> */}
+          <Link to="/signup" className="btn-join">
             회원가입
           </Link>
         </div>
