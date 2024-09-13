@@ -40,9 +40,10 @@ export const useSignup = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
-        setError(error.message);
+        setError(errorMessage);
         console.error(`err code: ${errorCode}, ${error}`);
         setIsPending(false);
       });
   };
+  return { error, isPending, signup };
 };
