@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import styles from "./Login.module.css";
 
 export default function Login() {
-  const [mailInput, setMailInput] = useState("");
-  const [pwInput, setPwInput] = useState("");
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
 
-  const pwInputHandler = (e) => {
-    setPwInput(e.target.value);
+  const handleData = (e) => {
+    if (e.target.type === "email") {
+      setId(e.target.value);
+    } else {
+      setPw(e.target.value);
+    }
   };
 
   return (
@@ -162,8 +166,8 @@ export default function Login() {
           id="user-email"
           type="email"
           required=""
-          onChange={() => setMailInput()}
-          value={mailInput}
+          onChange={handleData}
+          value={id}
         />
         <label className="label-style" htmlFor="user-pw">
           비밀번호
@@ -173,8 +177,8 @@ export default function Login() {
           id="user-pw"
           type="password"
           required=""
-          onChange={pwInputHandler}
-          value={pwInput}
+          onChange={handleData}
+          value={pw}
         />
         <button className="black-btn" type="submit">
           로그인
