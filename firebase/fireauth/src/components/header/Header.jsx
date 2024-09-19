@@ -1,11 +1,14 @@
 import React from "react";
 import styles from "./Header.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../img/logo.svg";
 import { useLogout } from "../../hooks/useLogout";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 export default function Header() {
   const [logout] = useLogout();
+  const { user } = useAuthContext();
+  const location = useLocation();
 
   return (
     <header>
@@ -16,13 +19,26 @@ export default function Header() {
           </Link>
         </h1>
         <div>
-          {/* <Link to="/signup" className={styles["btn-join"]}> */}
-          <Link to="/signup" className="btn-join">
-            회원가입
-          </Link>
-          <Link to="/" className="btn-join" onClick={logout}>
-            로그아웃
-          </Link>
+          {!user ? (
+            location.pathname === "/signup" ? (
+              <Link to="/login" className="btn-login">
+                로그인
+              </Link>
+            ) : (
+              <Link to="/signup" className="btn-join">
+                회원가입
+              </Link>
+            )
+          ) : (
+            <>
+              <p className="hello">
+                환영합니다. <strong>{user.displayName}</strong>님!
+              </p>
+              <Link to="/" className="btn-join" onClick={logout}>
+                로그아웃
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </header>

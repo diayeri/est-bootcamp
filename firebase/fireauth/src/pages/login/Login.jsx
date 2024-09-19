@@ -189,12 +189,11 @@ export default function Login() {
           value={pw}
         />
 
-        {!isPending && (
+        {!isPending ? (
           <button className="black-btn" type="submit">
             로그인
           </button>
-        )}
-        {isPending && (
+        ) : (
           <button className="black-btn" type="submit" disalbed>
             로그인 진행중입니다.
           </button>
