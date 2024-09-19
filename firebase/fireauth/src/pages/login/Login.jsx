@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
+import { useLogin } from "../../hooks/useLogin";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
+  const [login] = useLogin();
 
   const handleData = (e) => {
     if (e.target.type === "email") {
@@ -15,7 +17,8 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, pw);
+    // console.log(email, pw);
+    login(email, pw);
   };
 
   return (
