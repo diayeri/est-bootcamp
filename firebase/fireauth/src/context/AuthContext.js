@@ -1,4 +1,5 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
+import { appAuth } from "../firebase/config";
 
 // context
 const AuthContext = createContext();
@@ -10,6 +11,8 @@ const authReducer = (state, action) => {
       return { ...state, user: action.payload };
     case "logout":
       return { ...state, user: null };
+    case "authIsReady":
+      return { ...state, user: action.payload, isAuthReady: true };
     default:
       return state;
   }
@@ -17,7 +20,23 @@ const authReducer = (state, action) => {
 
 // component
 const AuthContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(authReducer, { user: null });
+  const [state, dispatch] = useReducer(authReducer, {
+    user: null,
+    isAuthReady: false,
+  });
+
+  useEffect(() => {
+    const unsubscribe = appAuth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch({ type: "authIsReady", payload: user });
+      }
+    });
+
+    // 클린업 함수로 구독을 취소하도록
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   return (
     // 보통 상태값은 전개구문으로 복사하여 전달
