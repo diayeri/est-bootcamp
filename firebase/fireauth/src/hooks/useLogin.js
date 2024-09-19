@@ -22,12 +22,14 @@ export const useLogin = () => {
         const user = userCredential.user;
         dispatch({ type: "login", payload: user });
         setIsPending(false);
+        setError(null);
         console.log("login 성공");
       })
       .catch((error) => {
         setError(error.message);
         console.error(error.message);
-        setIsPending(true);
+        setIsPending(false);
+        console.log("login 실패");
       });
   };
 

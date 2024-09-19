@@ -5,7 +5,7 @@ import { useLogin } from "../../hooks/useLogin";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
-  const [login] = useLogin();
+  const [login, isPending, error] = useLogin();
 
   const handleData = (e) => {
     if (e.target.type === "email") {
@@ -188,9 +188,22 @@ export default function Login() {
           onChange={handleData}
           value={pw}
         />
-        <button className="black-btn" type="submit">
-          로그인
-        </button>
+
+        {!isPending && (
+          <button className="black-btn" type="submit">
+            로그인
+          </button>
+        )}
+        {isPending && (
+          <button className="black-btn" type="submit" disalbed>
+            로그인 진행중입니다.
+          </button>
+        )}
+        {error && (
+          <p style={{ marginTop: "16px" }}>
+            로그인 실패! 아이디와 비밀번호를 다시 확인하세요 ^^~
+          </p>
+        )}
       </form>
     </main>
   );
