@@ -20,7 +20,7 @@ export const useSignup = () => {
       .then((userCredential) => {
         // 회원가입을 통해 로그인한 유저의 정보
         const user = userCredential.user;
-        console.log(user);
+        console.log("회원가입 성공! 유저정보입니다 ^^", user);
         if (!user) {
           throw new Error("회원가입에 성공했습니다.");
         }
@@ -45,5 +45,5 @@ export const useSignup = () => {
         setIsPending(false);
       });
   };
-  return { error, isPending, signup };
+  return [error, isPending, signup];
 };

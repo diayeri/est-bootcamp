@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import styles from "../login/Login.module.css";
+import { useSignup } from "../../hooks/useSignup";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [displayName, setDisplayName] = useState("");
+
+  const [error, isPending, signup] = useSignup();
 
   const handleData = (e) => {
     if (e.target.type === "email") {
@@ -18,6 +21,7 @@ export default function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    signup(email, pw, displayName);
     console.log(email, pw);
   };
 
