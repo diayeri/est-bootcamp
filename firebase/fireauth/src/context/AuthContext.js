@@ -6,6 +6,8 @@ const AuthContext = createContext();
 // dispatch를 통해 호출할 reducer 함수
 const authReducer = (state, action) => {
   switch (action.type) {
+    case "login":
+      return { ...state, user: action.payload };
     default:
       return state;
   }
@@ -23,4 +25,4 @@ const AuthContextProvider = ({ children }) => {
   );
 };
 
-export { AuthContextProvider };
+export { AuthContextProvider, AuthContext };
