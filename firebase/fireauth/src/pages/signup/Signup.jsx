@@ -22,7 +22,7 @@ export default function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     signup(email, pw, displayName);
-    console.log(email, pw);
+    // console.log(email, pw);
   };
 
   return (
