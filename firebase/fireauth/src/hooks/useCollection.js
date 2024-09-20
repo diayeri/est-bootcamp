@@ -9,7 +9,14 @@ export const useCollection = (transaction) => {
     const unsubscribe = onSnapshot(
       collection(appFireStore, transaction),
       (snapshot) => {
-        console.log(snapshot);
+        const result = [];
+        snapshot.docs.forEach((doc) => {
+          // doc.data(): 사용자가 작성한 내용
+          // doc.id: 삭제시 필요
+          result.push({ ...doc.data(), id: doc.id });
+        });
+
+        console.log(result);
       }
     );
 
