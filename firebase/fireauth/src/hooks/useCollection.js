@@ -1,15 +1,22 @@
-import { onSnapshot, collection } from "firebase/firestore";
+import { onSnapshot, collection, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { appFireStore } from "../firebase/config";
 
-export const useCollection = (transaction) => {
+export const useCollection = (transaction, myQuery) => {
   const [documents, setDocuments] = useState([]);
   const [error, setError] = useState("");
   // 컴포넌트 렌더링이 끝난 후에 firebase에서 데이터를 받고 나머지를 그리기 위해, useEffect를 사용하여 통신
   useEffect(() => {
+    // query
+    let q;
+    if (myQuery) {
+      // where: 쿼리문에서의 조건문 (그 중에서~)
+      q = query(collection(appFireStore, transaction), where(...myQuery));
+    }
+
     // DB구독
     const unsubscribe = onSnapshot(
-      collection(appFireStore, transaction),
+      myQuery ? q : collection(appFireStore, transaction),
       (snapshot) => {
         const result = [];
         snapshot.docs.forEach((doc) => {
