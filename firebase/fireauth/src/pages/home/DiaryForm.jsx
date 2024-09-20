@@ -2,8 +2,8 @@ import { useState } from "react";
 import styles from "./Home.module.css";
 
 export default function DiaryForm() {
-  const [title, setTitle] = useState();
-  const [content, setContent] = useState();
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
   const handleData = (e) => {
     if (e.target.type === "text") {
@@ -34,7 +34,6 @@ export default function DiaryForm() {
         className={styles["diary-textarea"]}
         id="diary-content"
         placeholder="오늘의 비밀은 무엇인가요?"
-        defaultValue={""}
         onChange={handleData}
         value={content}
       />
