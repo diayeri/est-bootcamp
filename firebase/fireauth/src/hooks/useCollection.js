@@ -1,4 +1,10 @@
-import { onSnapshot, collection, query, where } from "firebase/firestore";
+import {
+  onSnapshot,
+  collection,
+  query,
+  where,
+  orderBy,
+} from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { appFireStore } from "../firebase/config";
 
@@ -11,7 +17,11 @@ export const useCollection = (transaction, myQuery) => {
     let q;
     if (myQuery) {
       // where: 쿼리문에서의 조건문 (그 중에서~)
-      q = query(collection(appFireStore, transaction), where(...myQuery));
+      q = query(
+        collection(appFireStore, transaction),
+        where(...myQuery),
+        orderBy("createdTime", "desc")
+      );
     }
 
     // DB구독
