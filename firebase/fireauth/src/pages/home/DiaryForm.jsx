@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Home.module.css";
 import { useFireStore } from "../../hooks/useFireStore";
 
@@ -26,6 +26,14 @@ export default function DiaryForm({ uid }) {
       content,
     });
   };
+
+  useEffect(() => {
+    if (response.success) {
+      setTitle("");
+      setContent("");
+      console.log("Success");
+    }
+  }, [response.success]);
 
   return (
     <form onSubmit={handleSubmit}>
