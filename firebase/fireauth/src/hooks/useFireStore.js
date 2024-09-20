@@ -41,6 +41,7 @@ const storeReducer = (state, action) => {
 export const useFireStore = (transaction) => {
   const [response, dispatch] = useReducer(storeReducer, initState);
 
+  // 컬렉션의 주소
   const colRef = collection(appFireStore, transaction);
 
   const addDocument = async (doc) => {
