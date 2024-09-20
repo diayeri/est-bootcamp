@@ -1,8 +1,10 @@
 import { onSnapshot, collection } from "firebase/firestore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { appFireStore } from "../firebase/config";
 
 export const useCollection = (transaction) => {
+  const [documents, setDocuments] = useState([]);
+  const [error, setError] = useState("");
   // 컴포넌트 렌더링이 끝난 후에 firebase에서 데이터를 받고 나머지를 그리기 위해, useEffect를 사용하여 통신
   useEffect(() => {
     // DB구독
@@ -16,7 +18,14 @@ export const useCollection = (transaction) => {
           result.push({ ...doc.data(), id: doc.id });
         });
 
-        console.log(result);
+        setDocuments(result);
+
+        // onSnapshot 함수의 특징 (firebase 제공) - https://firebase.google.com/docs/firestore/query-data/listen?hl=ko#handle_listen_errors
+        // ㄴ try - catch 문 없이도 에러처리를 할 수 있다
+      },
+      (error) => {
+        setError(error.message);
+        console.error(error.message);
       }
     );
 
@@ -25,5 +34,5 @@ export const useCollection = (transaction) => {
     };
   }, []);
 
-  return {};
+  return { documents, error };
 };
