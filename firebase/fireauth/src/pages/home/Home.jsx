@@ -2,10 +2,12 @@ import React from "react";
 import DiaryForm from "./DiaryForm";
 import styles from "./Home.module.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { useCollection } from "../../hooks/useCollection";
 
 export default function Home() {
   const { user } = useAuthContext();
-  console.log(user);
+  // console.log(user);
+  useCollection("diary");
 
   return (
     <div className={styles.container}>
