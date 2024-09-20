@@ -5,13 +5,30 @@ import delIcon from "../../img/icon-delete.svg";
 import { Timestamp } from "firebase/firestore";
 
 export default function DiaryList({ data }) {
+  const formattingTime = (seconds) => {
+    console.log(new Date(seconds * 1000));
+    const time = new Date(seconds * 1000);
+
+    const year = time.getFullYear();
+    const month = String(time.getMonth() + 1).padStart(2, "0");
+    const date = String(time.getDate()).padStart(2, "0");
+    const day = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"][
+      time.getDay()
+    ];
+    return [`${year}-${month}-${date}`, `${year}.${month}.${date}.${day}`];
+  };
+
   console.log(data);
   return data.map((item) => (
     <li key={item.id}>
       <article className={styles["diary-article"]}>
         <h3 className={styles["article-title"]}>{item.title}</h3>
-        <time className={styles["article-time"]} dateTime="2023-03-15">
-          2023.02.24.THU
+        {/* dateTime={formattingTime(item.createdTime.seconds).replaceAll('.','-').slice(0,-4)} 로도 처리 가능 */}
+        <time
+          className={styles["article-time"]}
+          dateTime={formattingTime(item.createdTime.seconds)[0]}
+        >
+          {formattingTime(item.createdTime.seconds)[1]}
         </time>
         <p className={styles["article-content"]}>{item.content}</p>
         <div className={styles["button-group"]}>
