@@ -1,4 +1,4 @@
-import { collection } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { appFireStore } from "../firebase/config";
 import { useReducer } from "react";
 
@@ -12,17 +12,48 @@ const initState = {
 const storeReducer = (state, action) => {
   // state에는 현재값, action에는 dispatch로 부터 받은 액션 값
   switch (action.type) {
+    case "isPending":
+      return {
+        document: null,
+        isPending: true,
+        error: null,
+        success: false,
+      };
+    case "addDoc":
+      return {
+        document: action.payload,
+        isPending: false,
+        error: null,
+        success: true,
+      };
+    case "error":
+      return {
+        document: null,
+        isPending: false,
+        error: action.payload,
+        success: false,
+      };
     default:
       return state;
   }
 };
 
-const useFireStore = (transaction) => {
+export const useFireStore = (transaction) => {
   const [response, dispatch] = useReducer(storeReducer, initState);
 
   const colRef = collection(appFireStore, transaction);
 
-  const addDocument = (doc) => {};
+  const addDocument = async (doc) => {
+    dispatch({ type: "isPending" });
+
+    try {
+      // docRef: firestore에서 만들어진 문서의 내용
+      const docRef = await addDoc(colRef, doc);
+      dispatch({ type: "addDoc", payload: docRef });
+    } catch (error) {
+      dispatch({ type: "error", payload: error.message });
+    }
+  };
 
   const delDocument = (id) => {};
 
