@@ -2,9 +2,10 @@ import React from "react";
 import styles from "./Home.module.css";
 import editIcon from "../../img/icon-edit.svg";
 import delIcon from "../../img/icon-delete.svg";
-import { Timestamp } from "firebase/firestore";
+import { useFireStore } from "../../hooks/useFireStore";
 
 export default function DiaryList({ data }) {
+  const { delDocument } = useFireStore("diary");
   const formattingTime = (seconds) => {
     console.log(new Date(seconds * 1000));
     const time = new Date(seconds * 1000);
@@ -36,7 +37,7 @@ export default function DiaryList({ data }) {
             <img src={editIcon} alt="수정" />
           </button>
           <span />
-          <button type="button">
+          <button type="button" onClick={() => delDocument(item.id)}>
             <img src={delIcon} alt="삭제" />
           </button>
         </div>
