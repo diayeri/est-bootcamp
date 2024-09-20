@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input:valid {
+        background-color: skyblue;
+      }
+      input:invalid {
+        background-color: rgb(189, 109, 109);
+      }
+      input:required::before {
+        content: "*";
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <label for="">
+        테스트
+        <!-- 대표적인 native validation -->
+        <input type="email" required minlength="6" maxlength="30" />
+        <input type="number" name="" id="" min="3" max="10" step="0.5" />
+        <!-- pattern 정규표현식 -->
+        <input type="text" placeholder="배고픕니까? y or n" pattern="y|n" />
+        <!-- js validation 사용시, 툴팁문구와 디자인을 변경할 수 있다 -->
+      </label>
+      <button>제출하기</button>
+    </form>
+    <script>
+      const inp = document.querySelector("input");
+      const btn = document.querySelector("button");
+      console.log(inp.validity);
+      // inp.setCustomValidity("사용자 지정 안내문구");
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        validation(inp);
+      });
+
+      function validation(targetInp) {
+        if (targetInp.validity.valueMissing) {
+          targetInp.setCustomValidity("데이터가 입력되지 않았는데용");
+        }
+        // 빈 문자열 전달시, 기본문구로
+        targetInp.setCustomValidity("");
+      }
+
+      // validation(inp);
+    </script>
+  </body>
+</html>
