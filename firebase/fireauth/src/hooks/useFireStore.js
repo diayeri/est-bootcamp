@@ -39,6 +39,13 @@ const storeReducer = (state, action) => {
         error: null,
         success: true,
       };
+    case "editDoc":
+      return {
+        document: action.payload,
+        isPending: false,
+        error: null,
+        success: true,
+      };
     case "error":
       return {
         document: null,
@@ -85,5 +92,24 @@ export const useFireStore = (transaction) => {
     }
   };
 
-  return { addDocument, delDocument, response };
+  // 수정기능 추가해보기
+  // const editDocument = async (id) => {
+  //   dispatch({ type: "isPending" });
+
+  //   try {
+  //     const docRef = await deleteDoc(doc(colRef, id));
+
+  //     dispatch({ type: "editDoc", payload: docRef });
+  //   } catch (error) {
+  //     dispatch({ type: "error", payload: error.message });
+  //     console.error(error.message);
+  //   }
+  // };
+
+  return {
+    addDocument,
+    delDocument,
+    // editDocument,
+    response,
+  };
 };
