@@ -4,7 +4,7 @@ import styles from "./Home.module.css";
 
 export default function Home() {
   return (
-    <div className="container">
+    <div className={styles.container}>
       <main className={styles["diary-main"]}>
         <h2 className={styles.heart}>2023.02.27의 비밀일기</h2>
         <DiaryForm />
