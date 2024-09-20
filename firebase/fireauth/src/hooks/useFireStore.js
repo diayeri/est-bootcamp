@@ -1,4 +1,4 @@
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { appFireStore } from "../firebase/config";
 import { useReducer } from "react";
 
@@ -47,11 +47,14 @@ export const useFireStore = (transaction) => {
     dispatch({ type: "isPending" });
 
     try {
+      const createdTime = Timestamp.fromDate(new Date());
       // docRef: firestore에서 만들어진 문서의 내용
-      const docRef = await addDoc(colRef, doc);
+      const docRef = await addDoc(colRef, { ...doc, createdTime });
+
       dispatch({ type: "addDoc", payload: docRef });
     } catch (error) {
       dispatch({ type: "error", payload: error.message });
+      console.error(error.message);
     }
   };
 
